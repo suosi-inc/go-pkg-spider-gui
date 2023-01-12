@@ -1,0 +1,27 @@
+object FormMain: TFormMain
+  Left = 10
+  Height = 800
+  Top = 68
+  Width = 1200
+  Caption = 'FormMain'
+  ClientHeight = 800
+  ClientWidth = 1200
+  Position = poDesktopCenter
+  object ToolBar: TToolBar
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 1200
+    ButtonHeight = 50
+    ButtonWidth = 100
+    Caption = 'ToolBar'
+    TabOrder = 0
+    object ToolButton1: TToolButton
+      Left = 1
+      Height = 50
+      Top = 2
+      Caption = 'ToolButton1'
+      Style = tbsSeparator
+    end
+  end
+end

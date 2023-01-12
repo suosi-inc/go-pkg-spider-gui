@@ -13,3 +13,15 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+.idea
+.DS_Store
+
+liblcl.so
+liblcl.dylib
+
+lazarus/lib
+lazarus/backup
+lazarus/project.app
+lazarus/project.exe
+lazarus/project
