@@ -1,10 +1,10 @@
 object FormMain: TFormMain
   Left = 10
-  Height = 800
+  Height = 840
   Top = 68
   Width = 1200
   Caption = 'Spider-GUI'
-  ClientHeight = 800
+  ClientHeight = 840
   ClientWidth = 1200
   Position = poDesktopCenter
   object ToolBar: TToolBar
@@ -124,7 +124,7 @@ object FormMain: TFormMain
     AnchorSideBottom.Control = SplitterDebug
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 700
+    Height = 710
     Top = 52
     Width = 1200
     ActivePage = TabSheetRequest
@@ -134,7 +134,7 @@ object FormMain: TFormMain
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
-      ClientHeight = 700
+      ClientHeight = 710
       ClientWidth = 1200
       object PanelRequestView: TPanel
         AnchorSideLeft.Control = TabSheetRequest
@@ -143,11 +143,11 @@ object FormMain: TFormMain
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 700
+        Height = 710
         Top = 0
         Width = 600
         Anchors = [akTop, akLeft, akRight, akBottom]
-        ClientHeight = 700
+        ClientHeight = 710
         ClientWidth = 600
         TabOrder = 0
         object MemoRequest: TMemo
@@ -158,7 +158,7 @@ object FormMain: TFormMain
           AnchorSideBottom.Control = PanelRequestView
           AnchorSideBottom.Side = asrBottom
           Left = 6
-          Height = 688
+          Height = 698
           Top = 6
           Width = 588
           Anchors = [akTop, akLeft, akRight, akBottom]
@@ -179,11 +179,11 @@ object FormMain: TFormMain
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
         Left = 603
-        Height = 700
+        Height = 710
         Top = 0
         Width = 597
         Anchors = [akTop, akLeft, akRight, akBottom]
-        ClientHeight = 700
+        ClientHeight = 710
         ClientWidth = 597
         TabOrder = 1
         object LabelRequestUrl: TLabel
@@ -237,7 +237,7 @@ object FormMain: TFormMain
           AnchorSideBottom.Control = PanelRequestController
           AnchorSideBottom.Side = asrBottom
           Left = 16
-          Height = 628
+          Height = 638
           Top = 56
           Width = 565
           Anchors = [akTop, akLeft, akRight, akBottom]
@@ -245,7 +245,7 @@ object FormMain: TFormMain
           BorderSpacing.Top = 55
           BorderSpacing.Right = 15
           BorderSpacing.Bottom = 15
-          ClientHeight = 609
+          ClientHeight = 619
           ClientWidth = 555
           ParentFont = False
           TabOrder = 2
@@ -287,7 +287,6 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 135
             Caption = '响应最大长度(ContentLength)'
-            OnClick = LabelRequestLengthClick
           end
           object EditRequestRedirect: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
@@ -431,7 +430,6 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 390
             Caption = 'Http代理(Proxy)'
-            OnClick = LabelRequestProxyClick
           end
           object EditRequestProxy: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
@@ -457,7 +455,7 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 499
             Height = 14
-            Top = 580
+            Top = 590
             Width = 41
             Anchors = [akRight, akBottom]
             AutoSize = True
@@ -474,7 +472,7 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 15
             Height = 20
-            Top = 574
+            Top = 584
             Width = 55
             Anchors = [akLeft, akBottom]
             AutoSize = True
@@ -491,7 +489,7 @@ object FormMain: TFormMain
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
         Left = 600
-        Height = 700
+        Height = 710
         Top = 0
         Width = 3
         Align = alNone
@@ -517,7 +515,7 @@ object FormMain: TFormMain
     Cursor = crVSplit
     Left = 0
     Height = 2
-    Top = 750
+    Top = 760
     Width = 1200
     Align = alNone
     Anchors = [akLeft, akRight]
@@ -535,12 +533,12 @@ object FormMain: TFormMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 48
-    Top = 752
+    Height = 78
+    Top = 762
     Width = 1200
     Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = 'PanelDebug'
-    ClientHeight = 48
+    ClientHeight = 78
     ClientWidth = 1200
     TabOrder = 2
     object MemoDebug: TMemo
@@ -551,7 +549,7 @@ object FormMain: TFormMain
       AnchorSideBottom.Control = PanelDebug
       AnchorSideBottom.Side = asrBottom
       Left = 1
-      Height = 46
+      Height = 76
       Top = 1
       Width = 1198
       Anchors = [akTop, akLeft, akRight, akBottom]
@@ -564,6 +562,8 @@ object FormMain: TFormMain
         'Pkg-Spider-GUI 启动'
         '测试1'
         '测试2'
+        '测试3'
+        '测试4'
       )
       ParentFont = False
       PopupMenu = PopupMenuDebug

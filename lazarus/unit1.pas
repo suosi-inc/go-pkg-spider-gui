@@ -63,12 +63,8 @@ type
     ToolBtnSplit5: TToolButton;
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
-    procedure GroupBox1Click(Sender: TObject);
-    procedure LabelRequestProxyClick(Sender: TObject);
-    procedure LabelRequestLengthClick(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
-    procedure MenuToolLanguageClick(Sender: TObject);
     procedure ToolBtnDebugClick(Sender: TObject);
   private
 
@@ -84,11 +80,6 @@ implementation
 {$R *.lfm}
 
 { TFormMain }
-
-procedure TFormMain.MenuToolLanguageClick(Sender: TObject);
-begin
-
-end;
 
 procedure TFormMain.ToolBtnDebugClick(Sender: TObject);
 begin
@@ -114,21 +105,6 @@ end;
 procedure TFormMain.MenuDebugClearClick(Sender: TObject);
 begin
   MemoDebug.Text:=''
-end;
-
-procedure TFormMain.GroupBox1Click(Sender: TObject);
-begin
-
-end;
-
-procedure TFormMain.LabelRequestProxyClick(Sender: TObject);
-begin
-
-end;
-
-procedure TFormMain.LabelRequestLengthClick(Sender: TObject);
-begin
-
 end;
 
 end.
