@@ -230,15 +230,15 @@ object FormMain: TFormMain
           AnchorSideBottom.Control = PanelRequestController
           AnchorSideBottom.Side = asrBottom
           Left = 16
-          Height = 643
-          Top = 41
+          Height = 633
+          Top = 51
           Width = 565
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 15
-          BorderSpacing.Top = 40
+          BorderSpacing.Top = 50
           BorderSpacing.Right = 15
           BorderSpacing.Bottom = 15
-          ClientHeight = 624
+          ClientHeight = 614
           ClientWidth = 555
           ParentFont = False
           TabOrder = 2
@@ -393,10 +393,11 @@ object FormMain: TFormMain
             AnchorSideBottom.Control = GroupBoxRequest
             AnchorSideBottom.Side = asrBottom
             Left = 240
-            Height = 35
+            Height = 10
             Top = 589
             Width = 74
             Anchors = [akTop, akLeft, akRight, akBottom]
+            BorderSpacing.Bottom = 15
             Caption = '默认'
             TabOrder = 7
           end
