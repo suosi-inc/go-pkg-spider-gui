@@ -12,8 +12,20 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+    ImageListToolBar: TImageList;
     ToolBar: TToolBar;
-    ToolButton1: TToolButton;
+    ToolBtnSplit1: TToolButton;
+    ToolBtnRequest: TToolButton;
+    ToolBtnSplit2: TToolButton;
+    ToolBtnDebug: TToolButton;
+    ToolBtnDomain: TToolButton;
+    ToolBtnSplit3: TToolButton;
+    ToolBtnLink: TToolButton;
+    ToolBtnSplit4: TToolButton;
+    ToolBtnContent: TToolButton;
+    ToolBtnSplit5: TToolButton;
+    ToolBtnTool: TToolButton;
+    ToolBtnSplit6: TToolButton;
   private
 
   public
