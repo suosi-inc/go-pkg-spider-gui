@@ -182,201 +182,232 @@ object FormMain: TFormMain
         TabOrder = 1
         object LabelRequestUrl: TLabel
           AnchorSideLeft.Control = PanelRequestController
+          AnchorSideTop.Control = PanelRequestController
           Left = 16
           Height = 16
           Top = 21
           Width = 53
-          Anchors = [akLeft]
           BorderSpacing.Left = 15
+          BorderSpacing.Top = 20
           Caption = '请求地址'
         end
         object EditRequestUrl: TEdit
           AnchorSideLeft.Control = LabelRequestUrl
           AnchorSideLeft.Side = asrBottom
+          AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = BtnRequest
           Left = 79
           Height = 22
-          Top = 16
+          Top = 17
           Width = 437
-          Anchors = [akLeft, akRight]
+          Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
+          BorderSpacing.Top = 16
           BorderSpacing.Right = 10
           TabOrder = 0
           Text = 'https://www.baidu.com'
         end
         object BtnRequest: TButton
+          AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = PanelRequestController
           AnchorSideRight.Side = asrBottom
           Left = 526
           Height = 20
-          Top = 16
+          Top = 17
           Width = 55
-          Anchors = [akRight]
+          Anchors = [akTop, akRight]
           AutoSize = True
-          BorderSpacing.Top = 10
+          BorderSpacing.Top = 16
           BorderSpacing.Right = 15
           Caption = '执行'
           TabOrder = 1
         end
         object GroupBoxRequest: TGroupBox
           AnchorSideLeft.Control = PanelRequestController
+          AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = PanelRequestController
           AnchorSideRight.Side = asrBottom
           AnchorSideBottom.Control = PanelRequestController
           AnchorSideBottom.Side = asrBottom
           Left = 16
-          Height = 644
-          Top = 40
+          Height = 643
+          Top = 41
           Width = 565
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 15
+          BorderSpacing.Top = 40
           BorderSpacing.Right = 15
           BorderSpacing.Bottom = 15
-          ClientHeight = 625
+          ClientHeight = 624
           ClientWidth = 555
           ParentFont = False
           TabOrder = 2
           object LabelRequestUa: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 15
             Height = 16
-            Top = 16
+            Top = 15
             Width = 128
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 15
             Caption = '用户代理(UserAgent)'
           end
           object EditRequestUa: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = LabelRequestUa
+            AnchorSideTop.Side = asrBottom
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrBottom
             Left = 15
             Height = 22
-            Top = 40
+            Top = 36
             Width = 525
-            Anchors = [akLeft, akRight]
+            Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 5
             BorderSpacing.Right = 15
             TabOrder = 0
             Text = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
           end
-          object Label2: TLabel
+          object LabelRequestLength: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 15
             Height = 16
-            Top = 144
+            Top = 135
             Width = 181
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 135
             Caption = '响应最大长度(ContentLength)'
-            OnClick = Label2Click
+            OnClick = LabelRequestLengthClick
           end
-          object Edit1: TEdit
+          object EditRequestRedirect: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = LabelRequestRedirect
+            AnchorSideTop.Side = asrBottom
             Left = 15
             Height = 22
-            Top = 232
+            Top = 211
             Width = 80
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 5
             TabOrder = 1
             Text = '3'
           end
-          object Label1: TLabel
+          object LabelRequestType: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 15
             Height = 16
-            Top = 80
+            Top = 75
             Width = 195
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 75
             Caption = '响应文本类型限制(ContentType)'
           end
-          object Edit2: TEdit
+          object EditRequestType: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = LabelRequestType
+            AnchorSideTop.Side = asrBottom
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrBottom
             Left = 15
             Height = 22
-            Top = 104
+            Top = 96
             Width = 525
-            Anchors = [akLeft, akRight]
+            Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 5
             BorderSpacing.Right = 15
             TabOrder = 2
             Text = 'text/html'
           end
-          object Label3: TLabel
+          object LabelRequestRedirect: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 15
             Height = 16
-            Top = 208
+            Top = 190
             Width = 167
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 190
             Caption = '最大跳转次数(MaxRedirect)'
           end
-          object Edit3: TEdit
-            Left = 16
+          object EditRequestLength: TEdit
+            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = LabelRequestLength
+            AnchorSideTop.Side = asrBottom
+            Left = 15
             Height = 22
-            Top = 168
+            Top = 156
             Width = 80
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 5
             TabOrder = 3
             Text = '1024000'
           end
-          object CheckBox1: TCheckBox
+          object CheckRequestCharset: TCheckBox
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 15
             Height = 18
-            Top = 424
+            Top = 360
             Width = 143
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 360
             Caption = '编码自动转换(UTF-8)'
             Checked = True
             State = cbChecked
             TabOrder = 4
           end
-          object CheckBox2: TCheckBox
+          object CheckRequestLang: TCheckBox
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 15
             Height = 18
-            Top = 456
+            Top = 390
             Width = 96
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 390
             Caption = '语种自动探测'
             Checked = True
             State = cbChecked
             TabOrder = 5
           end
-          object CheckBox3: TCheckBox
+          object CheckRequestType: TCheckBox
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 232
             Height = 18
-            Top = 78
+            Top = 75
             Width = 108
+            BorderSpacing.Top = 75
             Caption = '强制为文本类型'
             TabOrder = 6
           end
-          object Button1: TButton
+          object BtnRequestDefault: TButton
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideLeft.Side = asrCenter
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrCenter
+            AnchorSideBottom.Control = GroupBoxRequest
+            AnchorSideBottom.Side = asrBottom
             Left = 240
-            Height = 25
+            Height = 35
             Top = 589
             Width = 74
-            Anchors = [akTop, akLeft, akRight]
+            Anchors = [akTop, akLeft, akRight, akBottom]
             Caption = '默认'
             TabOrder = 7
           end
-          object Memo1: TMemo
+          object MemoRequestHeader: TMemo
+            AnchorSideTop.Control = LabelRequestHeader
+            AnchorSideTop.Side = asrBottom
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrBottom
             Left = 15
-            Height = 120
-            Top = 288
+            Height = 80
+            Top = 266
             Width = 525
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
@@ -386,21 +417,24 @@ object FormMain: TFormMain
             )
             TabOrder = 8
           end
-          object Label4: TLabel
+          object LabelRequestHeader: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 15
             Height = 16
-            Top = 264
+            Top = 250
             Width = 40
-            Anchors = [akLeft]
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 250
             Caption = '请求头'
           end
-          object CheckBox4: TCheckBox
+          object CheckBoxRequestRedirect: TCheckBox
+            AnchorSideTop.Control = GroupBoxRequest
             Left = 232
             Height = 18
-            Top = 208
+            Top = 190
             Width = 72
+            BorderSpacing.Top = 190
             Caption = '禁止跳转'
             TabOrder = 9
           end

@@ -14,25 +14,25 @@ type
 
   TFormMain = class(TForm)
     BtnRequest: TButton;
-    Button1: TButton;
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
-    CheckBox3: TCheckBox;
-    CheckBox4: TCheckBox;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
+    BtnRequestDefault: TButton;
+    CheckRequestCharset: TCheckBox;
+    CheckRequestLang: TCheckBox;
+    CheckRequestType: TCheckBox;
+    CheckBoxRequestRedirect: TCheckBox;
+    EditRequestRedirect: TEdit;
+    EditRequestType: TEdit;
+    EditRequestLength: TEdit;
     EditRequestUa: TEdit;
     EditRequestUrl: TEdit;
     GroupBoxRequest: TGroupBox;
     ImageListToolBar: TImageList;
-    Label1: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    LabelRequestType: TLabel;
+    LabelRequestRedirect: TLabel;
+    LabelRequestHeader: TLabel;
     LabelRequestUa: TLabel;
-    Label2: TLabel;
+    LabelRequestLength: TLabel;
     LabelRequestUrl: TLabel;
-    Memo1: TMemo;
+    MemoRequestHeader: TMemo;
     MemoRequest: TMemo;
     MemoDebug: TMemo;
     MenuDebugCopy: TMenuItem;
@@ -62,7 +62,7 @@ type
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
     procedure GroupBox1Click(Sender: TObject);
-    procedure Label2Click(Sender: TObject);
+    procedure LabelRequestLengthClick(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure MenuToolLanguageClick(Sender: TObject);
@@ -118,7 +118,7 @@ begin
 
 end;
 
-procedure TFormMain.Label2Click(Sender: TObject);
+procedure TFormMain.LabelRequestLengthClick(Sender: TObject);
 begin
 
 end;
