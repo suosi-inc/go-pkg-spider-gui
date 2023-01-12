@@ -392,13 +392,14 @@ object FormMain: TFormMain
             AnchorSideRight.Side = asrCenter
             AnchorSideBottom.Control = GroupBoxRequest
             AnchorSideBottom.Side = asrBottom
-            Left = 240
-            Height = 5
-            Top = 589
-            Width = 74
-            Anchors = [akTop, akLeft, akRight, akBottom]
+            Left = 245
+            Height = 14
+            Top = 580
+            Width = 64
+            Anchors = [akRight, akBottom]
+            AutoSize = True
             BorderSpacing.Bottom = 15
-            Caption = '默认'
+            Caption = '默认asdf '
             TabOrder = 7
           end
           object MemoRequestHeader: TMemo
