@@ -15,10 +15,11 @@ type
   TFormMain = class(TForm)
     BtnRequest: TButton;
     BtnRequestDefault: TButton;
+    BtnRequestExample: TButton;
     CheckRequestCharset: TCheckBox;
-    CheckRequestLang: TCheckBox;
     CheckRequestType: TCheckBox;
     CheckBoxRequestRedirect: TCheckBox;
+    EditRequestProxy: TEdit;
     EditRequestRedirect: TEdit;
     EditRequestType: TEdit;
     EditRequestLength: TEdit;
@@ -26,6 +27,7 @@ type
     EditRequestUrl: TEdit;
     GroupBoxRequest: TGroupBox;
     ImageListToolBar: TImageList;
+    LabelRequestProxy: TLabel;
     LabelRequestType: TLabel;
     LabelRequestRedirect: TLabel;
     LabelRequestHeader: TLabel;
@@ -62,6 +64,7 @@ type
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
     procedure GroupBox1Click(Sender: TObject);
+    procedure LabelRequestProxyClick(Sender: TObject);
     procedure LabelRequestLengthClick(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
@@ -114,6 +117,11 @@ begin
 end;
 
 procedure TFormMain.GroupBox1Click(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.LabelRequestProxyClick(Sender: TObject);
 begin
 
 end;
