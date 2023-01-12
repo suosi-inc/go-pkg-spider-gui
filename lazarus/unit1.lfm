@@ -124,7 +124,7 @@ object FormMain: TFormMain
     AnchorSideBottom.Control = SplitterDebug
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 710
+    Height = 715
     Top = 52
     Width = 1200
     ActivePage = TabSheetRequest
@@ -134,8 +134,8 @@ object FormMain: TFormMain
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
-      ClientHeight = 710
-      ClientWidth = 1200
+      ClientHeight = 707
+      ClientWidth = 1192
       object PanelRequestView: TPanel
         AnchorSideLeft.Control = TabSheetRequest
         AnchorSideTop.Control = TabSheetRequest
@@ -143,12 +143,12 @@ object FormMain: TFormMain
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 710
+        Height = 707
         Top = 0
-        Width = 600
+        Width = 596
         Anchors = [akTop, akLeft, akRight, akBottom]
-        ClientHeight = 710
-        ClientWidth = 600
+        ClientHeight = 707
+        ClientWidth = 596
         TabOrder = 0
         object MemoRequest: TMemo
           AnchorSideLeft.Control = PanelRequestView
@@ -158,9 +158,9 @@ object FormMain: TFormMain
           AnchorSideBottom.Control = PanelRequestView
           AnchorSideBottom.Side = asrBottom
           Left = 6
-          Height = 698
+          Height = 695
           Top = 6
-          Width = 588
+          Width = 584
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 5
           BorderSpacing.Top = 5
@@ -178,21 +178,22 @@ object FormMain: TFormMain
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
-        Left = 603
-        Height = 710
+        Left = 599
+        Height = 707
         Top = 0
-        Width = 597
+        Width = 593
         Anchors = [akTop, akLeft, akRight, akBottom]
-        ClientHeight = 710
-        ClientWidth = 597
+        BevelOuter = bvNone
+        ClientHeight = 707
+        ClientWidth = 593
         TabOrder = 1
         object LabelRequestUrl: TLabel
           AnchorSideLeft.Control = PanelRequestController
           AnchorSideTop.Control = PanelRequestController
-          Left = 16
-          Height = 16
-          Top = 21
-          Width = 53
+          Left = 15
+          Height = 17
+          Top = 20
+          Width = 48
           BorderSpacing.Left = 15
           BorderSpacing.Top = 20
           Caption = '请求地址'
@@ -202,14 +203,15 @@ object FormMain: TFormMain
           AnchorSideLeft.Side = asrBottom
           AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = BtnRequest
-          Left = 79
-          Height = 22
-          Top = 17
-          Width = 437
+          Left = 73
+          Height = 25
+          Top = 16
+          Width = 445
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 16
           BorderSpacing.Right = 10
+          OnClick = EditRequestUrlClick
           TabOrder = 0
           Text = 'https://www.baidu.com'
         end
@@ -218,10 +220,10 @@ object FormMain: TFormMain
           AnchorSideRight.Control = PanelRequestController
           AnchorSideRight.Side = asrBottom
           Cursor = crHandPoint
-          Left = 526
-          Height = 20
-          Top = 17
-          Width = 55
+          Left = 528
+          Height = 27
+          Top = 16
+          Width = 50
           Anchors = [akTop, akRight]
           AutoSize = True
           BorderSpacing.Top = 16
@@ -236,29 +238,29 @@ object FormMain: TFormMain
           AnchorSideRight.Side = asrBottom
           AnchorSideBottom.Control = PanelRequestController
           AnchorSideBottom.Side = asrBottom
-          Left = 16
-          Height = 638
-          Top = 56
-          Width = 565
+          Left = 15
+          Height = 637
+          Top = 55
+          Width = 563
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 15
           BorderSpacing.Top = 55
           BorderSpacing.Right = 15
           BorderSpacing.Bottom = 15
-          ClientHeight = 619
-          ClientWidth = 555
+          ClientHeight = 615
+          ClientWidth = 559
           ParentFont = False
           TabOrder = 2
           object LabelRequestUa: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = GroupBoxRequest
             Left = 15
-            Height = 16
+            Height = 17
             Top = 15
-            Width = 128
+            Width = 121
             BorderSpacing.Left = 15
             BorderSpacing.Top = 15
-            Caption = '用户代理(UserAgent)'
+            Caption = '用户代理 (UserAgent)'
           end
           object EditRequestUa: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
@@ -267,50 +269,37 @@ object FormMain: TFormMain
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrBottom
             Left = 15
-            Height = 22
-            Top = 36
-            Width = 525
+            Height = 25
+            Top = 37
+            Width = 529
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             BorderSpacing.Right = 15
             TabOrder = 0
-            Text = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+            Text = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
           end
           object LabelRequestLength: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = GroupBoxRequest
             Left = 15
-            Height = 16
+            Height = 17
             Top = 135
-            Width = 181
+            Width = 192
             BorderSpacing.Left = 15
             BorderSpacing.Top = 135
-            Caption = '响应最大长度(ContentLength)'
-          end
-          object EditRequestRedirect: TEdit
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = LabelRequestRedirect
-            AnchorSideTop.Side = asrBottom
-            Left = 15
-            Height = 22
-            Top = 216
-            Width = 80
-            BorderSpacing.Left = 15
-            BorderSpacing.Top = 5
-            TabOrder = 1
-            Text = '3'
+            Caption = '响应最大字节长度 (ContentLength)'
           end
           object LabelRequestType: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = GroupBoxRequest
             Left = 15
-            Height = 16
+            Height = 17
             Top = 75
-            Width = 195
+            Width = 181
             BorderSpacing.Left = 15
             BorderSpacing.Top = 75
-            Caption = '响应文本类型限制(ContentType)'
+            Caption = '响应文本类型限制 (ContentType)'
           end
           object EditRequestType: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
@@ -319,68 +308,56 @@ object FormMain: TFormMain
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrBottom
             Left = 15
-            Height = 22
-            Top = 96
-            Width = 525
+            Height = 25
+            Top = 97
+            Width = 529
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             BorderSpacing.Right = 15
-            TabOrder = 2
+            Enabled = False
+            TabOrder = 1
           end
           object LabelRequestRedirect: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = GroupBoxRequest
             Left = 15
-            Height = 16
+            Height = 17
             Top = 195
-            Width = 167
+            Width = 157
             BorderSpacing.Left = 15
             BorderSpacing.Top = 195
-            Caption = '最大跳转次数(MaxRedirect)'
-          end
-          object EditRequestLength: TEdit
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = LabelRequestLength
-            AnchorSideTop.Side = asrBottom
-            Left = 15
-            Height = 22
-            Top = 156
-            Width = 80
-            BorderSpacing.Left = 15
-            BorderSpacing.Top = 5
-            TabOrder = 3
-            Text = '4096000'
+            Caption = '最大跳转次数 (MaxRedirect)'
           end
           object CheckRequestCharset: TCheckBox
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = GroupBoxRequest
             Cursor = crHandPoint
             Left = 15
-            Height = 18
+            Height = 23
             Top = 450
-            Width = 153
+            Width = 150
             BorderSpacing.Left = 15
             BorderSpacing.Top = 450
-            Caption = '编码自动转换(UTF-8)'
+            Caption = '编码自动转换 (UTF-8)'
             Checked = True
             Font.Height = -13
             ParentFont = False
             State = cbChecked
-            TabOrder = 4
+            TabOrder = 2
           end
           object CheckRequestType: TCheckBox
             AnchorSideTop.Control = GroupBoxRequest
             Cursor = crHandPoint
             Left = 232
-            Height = 18
+            Height = 21
             Top = 75
-            Width = 108
+            Width = 106
             BorderSpacing.Top = 75
             Caption = '强制为文本类型'
             Checked = True
             State = cbChecked
-            TabOrder = 5
+            TabOrder = 3
           end
           object MemoRequestHeader: TMemo
             AnchorSideTop.Control = LabelRequestHeader
@@ -389,47 +366,47 @@ object FormMain: TFormMain
             AnchorSideRight.Side = asrBottom
             Left = 15
             Height = 100
-            Top = 276
-            Width = 525
+            Top = 277
+            Width = 529
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             BorderSpacing.Right = 15
             ScrollBars = ssVertical
-            TabOrder = 7
+            TabOrder = 5
           end
           object LabelRequestHeader: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = GroupBoxRequest
             Left = 15
-            Height = 16
+            Height = 17
             Top = 255
-            Width = 95
+            Width = 91
             BorderSpacing.Left = 15
             BorderSpacing.Top = 255
-            Caption = '请求头(Header)'
+            Caption = '请求头 (Header)'
           end
           object CheckBoxRequestRedirect: TCheckBox
             AnchorSideTop.Control = GroupBoxRequest
             Cursor = crHandPoint
             Left = 232
-            Height = 18
+            Height = 21
             Top = 195
-            Width = 72
+            Width = 70
             BorderSpacing.Top = 195
             Caption = '禁止跳转'
-            TabOrder = 8
+            TabOrder = 6
           end
           object LabelRequestProxy: TLabel
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = GroupBoxRequest
             Left = 15
-            Height = 16
+            Height = 17
             Top = 390
-            Width = 100
+            Width = 93
             BorderSpacing.Left = 15
             BorderSpacing.Top = 390
-            Caption = 'Http代理(Proxy)'
+            Caption = 'Http代理 (Proxy)'
           end
           object EditRequestProxy: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
@@ -438,48 +415,80 @@ object FormMain: TFormMain
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrBottom
             Left = 15
-            Height = 22
-            Top = 411
-            Width = 525
+            Height = 25
+            Top = 412
+            Width = 529
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             BorderSpacing.Right = 15
-            TabOrder = 10
+            TabOrder = 8
           end
           object BtnRequestExample: TButton
+            AnchorSideLeft.Control = BtnRequestDefault
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CheckRequestCharset
+            AnchorSideTop.Side = asrBottom
             AnchorSideRight.Control = GroupBoxRequest
             AnchorSideRight.Side = asrBottom
             AnchorSideBottom.Control = GroupBoxRequest
             AnchorSideBottom.Side = asrBottom
             Cursor = crHandPoint
-            Left = 499
-            Height = 14
-            Top = 590
-            Width = 41
-            Anchors = [akRight, akBottom]
+            Left = 109
+            Height = 27
+            Top = 503
+            Width = 74
             AutoSize = True
-            BorderSpacing.Right = 15
-            BorderSpacing.Bottom = 15
-            Caption = '示例'
-            TabOrder = 9
+            BorderSpacing.Left = 20
+            BorderSpacing.Top = 30
+            Caption = '示例参数'
+            TabOrder = 7
           end
           object BtnRequestDefault: TButton
             AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = CheckRequestCharset
+            AnchorSideTop.Side = asrBottom
             AnchorSideRight.Side = asrBottom
             AnchorSideBottom.Control = GroupBoxRequest
             AnchorSideBottom.Side = asrBottom
             Cursor = crHandPoint
             Left = 15
-            Height = 20
-            Top = 584
-            Width = 55
-            Anchors = [akLeft, akBottom]
+            Height = 27
+            Top = 503
+            Width = 74
             AutoSize = True
             BorderSpacing.Left = 15
-            BorderSpacing.Bottom = 15
-            Caption = '默认'
-            TabOrder = 6
+            BorderSpacing.Top = 30
+            Caption = '默认参数'
+            TabOrder = 4
+          end
+          object EditRequestLength: TSpinEdit
+            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = LabelRequestRedirect
+            AnchorSideTop.Side = asrBottom
+            Left = 15
+            Height = 25
+            Top = 217
+            Width = 50
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 5
+            MaxValue = 10
+            TabOrder = 9
+            Value = 2
+          end
+          object Edit1: TEdit
+            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideTop.Control = LabelRequestLength
+            AnchorSideTop.Side = asrBottom
+            Left = 15
+            Height = 25
+            Top = 157
+            Width = 80
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 5
+            NumbersOnly = True
+            TabOrder = 10
+            Text = '4096000'
           end
         end
       end
@@ -488,8 +497,8 @@ object FormMain: TFormMain
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
-        Left = 600
-        Height = 710
+        Left = 596
+        Height = 707
         Top = 0
         Width = 3
         Align = alNone
@@ -515,7 +524,7 @@ object FormMain: TFormMain
     Cursor = crVSplit
     Left = 0
     Height = 2
-    Top = 760
+    Top = 765
     Width = 1200
     Align = alNone
     Anchors = [akLeft, akRight]
@@ -533,12 +542,13 @@ object FormMain: TFormMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 78
-    Top = 762
+    Height = 73
+    Top = 767
     Width = 1200
     Anchors = [akTop, akLeft, akRight, akBottom]
+    BevelOuter = bvNone
     Caption = 'PanelDebug'
-    ClientHeight = 78
+    ClientHeight = 73
     ClientWidth = 1200
     TabOrder = 2
     object MemoDebug: TMemo
@@ -548,11 +558,15 @@ object FormMain: TFormMain
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = PanelDebug
       AnchorSideBottom.Side = asrBottom
-      Left = 1
-      Height = 76
-      Top = 1
-      Width = 1198
+      Left = 2
+      Height = 69
+      Top = 2
+      Width = 1196
       Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Left = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 2
+      BorderSpacing.Bottom = 2
       BorderStyle = bsNone
       Color = 3420457
       Font.Color = 15000288
@@ -567,6 +581,7 @@ object FormMain: TFormMain
       )
       ParentFont = False
       PopupMenu = PopupMenuDebug
+      ReadOnly = True
       TabOrder = 0
     end
   end

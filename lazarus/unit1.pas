@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ComCtrls,
-  StdCtrls, Menus, Buttons;
+  StdCtrls, Menus, Buttons, Spin;
 
 type
 
@@ -19,10 +19,9 @@ type
     CheckRequestCharset: TCheckBox;
     CheckRequestType: TCheckBox;
     CheckBoxRequestRedirect: TCheckBox;
+    Edit1: TEdit;
     EditRequestProxy: TEdit;
-    EditRequestRedirect: TEdit;
     EditRequestType: TEdit;
-    EditRequestLength: TEdit;
     EditRequestUa: TEdit;
     EditRequestUrl: TEdit;
     GroupBoxRequest: TGroupBox;
@@ -44,6 +43,7 @@ type
     PanelRequestController: TPanel;
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
+    EditRequestLength: TSpinEdit;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     TabSheetContent: TTabSheet;
@@ -63,6 +63,7 @@ type
     ToolBtnSplit5: TToolButton;
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
+    procedure EditRequestUrlClick(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure ToolBtnDebugClick(Sender: TObject);
@@ -105,6 +106,11 @@ end;
 procedure TFormMain.MenuDebugClearClick(Sender: TObject);
 begin
   MemoDebug.Text:=''
+end;
+
+procedure TFormMain.EditRequestUrlClick(Sender: TObject);
+begin
+  EditRequestUrl.SelectAll;
 end;
 
 end.
