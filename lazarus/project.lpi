@@ -15,7 +15,6 @@
     </General>
     <Res2go>
       <PackageName Value=""/>
-      <GoEnabledCGO Value="False"/>
     </Res2go>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -41,6 +40,7 @@
         <Filename Value="unit1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormMain"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
       </Unit>
