@@ -17,6 +17,8 @@ uses
 
 begin
   RequireDerivedFormResource:=True;
+  Application.Title:='Spider-GUI';
+
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);

@@ -4,7 +4,7 @@
     <Version Value="12"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="project"/>
+      <Title Value="Spider-GUI"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -14,7 +14,13 @@
       <Icon Value="0"/>
     </General>
     <Res2go>
-      <PackageName Value=""/>
+      <Enabled Value="True"/>
+      <OutputPath Value="$Path($ProjectFile())../"/>
+      <PackageName Value="gui"/>
+      <UseDefaultWinAppRes Value="True"/>
+      <GoBuildMode Value="exe"/>
+      <GoRoot Value="D:\Program\Go"/>
+      <GoUseEmbed Value="True"/>
     </Res2go>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -56,6 +62,9 @@
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf2"/>
+      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
