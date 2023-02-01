@@ -124,7 +124,7 @@ object FormMain: TFormMain
     AnchorSideBottom.Control = SplitterDebug
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 715
+    Height = 716
     Top = 52
     Width = 1200
     ActivePage = TabSheetRequest
@@ -134,7 +134,7 @@ object FormMain: TFormMain
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
-      ClientHeight = 707
+      ClientHeight = 708
       ClientWidth = 1192
       object PanelRequestView: TPanel
         AnchorSideLeft.Control = TabSheetRequest
@@ -143,12 +143,14 @@ object FormMain: TFormMain
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 707
+        Height = 708
         Top = 0
         Width = 596
         Anchors = [akTop, akLeft, akRight, akBottom]
-        ClientHeight = 707
+        BevelOuter = bvNone
+        ClientHeight = 708
         ClientWidth = 596
+        ParentColor = False
         TabOrder = 0
         object MemoRequest: TMemo
           AnchorSideLeft.Control = PanelRequestView
@@ -157,14 +159,14 @@ object FormMain: TFormMain
           AnchorSideRight.Side = asrBottom
           AnchorSideBottom.Control = PanelRequestView
           AnchorSideBottom.Side = asrBottom
-          Left = 6
-          Height = 695
-          Top = 6
-          Width = 584
+          Left = 5
+          Height = 698
+          Top = 5
+          Width = 576
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 5
           BorderSpacing.Top = 5
-          BorderSpacing.Right = 5
+          BorderSpacing.Right = 15
           BorderSpacing.Bottom = 5
           ReadOnly = True
           TabOrder = 0
@@ -179,13 +181,14 @@ object FormMain: TFormMain
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
         Left = 599
-        Height = 707
+        Height = 708
         Top = 0
         Width = 593
         Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
-        ClientHeight = 707
+        ClientHeight = 708
         ClientWidth = 593
+        ParentColor = False
         TabOrder = 1
         object LabelRequestUrl: TLabel
           AnchorSideLeft.Control = PanelRequestController
@@ -239,7 +242,7 @@ object FormMain: TFormMain
           AnchorSideBottom.Control = PanelRequestController
           AnchorSideBottom.Side = asrBottom
           Left = 15
-          Height = 637
+          Height = 638
           Top = 55
           Width = 563
           Anchors = [akTop, akLeft, akRight, akBottom]
@@ -247,7 +250,7 @@ object FormMain: TFormMain
           BorderSpacing.Top = 55
           BorderSpacing.Right = 15
           BorderSpacing.Bottom = 15
-          ClientHeight = 615
+          ClientHeight = 616
           ClientWidth = 559
           ParentFont = False
           TabOrder = 2
@@ -498,13 +501,14 @@ object FormMain: TFormMain
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
         Left = 596
-        Height = 707
+        Height = 708
         Top = 0
         Width = 3
         Align = alNone
         Anchors = [akTop, akBottom]
         Color = clWhite
         ParentColor = False
+        ResizeStyle = rsPattern
       end
     end
     object TabSheetDomain: TTabSheet
@@ -523,7 +527,7 @@ object FormMain: TFormMain
     AnchorSideRight.Side = asrBottom
     Cursor = crVSplit
     Left = 0
-    Height = 2
+    Height = 3
     Top = 765
     Width = 1200
     Align = alNone
@@ -542,13 +546,13 @@ object FormMain: TFormMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 73
-    Top = 767
+    Height = 72
+    Top = 768
     Width = 1200
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
     Caption = 'PanelDebug'
-    ClientHeight = 73
+    ClientHeight = 72
     ClientWidth = 1200
     TabOrder = 2
     object MemoDebug: TMemo
@@ -559,7 +563,7 @@ object FormMain: TFormMain
       AnchorSideBottom.Control = PanelDebug
       AnchorSideBottom.Side = asrBottom
       Left = 2
-      Height = 69
+      Height = 68
       Top = 2
       Width = 1196
       Anchors = [akTop, akLeft, akRight, akBottom]
