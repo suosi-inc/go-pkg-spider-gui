@@ -18,8 +18,8 @@ type
     BtnRequestExample: TButton;
     CheckRequestCharset: TCheckBox;
     CheckRequestType: TCheckBox;
-    CheckBoxRequestRedirect: TCheckBox;
-    Edit1: TEdit;
+    CheckRequestRedirect: TCheckBox;
+    EditRequestLength: TEdit;
     EditRequestProxy: TEdit;
     EditRequestType: TEdit;
     EditRequestUa: TEdit;
@@ -43,7 +43,7 @@ type
     PanelRequestController: TPanel;
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
-    EditRequestLength: TSpinEdit;
+    EditRequestRedirect: TSpinEdit;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     TabSheetContent: TTabSheet;
@@ -63,6 +63,11 @@ type
     ToolBtnSplit5: TToolButton;
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
+    procedure CheckRequestRedirectChange(Sender: TObject);
+    procedure CheckRequestTypeChange(Sender: TObject);
+    procedure EditRequestLengthClick(Sender: TObject);
+    procedure EditRequestUaChange(Sender: TObject);
+    procedure EditRequestUaClick(Sender: TObject);
     procedure EditRequestUrlClick(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
@@ -106,6 +111,43 @@ end;
 procedure TFormMain.MenuDebugClearClick(Sender: TObject);
 begin
   MemoDebug.Text:=''
+end;
+
+procedure TFormMain.EditRequestUaChange(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.EditRequestLengthClick(Sender: TObject);
+begin
+   EditRequestLength.SelectAll;
+end;
+
+procedure TFormMain.CheckRequestTypeChange(Sender: TObject);
+begin
+    if CheckRequestType.Checked then
+       EditRequestType.Enabled:=False
+    else
+       EditRequestType.Enabled:=True;
+end;
+
+procedure TFormMain.CheckRequestRedirectChange(Sender: TObject);
+begin
+    if CheckRequestRedirect.Checked then
+    begin
+         EditRequestRedirect.Enabled:=False;
+         EditRequestRedirect.EditorEnabled:=False
+    end
+    else
+    begin
+         EditRequestRedirect.Enabled:=True;
+         EditRequestRedirect.EditorEnabled:=True;
+    end;
+end;
+
+procedure TFormMain.EditRequestUaClick(Sender: TObject);
+begin
+  EditRequestUa.SelectAll;
 end;
 
 procedure TFormMain.EditRequestUrlClick(Sender: TObject);

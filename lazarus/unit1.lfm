@@ -279,6 +279,8 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             BorderSpacing.Right = 15
+            OnChange = EditRequestUaChange
+            OnClick = EditRequestUaClick
             TabOrder = 0
             Text = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
           end
@@ -359,6 +361,7 @@ object FormMain: TFormMain
             BorderSpacing.Top = 75
             Caption = '强制为文本类型'
             Checked = True
+            OnChange = CheckRequestTypeChange
             State = cbChecked
             TabOrder = 3
           end
@@ -389,7 +392,7 @@ object FormMain: TFormMain
             BorderSpacing.Top = 255
             Caption = '请求头 (Header)'
           end
-          object CheckBoxRequestRedirect: TCheckBox
+          object CheckRequestRedirect: TCheckBox
             AnchorSideTop.Control = GroupBoxRequest
             Cursor = crHandPoint
             Left = 232
@@ -398,6 +401,7 @@ object FormMain: TFormMain
             Width = 70
             BorderSpacing.Top = 195
             Caption = '禁止跳转'
+            OnChange = CheckRequestRedirectChange
             TabOrder = 6
           end
           object LabelRequestProxy: TLabel
@@ -465,7 +469,7 @@ object FormMain: TFormMain
             Caption = '默认参数'
             TabOrder = 4
           end
-          object EditRequestLength: TSpinEdit
+          object EditRequestRedirect: TSpinEdit
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = LabelRequestRedirect
             AnchorSideTop.Side = asrBottom
@@ -479,7 +483,7 @@ object FormMain: TFormMain
             TabOrder = 9
             Value = 2
           end
-          object Edit1: TEdit
+          object EditRequestLength: TEdit
             AnchorSideLeft.Control = GroupBoxRequest
             AnchorSideTop.Control = LabelRequestLength
             AnchorSideTop.Side = asrBottom
@@ -490,6 +494,7 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             NumbersOnly = True
+            OnClick = EditRequestLengthClick
             TabOrder = 10
             Text = '4096000'
           end
