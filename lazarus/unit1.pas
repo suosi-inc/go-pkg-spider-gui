@@ -65,10 +65,7 @@ type
     ToolBtnSplit6: TToolButton;
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
-    procedure EditRequestLengthClick(Sender: TObject);
     procedure EditRequestUaChange(Sender: TObject);
-    procedure EditRequestUaClick(Sender: TObject);
-    procedure EditRequestUrlClick(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure ToolBtnDebugClick(Sender: TObject);
@@ -118,11 +115,6 @@ begin
 
 end;
 
-procedure TFormMain.EditRequestLengthClick(Sender: TObject);
-begin
-   EditRequestLength.SelectAll;
-end;
-
 procedure TFormMain.CheckRequestTypeChange(Sender: TObject);
 begin
     if CheckRequestType.Checked then
@@ -143,16 +135,6 @@ begin
          EditRequestRedirect.Enabled:=True;
          EditRequestRedirect.EditorEnabled:=True;
     end;
-end;
-
-procedure TFormMain.EditRequestUaClick(Sender: TObject);
-begin
-  EditRequestUa.SelectAll;
-end;
-
-procedure TFormMain.EditRequestUrlClick(Sender: TObject);
-begin
-  EditRequestUrl.SelectAll;
 end;
 
 end.
