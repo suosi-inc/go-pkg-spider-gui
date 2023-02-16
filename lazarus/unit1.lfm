@@ -84,7 +84,7 @@ object FormMain: TFormMain
       Cursor = crHandPoint
       Left = 273
       Top = 0
-      Caption = '内容提取'
+      Caption = '新闻提取'
       ImageIndex = 3
       Style = tbsCheck
     end
@@ -282,7 +282,6 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             BorderSpacing.Right = 15
-            OnChange = EditRequestUaChange
             TabOrder = 0
             Text = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
           end
@@ -360,7 +359,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 75
-            Width = 108
+            Width = 115
             BorderSpacing.Top = 75
             Caption = '强制为文本类型'
             Checked = True
@@ -401,7 +400,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 195
-            Width = 72
+            Width = 76
             BorderSpacing.Top = 195
             Caption = '禁止跳转'
             OnChange = CheckRequestRedirectChange
@@ -477,7 +476,7 @@ object FormMain: TFormMain
             AnchorSideTop.Control = LabelRequestRedirect
             AnchorSideTop.Side = asrBottom
             Left = 15
-            Height = 21
+            Height = 22
             Top = 216
             Width = 50
             BorderSpacing.Left = 15
@@ -599,7 +598,7 @@ object FormMain: TFormMain
   object ImageListToolBar: TImageList
     Height = 24
     Width = 24
-    Left = 1088
+    Left = 1216
     Top = 8
     Bitmap = {
       4C7A060000001800000018000000AA0C00000000000078DAED5A7B7054D519DF
@@ -707,7 +706,7 @@ object FormMain: TFormMain
     }
   end
   object PopupMenuDebug: TPopupMenu
-    Left = 1200
+    Left = 1328
     Top = 8
     object MenuDebugCopy: TMenuItem
       Caption = '复制全部'

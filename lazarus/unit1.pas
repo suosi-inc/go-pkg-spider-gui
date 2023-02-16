@@ -65,7 +65,6 @@ type
     ToolBtnSplit6: TToolButton;
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
-    procedure EditRequestUaChange(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure ToolBtnDebugClick(Sender: TObject);
@@ -108,11 +107,6 @@ end;
 procedure TFormMain.MenuDebugClearClick(Sender: TObject);
 begin
   MemoDebug.Text:=''
-end;
-
-procedure TFormMain.EditRequestUaChange(Sender: TObject);
-begin
-
 end;
 
 procedure TFormMain.CheckRequestTypeChange(Sender: TObject);
