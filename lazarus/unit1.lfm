@@ -529,9 +529,9 @@ object FormMain: TFormMain
             AnchorSideTop.Control = GroupBoxRequest
             Cursor = crHandPoint
             Left = 128
-            Height = 24
+            Height = 20
             Top = 449
-            Width = 24
+            Width = 20
             AutoSize = True
             BorderSpacing.Top = 449
             Flat = True
@@ -636,7 +636,7 @@ object FormMain: TFormMain
       Font.Height = -12
       Font.Quality = fqCleartypeNatural
       Lines.Strings = (
-        'Pkg-Spider-GUI 启动'
+        'Pkg-Spider-GUI Start...'
       )
       ParentFont = False
       PopupMenu = PopupMenuDebug
