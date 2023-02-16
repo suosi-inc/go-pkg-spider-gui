@@ -86,7 +86,7 @@ implementation
 
 procedure TFormMain.ToolBtnDebugClick(Sender: TObject);
 begin
-  if ToolBtnDebug.Down then
+  if PanelDebug.Visible = False then
      begin
         SplitterDebug.Visible:=True;
         PanelDebug.Visible:=True;
