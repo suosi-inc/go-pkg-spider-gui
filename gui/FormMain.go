@@ -3,7 +3,6 @@ package gui
 
 import (
 	_ "embed"
-
 	"github.com/ying32/govcl/vcl"
 )
 
@@ -44,7 +43,6 @@ type TFormMain struct {
 	CheckRequestRedirect   *vcl.TCheckBox
 	LabelRequestProxy      *vcl.TLabel
 	EditRequestProxy       *vcl.TEdit
-	BtnRequestExample      *vcl.TButton
 	BtnRequestDefault      *vcl.TButton
 	EditRequestRedirect    *vcl.TSpinEdit
 	EditRequestLength      *vcl.TEdit
@@ -59,8 +57,14 @@ type TFormMain struct {
 	PopupMenuDebug         *vcl.TPopupMenu
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
+	CheckRequestClean      *vcl.TCheckBox
+	LabelRequestTimeout    *vcl.TLabel
+	EditRequestTimeout     *vcl.TEdit
+	ImageListIcon          *vcl.TImageList
+	BtnRequestTipProxy     *vcl.TSpeedButton
+	BtnRequestTipHeader    *vcl.TSpeedButton
 
-	// ::private::
+	//::private::
 	TFormMainFields
 }
 

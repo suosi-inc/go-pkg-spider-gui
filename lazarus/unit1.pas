@@ -15,17 +15,20 @@ type
   TFormMain = class(TForm)
     BtnRequest: TButton;
     BtnRequestDefault: TButton;
-    BtnRequestExample: TButton;
+    CheckRequestClean: TCheckBox;
     CheckRequestCharset: TCheckBox;
     CheckRequestType: TCheckBox;
     CheckRequestRedirect: TCheckBox;
+    EditRequestTimeout: TEdit;
     EditRequestLength: TEdit;
     EditRequestProxy: TEdit;
     EditRequestType: TEdit;
     EditRequestUa: TEdit;
     EditRequestUrl: TEdit;
     GroupBoxRequest: TGroupBox;
+    ImageListIcon: TImageList;
     ImageListToolBar: TImageList;
+    LabelRequestTimeout: TLabel;
     LabelRequestProxy: TLabel;
     LabelRequestType: TLabel;
     LabelRequestRedirect: TLabel;
@@ -44,6 +47,8 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     EditRequestRedirect: TSpinEdit;
+    BtnRequestTipProxy: TSpeedButton;
+    BtnRequestTipHeader: TSpeedButton;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     TabSheetContent: TTabSheet;
@@ -63,6 +68,9 @@ type
     ToolBtnSplit5: TToolButton;
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
+    procedure BtnRequestClick(Sender: TObject);
+    procedure BtnRequestDefaultClick(Sender: TObject);
+    procedure BtnRequestExampleClick(Sender: TObject);
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
@@ -129,6 +137,21 @@ begin
          EditRequestRedirect.Enabled:=True;
          EditRequestRedirect.EditorEnabled:=True;
     end;
+end;
+
+procedure TFormMain.BtnRequestDefaultClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnRequestClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnRequestExampleClick(Sender: TObject);
+begin
+
 end;
 
 end.
