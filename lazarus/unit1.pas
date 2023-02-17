@@ -71,6 +71,8 @@ type
     procedure BtnRequestClick(Sender: TObject);
     procedure BtnRequestDefaultClick(Sender: TObject);
     procedure BtnRequestExampleClick(Sender: TObject);
+    procedure BtnRequestTipHeaderClick(Sender: TObject);
+    procedure BtnRequestTipProxyClick(Sender: TObject);
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
@@ -150,6 +152,16 @@ begin
 end;
 
 procedure TFormMain.BtnRequestExampleClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnRequestTipHeaderClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnRequestTipProxyClick(Sender: TObject);
 begin
 
 end;

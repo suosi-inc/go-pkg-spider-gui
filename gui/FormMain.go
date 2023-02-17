@@ -46,6 +46,11 @@ type TFormMain struct {
 	BtnRequestDefault      *vcl.TButton
 	EditRequestRedirect    *vcl.TSpinEdit
 	EditRequestLength      *vcl.TEdit
+	CheckRequestClean      *vcl.TCheckBox
+	LabelRequestTimeout    *vcl.TLabel
+	EditRequestTimeout     *vcl.TEdit
+	BtnRequestTipProxy     *vcl.TSpeedButton
+	BtnRequestTipHeader    *vcl.TSpeedButton
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
 	TabSheetLink           *vcl.TTabSheet
@@ -57,12 +62,7 @@ type TFormMain struct {
 	PopupMenuDebug         *vcl.TPopupMenu
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
-	CheckRequestClean      *vcl.TCheckBox
-	LabelRequestTimeout    *vcl.TLabel
-	EditRequestTimeout     *vcl.TEdit
 	ImageListIcon          *vcl.TImageList
-	BtnRequestTipProxy     *vcl.TSpeedButton
-	BtnRequestTipHeader    *vcl.TSpeedButton
 
 	//::private::
 	TFormMainFields

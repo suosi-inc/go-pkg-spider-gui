@@ -1,8 +1,14 @@
 package gui
 
 import (
+	"bufio"
 	"bytes"
+	"crypto/tls"
 	"html"
+	"net/http"
+	"net/textproto"
+	"net/url"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	spider "github.com/suosi-inc/go-pkg-spider"
@@ -72,15 +78,98 @@ func (f *TFormMain) OnBtnRequestDefaultClick(sender vcl.IObject) {
 
 func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 	f.MemoRequest.SetText("")
-	urlStr := f.EditRequestUrl.Text()
 
+	// Request Url
+	urlStr := f.EditRequestUrl.Text()
+	if fun.Blank(urlStr) {
+		f.Debug("Request Failed : url is empty")
+	}
+
+	req := &spider.HttpReq{
+		HttpReq: &fun.HttpReq{
+			DisableRedirect: true,
+			Headers:         make(map[string]string),
+		},
+		ForceTextContentType: true,
+		DisableCharset:       false,
+	}
+
+	// 超时时间
 	timeout := fun.ToInt(f.EditRequestTimeout.Text())
 	if timeout < 0 {
 		timeout = 30000
 	}
 
+	// UserAgent
+	if !fun.Blank(f.EditRequestUa.Text()) {
+		req.HttpReq.UserAgent = f.EditRequestUa.Text()
+	}
+
+	// ContentType
+	if !f.CheckRequestType.Checked() {
+		if !fun.Blank(f.EditRequestType.Text()) {
+			req.ForceTextContentType = false
+			req.AllowedContentTypes = []string{f.EditRequestType.Text()}
+		}
+	}
+
+	// MaxContentLength
+	contentLength := fun.ToInt64(f.EditRequestLength.Text())
+	if contentLength > 0 {
+		req.HttpReq.MaxContentLength = contentLength
+	}
+
+	// MaxRedirect
+	if !f.CheckRequestRedirect.Checked() {
+		maxRedirect := fun.ToInt(f.EditRequestRedirect.Text())
+		req.DisableRedirect = false
+		req.HttpReq.MaxRedirect = maxRedirect
+	}
+
+	// Headers
+	if !fun.Blank(f.MemoRequestHeader.Text()) {
+		headerText := f.MemoRequestHeader.Text()
+
+		buffer := bytes.NewBufferString(headerText)
+		scanner := bufio.NewScanner(buffer)
+		mimeHeader := textproto.MIMEHeader{}
+		for scanner.Scan() {
+			line := scanner.Text()
+			parts := strings.SplitN(line, ":", 2)
+			if len(parts) == 2 {
+				mimeHeader.Add(strings.TrimSpace(parts[0]), strings.TrimSpace(parts[1]))
+			}
+		}
+
+		headerMap := make(map[string]string, len(mimeHeader))
+		for key, values := range mimeHeader {
+			if len(values) > 0 {
+				headerMap[key] = values[0]
+			}
+		}
+		req.HttpReq.Headers = headerMap
+	}
+
+	// Proxy
+	if !fun.Blank(f.EditRequestProxy.Text()) {
+		transport := &http.Transport{
+			TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
+			DisableKeepAlives: true,
+		}
+		proxyString := f.EditRequestProxy.Text()
+		proxy, _ := url.Parse(proxyString)
+		transport.Proxy = http.ProxyURL(proxy)
+
+		req.HttpReq.Transport = transport
+	}
+
+	// Charset
+	if !f.CheckRequestCharset.Checked() {
+		req.DisableCharset = true
+	}
+
 	start := fun.Timestamp(true)
-	if resp, err := spider.HttpGetResp(urlStr, nil, timeout); err == nil {
+	if resp, err := spider.HttpGetResp(urlStr, req, timeout); err == nil {
 		use := fun.Timestamp(true) - start
 
 		f.Debug("Request Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
@@ -105,4 +194,15 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 
 func (f *TFormMain) Debug(str string) {
 	f.MemoDebug.Append(str)
+}
+
+func (f *TFormMain) OnBtnRequestTipProxyClick(sender vcl.IObject) {
+	f.EditRequestProxy.SetText("http://username:password@host:port")
+}
+
+func (f *TFormMain) OnBtnRequestTipHeaderClick(sender vcl.IObject) {
+	f.MemoRequestHeader.SetText("")
+	f.MemoRequestHeader.Append("X-Header : test-header")
+	f.MemoRequestHeader.Append("Cookie : test-cookie")
+
 }

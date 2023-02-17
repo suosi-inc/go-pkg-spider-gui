@@ -361,7 +361,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 75
-            Width = 115
+            Width = 108
             BorderSpacing.Top = 75
             Caption = '强制为文本类型'
             Checked = True
@@ -402,7 +402,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 195
-            Width = 76
+            Width = 72
             BorderSpacing.Top = 195
             Caption = '禁止跳转'
             OnChange = CheckRequestRedirectChange
@@ -462,12 +462,13 @@ object FormMain: TFormMain
             AnchorSideTop.Control = LabelRequestRedirect
             AnchorSideTop.Side = asrBottom
             Left = 15
-            Height = 22
+            Height = 21
             Top = 216
             Width = 50
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
             MaxValue = 10
+            MinValue = 1
             TabOrder = 8
             Value = 2
           end
@@ -538,6 +539,7 @@ object FormMain: TFormMain
             Images = ImageListIcon
             ImageIndex = 0
             Spacing = 0
+            OnClick = BtnRequestTipProxyClick
           end
           object BtnRequestTipHeader: TSpeedButton
             AnchorSideTop.Control = GroupBoxRequest
@@ -551,6 +553,7 @@ object FormMain: TFormMain
             Flat = True
             Images = ImageListIcon
             ImageIndex = 0
+            OnClick = BtnRequestTipHeaderClick
           end
         end
       end
