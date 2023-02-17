@@ -14,32 +14,26 @@ import (
 type TFormMainFields struct {
 }
 
+// OnToolBtnDebugClick 调试窗口按钮切换
 func (f *TFormMain) OnToolBtnDebugClick(sender vcl.IObject) {
-	// 调试窗口按钮切换
+
 	if !f.PanelDebug.Visible() {
 		f.SplitterDebug.SetVisible(true)
 		f.PanelDebug.SetVisible(true)
-
-		// side := vcl.AsAnchorSide(f.PageControl)
-		// side.SetControl(vcl.AsControl(f.SplitterDebug))
-		// f.MemoDebug.Append(side.ToString())
-		//
-		// f.PageControl.SetAnchorSideBottom(side)
+		f.PageControl.AnchorSideBottom().SetControl(f.SplitterDebug)
 	} else {
 		f.SplitterDebug.SetVisible(false)
 		f.PanelDebug.SetVisible(false)
-
-		// side := vcl.AsAnchorSide(f.PageControl)
-		// side.SetControl(f)
-		//
-		// f.PageControl.SetAnchorSideBottom(side)
+		f.PageControl.AnchorSideBottom().SetControl(f)
 	}
 }
 
+// OnMenuDebugCopyClick 调试窗口复制
 func (f *TFormMain) OnMenuDebugCopyClick(sender vcl.IObject) {
 	f.MemoDebug.CopyToClipboard()
 }
 
+// OnMenuDebugClearClick 调试窗口清除
 func (f *TFormMain) OnMenuDebugClearClick(sender vcl.IObject) {
 	f.MemoDebug.SetText("")
 }
@@ -60,10 +54,6 @@ func (f *TFormMain) OnCheckRequestRedirectChange(sender vcl.IObject) {
 	}
 }
 
-func (f *TFormMain) OnBtnRequestExampleClick(sender vcl.IObject) {
-
-}
-
 func (f *TFormMain) OnBtnRequestDefaultClick(sender vcl.IObject) {
 	f.EditRequestUrl.SetText("https://www.163.com")
 	f.EditRequestUa.SetText("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36")
@@ -81,6 +71,7 @@ func (f *TFormMain) OnBtnRequestDefaultClick(sender vcl.IObject) {
 }
 
 func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
+	f.MemoRequest.SetText("")
 	urlStr := f.EditRequestUrl.Text()
 
 	timeout := fun.ToInt(f.EditRequestTimeout.Text())
