@@ -4,7 +4,7 @@
     <Version Value="12"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="Spider-GUI"/>
+      <Title Value="spider-gui"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -18,6 +18,7 @@
       <OutputPath Value="$Path($ProjectFile())../"/>
       <PackageName Value="gui"/>
       <UseDefaultWinAppRes Value="True"/>
+      <GoUseTempdll Value="True"/>
       <GoBuildMode Value="exe"/>
       <GoRoot Value="D:\Program\Go"/>
       <GoUseEmbed Value="True"/>

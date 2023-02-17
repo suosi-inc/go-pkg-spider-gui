@@ -4,10 +4,13 @@ import (
 	"bufio"
 	"bytes"
 	"crypto/tls"
+	"fmt"
 	"html"
 	"net/http"
 	"net/textproto"
 	"net/url"
+	"os/exec"
+	"runtime"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -29,6 +32,8 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 	if fun.Blank(urlStr) {
 		f.Debug("Request Failed : url is empty")
 	}
+
+	f.OpenBrowser(urlStr)
 
 	req := &spider.HttpReq{
 		HttpReq: &fun.HttpReq{
@@ -203,5 +208,22 @@ func (f *TFormMain) OnCheckRequestRedirectChange(sender vcl.IObject) {
 		f.EditRequestRedirect.SetEnabled(false)
 	} else {
 		f.EditRequestRedirect.SetEnabled(true)
+	}
+}
+
+func (f *TFormMain) OpenBrowser(urlStr string) {
+	var err error
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", urlStr).Start()
+	case "windows":
+		err = exec.Command("cmd", "/c", "start", urlStr).Start()
+	case "darwin":
+		err = exec.Command("open", urlStr).Start()
+	default:
+		err = fmt.Errorf("unsupported platform")
+	}
+	if err != nil {
+		fmt.Printf("Error: %v", err)
 	}
 }
