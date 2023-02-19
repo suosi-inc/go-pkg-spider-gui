@@ -149,11 +149,11 @@ object FormMain: TFormMain
         Left = 0
         Height = 719
         Top = 0
-        Width = 795
+        Width = 760
         Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
         ClientHeight = 719
-        ClientWidth = 795
+        ClientWidth = 760
         ParentColor = False
         TabOrder = 0
         object MemoRequest: TMemo
@@ -166,7 +166,7 @@ object FormMain: TFormMain
           Left = 10
           Height = 709
           Top = 5
-          Width = 775
+          Width = 740
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 5
@@ -185,14 +185,14 @@ object FormMain: TFormMain
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
-        Left = 798
+        Left = 763
         Height = 719
         Top = 0
-        Width = 594
+        Width = 629
         Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
         ClientHeight = 719
-        ClientWidth = 594
+        ClientWidth = 629
         ParentColor = False
         TabOrder = 1
         object LabelRequestUrl: TLabel
@@ -214,7 +214,7 @@ object FormMain: TFormMain
           Left = 73
           Height = 25
           Top = 16
-          Width = 436
+          Width = 441
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 16
@@ -224,19 +224,37 @@ object FormMain: TFormMain
         end
         object BtnRequest: TButton
           AnchorSideTop.Control = PanelRequestController
-          AnchorSideRight.Control = PanelRequestController
-          AnchorSideRight.Side = asrBottom
+          AnchorSideRight.Control = BtnRequestLink
           Cursor = crHandPoint
-          Left = 519
+          Left = 524
           Height = 27
           Top = 16
           Width = 60
           Anchors = [akTop, akRight]
           BorderSpacing.Top = 16
-          BorderSpacing.Right = 15
+          BorderSpacing.Right = 10
           Caption = '运行'
           OnClick = BtnRequestClick
           TabOrder = 1
+        end
+        object BtnRequestLink: TSpeedButton
+          AnchorSideTop.Control = PanelRequestController
+          AnchorSideRight.Control = PanelRequestController
+          AnchorSideRight.Side = asrBottom
+          Cursor = crHandPoint
+          Left = 594
+          Height = 20
+          Top = 20
+          Width = 20
+          Anchors = [akTop, akRight]
+          BorderSpacing.Top = 20
+          BorderSpacing.Right = 15
+          Flat = True
+          Images = ImageListIcon
+          ImageIndex = 1
+          Spacing = 0
+          OnClick = BtnRequestLinkClick
+          ShowCaption = False
         end
         object GroupBoxRequest: TGroupBox
           AnchorSideLeft.Control = PanelRequestController
@@ -248,14 +266,14 @@ object FormMain: TFormMain
           Left = 15
           Height = 649
           Top = 55
-          Width = 564
+          Width = 599
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 15
           BorderSpacing.Top = 55
           BorderSpacing.Right = 15
           BorderSpacing.Bottom = 15
           ClientHeight = 627
-          ClientWidth = 560
+          ClientWidth = 595
           ParentFont = False
           TabOrder = 2
           object LabelRequestUa: TLabel
@@ -278,7 +296,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 25
             Top = 37
-            Width = 530
+            Width = 565
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
@@ -317,7 +335,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 25
             Top = 97
-            Width = 530
+            Width = 565
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 5
@@ -343,10 +361,10 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 15
             Height = 23
-            Top = 505
+            Top = 510
             Width = 150
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 505
+            BorderSpacing.Top = 510
             Caption = '编码自动转换 (UTF-8)'
             Checked = True
             Font.Height = -13
@@ -376,7 +394,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 100
             Top = 340
-            Width = 530
+            Width = 565
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 8
@@ -428,7 +446,7 @@ object FormMain: TFormMain
             Height = 25
             Hint = 'asdfasdf'
             Top = 475
-            Width = 530
+            Width = 565
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 8
@@ -447,11 +465,11 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 15
             Height = 27
-            Top = 586
+            Top = 581
             Width = 74
             AutoSize = True
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 30
+            BorderSpacing.Top = 20
             Caption = '默认参数'
             OnClick = BtnRequestDefaultClick
             TabOrder = 4
@@ -491,10 +509,10 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 15
             Height = 21
-            Top = 535
+            Top = 540
             Width = 106
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 535
+            BorderSpacing.Top = 540
             Caption = '标签清理格式化'
             Checked = True
             State = cbChecked
@@ -539,6 +557,7 @@ object FormMain: TFormMain
             ImageIndex = 0
             Spacing = 0
             OnClick = BtnRequestTipProxyClick
+            ShowCaption = False
           end
           object BtnRequestTipHeader: TSpeedButton
             AnchorSideTop.Control = GroupBoxRequest
@@ -553,6 +572,7 @@ object FormMain: TFormMain
             Images = ImageListIcon
             ImageIndex = 0
             OnClick = BtnRequestTipHeaderClick
+            ShowCaption = False
           end
         end
       end
@@ -561,7 +581,7 @@ object FormMain: TFormMain
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = TabSheetRequest
         AnchorSideBottom.Side = asrBottom
-        Left = 795
+        Left = 760
         Height = 719
         Top = 0
         Width = 3
@@ -649,7 +669,7 @@ object FormMain: TFormMain
   object ImageListToolBar: TImageList
     Height = 24
     Width = 24
-    Left = 1088
+    Left = 1120
     Bitmap = {
       4C7A060000001800000018000000AA0C00000000000078DAED5A7B7054D519DF
       F76EF67537FB7E25FB4C484208E115B465AA40D0009542ADF8A86065DA2253B0
@@ -756,7 +776,7 @@ object FormMain: TFormMain
     }
   end
   object PopupMenuDebug: TPopupMenu
-    Left = 1200
+    Left = 1240
     object MenuDebugCopy: TMenuItem
       Caption = '复制全部'
       OnClick = MenuDebugCopyClick
@@ -768,25 +788,38 @@ object FormMain: TFormMain
   end
   object ImageListIcon: TImageList
     ImageType = itMask
-    Left = 984
+    Left = 1000
     Bitmap = {
-      4C7A010000001000000010000000070200000000000078DA7592C96B14411487
-      2B2709E62EFE051EBC292E28A246C7C1436660D299A56BE9EA096E7F8DA0A817
-      BD6410940931871CC49B8A07EF8A092AB820264410A21E43FBBDEAAE90347AF8
-      A8AAD7EFF7B67EC668E59C55D69A00F753D6DA05E7F437DE1BB00EDFB18F8D31
-      97B5D62ACBACE2AEB4369C7BF4B7B8179CCB70039AD030C65E25E608DF6DDE8F
-      D1EFFB877E11DBA6F897B1EC1E2A9F639C1FE025BE93A2B756F4E626756DF03E
-      18FBA818C14AD557C0FB6C2ACFFDC72C730FA517388ABEA0C6F35293F8567689
-      DD012D39C4DEEFF742BDADD6CC61EEC570389C49537D87B82BCE65CCC5ED684B
-      BD49886D20CC6C76B6A31A8D869A9EBEA07ABDEE7DEFDD53BE7D26F7F5D8A7D4
-      1041FF097E97F59731BADDAE4A92440D06FD01B63FB0454D89D425D4FA7F056B
-      BB6D52233390599CE0BD4A9E2DE71C753A25D4F4CFE1CD7FF4C779BF03EA37D7
-      6ABAC80B78BB6BB7A46F353717EAEFF3FE85F62EF35D8EF5D77AD8D18B56E6D7
-      6C5E62861725CE3DEFFD33ADD393C428BCD767D859F47167827E1536633C7286
-      B3DD6E1D4AD34191E77907BD686E7B9FB2EBFA404D3FAA7639E497DEE7E787FB
-      C9F71EDDB8DC9554FC27B0D183598773F13F56BB5911621E21C61AFBF7DA7B3B
-      55EE491AFFFB04FECC22ECE2B8DC0973164EC31578407FDBCC6709CD247A55D3
-      C79AC9AF1F91F307F6AFBCBF70FF89ED09B4C5C7985445FD5FF3F35B3C
+      4C7A020000001000000010000000A60300000000000078DA8D92CB6B55571487
+      7728D498E601EDC0C74071E24DC8EBE671AF498C985A93700DDE40BCDE24E7EC
+      73EEB9115BFD131C75D04E1C88A0A808299446C190522DA4681DF5817D0DC481
+      62E20B1F889108E20B47F1F45BE79E1D8E871BDAC18FBDF75AEB5B7BEDB597D6
+      B6725D47398E0EC4BEC7719CEF5CD77ECCF9295A404FB0CF68AD33B66DAB42C1
+      51EC956D6BD6F7F863EC7DD60BE8201A44FD5A3B9F93738AD825CED3F0ABCAF0
+      DF635B94F8522EE73D853129D63BE87762570BEF38C2EBA3D4F594F33AF38E50
+      5368367C5720CF2B54178BDEDD42C13D2B6F411DF03E357E2A35496C6897DC23
+      C8963BC43E36361AD49BCDEE6E64EF4F4C4CECB62CFB0479675DB7405FDC65B6
+      C4EB1CB9350A7AB667CF88EAEFEF573B767CA64647F3939EE75EC2F780BB0F98
+      774A0D46F0F7D1EB52FDA51CF97C5EE57239353E3E368EED0D7A494D39A94B14
+      7BFF15341FB5498DF4407AB185F31CF7BC745D973A5D258AF1BFA2EB2BF069CE
+      3711F5EB2F629CD16FE84664B6E4DD6AEFDEA0FE31CEAF604FD2DF0BA6FED81B
+      967961A57F838303F470A7E439E579DE65DBB6BAC8E17B9EBD8D9985373313F0
+      7368D1E4E3CE601D1ECE262C6BDC2F168B23F0C21CF73C8B59B7D7C4F8A97096
+      83FBE5EDFBF64D7CC47DB7E1664AB362497C0536DEA017509FF9C77036430539
+      DBC931CFFCFDED794E75694E2CF3EF15C4D38B6016674A33A1B7A3AD683FFA86
+      F72DD19F1F6056C3AB186F6AE67EFB1C773EC3FE88F343F6CFB19D47C312A3B5
+      A50C5F5353A3BABBBB556767A7EAE8E808D66432A91A1A1A02C95E6CEDEDEDE2
+      9F456FD08BDEDEDE2F6B6B6BFF2FFF21BE57E4B88732A9544AA7D3693F91481C
+      5E89AFAFAF57F8556B6BEB46E2DFC25D6D6969598EE1BCABABABCB8FF322A955
+      6261E5FC23BEDB6293B3AC92BFADADED63F66579B3E75E890B1891EC459287F5
+      17626E95E351259A4673C4FE04DB277E13C379921AFC8181810D65F8B5E81DBA
+      89ED10354C13FF98FBEA42FFA4D4DDDCDCBC79686828DEFF4F908F7E967AC516
+      BEA13AECC569F1E3DB0CAF32994C94AF0C7D7F0863FA18E9C991D09F941E18BE
+      AAAA4AF84AFC4BF8FF8AC4CFB39E4145743164D3A68F86AFABABFB00FE05FE7F
+      4C9FE94D05315974855AEE4B4DD83645FFC1F0D82F615B109BB9DBFC99BC59FE
+      3AFAF7715EE6102619F93B53FF7962FF943861659ECAF1F87C6ACC9B9E85FA16
+      DE27AE4FD8C6C6C620DEF434CAF7F4F47C2DFF896F04A5D065E9157C42E2E4DE
+      A6A6A615F96C362BFEAFB03F8359C4770DAD37B3FB5FFCBF3A6627C1
     }
   end
 end

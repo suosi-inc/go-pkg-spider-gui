@@ -49,6 +49,7 @@ type
     EditRequestRedirect: TSpinEdit;
     BtnRequestTipProxy: TSpeedButton;
     BtnRequestTipHeader: TSpeedButton;
+    BtnRequestLink: TSpeedButton;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     TabSheetContent: TTabSheet;
@@ -71,6 +72,7 @@ type
     procedure BtnRequestClick(Sender: TObject);
     procedure BtnRequestDefaultClick(Sender: TObject);
     procedure BtnRequestExampleClick(Sender: TObject);
+    procedure BtnRequestLinkClick(Sender: TObject);
     procedure BtnRequestTipHeaderClick(Sender: TObject);
     procedure BtnRequestTipProxyClick(Sender: TObject);
     procedure CheckRequestRedirectChange(Sender: TObject);
@@ -152,6 +154,11 @@ begin
 end;
 
 procedure TFormMain.BtnRequestExampleClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnRequestLinkClick(Sender: TObject);
 begin
 
 end;

@@ -33,8 +33,6 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 		f.Debug("Request Failed : url is empty")
 	}
 
-	f.OpenBrowser(urlStr)
-
 	req := &spider.HttpReq{
 		HttpReq: &fun.HttpReq{
 			DisableRedirect: true,
@@ -143,7 +141,9 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 }
 
 func (f *TFormMain) Debug(str string) {
-	f.MemoDebug.Append(str)
+	if f.PanelDebug.Visible() {
+		f.MemoDebug.Append(str)
+	}
 }
 
 // OnBtnRequestDefaultClick 请求测试功能默认参数
@@ -175,7 +175,6 @@ func (f *TFormMain) OnBtnRequestTipHeaderClick(sender vcl.IObject) {
 
 // OnToolBtnDebugClick 调试窗口按钮切换
 func (f *TFormMain) OnToolBtnDebugClick(sender vcl.IObject) {
-
 	if !f.PanelDebug.Visible() {
 		f.SplitterDebug.SetVisible(true)
 		f.PanelDebug.SetVisible(true)
@@ -226,4 +225,13 @@ func (f *TFormMain) OpenBrowser(urlStr string) {
 	if err != nil {
 		fmt.Printf("Error: %v", err)
 	}
+}
+
+func (f *TFormMain) OnBtnRequestLinkClick(sender vcl.IObject) {
+	urlStr := f.EditRequestUrl.Text()
+	if fun.Blank(urlStr) {
+		f.Debug("Request Failed : url is empty")
+	}
+
+	f.OpenBrowser(urlStr)
 }
