@@ -5,8 +5,8 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ComCtrls,
-  StdCtrls, Menus, Buttons, Spin;
+  Classes, SysUtils, mysql80conn, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, ListFilterEdit;
 
 type
 
@@ -36,6 +36,7 @@ type
     LabelRequestUa: TLabel;
     LabelRequestLength: TLabel;
     LabelRequestUrl: TLabel;
+    ListFilterEdit1: TListFilterEdit;
     MemoRequestHeader: TMemo;
     MemoRequest: TMemo;
     MemoDebug: TMemo;
@@ -170,6 +171,7 @@ procedure TFormMain.MenuDebugCopyClick(Sender: TObject);
 begin
   MemoDebug.CopyToClipboard;
 end;
+
 
 procedure TFormMain.MenuDebugClearClick(Sender: TObject);
 begin
