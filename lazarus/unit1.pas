@@ -36,7 +36,6 @@ type
     LabelRequestUa: TLabel;
     LabelRequestLength: TLabel;
     LabelRequestUrl: TLabel;
-    ListFilterEdit1: TListFilterEdit;
     MemoRequestHeader: TMemo;
     MemoRequest: TMemo;
     MemoDebug: TMemo;
