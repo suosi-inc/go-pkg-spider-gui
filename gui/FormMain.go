@@ -29,6 +29,7 @@ type TFormMain struct {
 	LabelRequestUrl        *vcl.TLabel
 	EditRequestUrl         *vcl.TEdit
 	BtnRequest             *vcl.TButton
+	BtnRequestLink         *vcl.TSpeedButton
 	GroupBoxRequest        *vcl.TGroupBox
 	LabelRequestUa         *vcl.TLabel
 	EditRequestUa          *vcl.TEdit
@@ -55,6 +56,8 @@ type TFormMain struct {
 	TabSheetDomain         *vcl.TTabSheet
 	TabSheetLink           *vcl.TTabSheet
 	TabSheetContent        *vcl.TTabSheet
+	TabSheetTool           *vcl.TTabSheet
+	PanelTool              *vcl.TPanel
 	SplitterDebug          *vcl.TSplitter
 	PanelDebug             *vcl.TPanel
 	MemoDebug              *vcl.TMemo
@@ -63,7 +66,9 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	BtnRequestLink         *vcl.TSpeedButton
+	PanelContent           *vcl.TPanel
+	PanelLink              *vcl.TPanel
+	PanelDomain            *vcl.TPanel
 
 	//::private::
 	TFormMainFields

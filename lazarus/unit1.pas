@@ -42,6 +42,10 @@ type
     MenuDebugCopy: TMenuItem;
     MenuDebugClear: TMenuItem;
     PageControl: TPageControl;
+    PanelDomain: TPanel;
+    PanelLink: TPanel;
+    PanelContent: TPanel;
+    PanelTool: TPanel;
     PanelRequestView: TPanel;
     PanelRequestController: TPanel;
     PanelDebug: TPanel;
@@ -52,6 +56,7 @@ type
     BtnRequestLink: TSpeedButton;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
+    TabSheetTool: TTabSheet;
     TabSheetContent: TTabSheet;
     TabSheetLink: TTabSheet;
     TabSheetDomain: TTabSheet;
@@ -79,7 +84,13 @@ type
     procedure CheckRequestTypeChange(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
+    procedure ToolBtnContentClick(Sender: TObject);
     procedure ToolBtnDebugClick(Sender: TObject);
+    procedure ToolBtnDomainClick(Sender: TObject);
+    procedure ToolBtnLinkClick(Sender: TObject);
+    procedure ToolBtnRequestClick(Sender: TObject);
+    procedure ToolBtnToolClick(Sender: TObject);
+    procedure RemoveToolBtnDown(Sender: TObject);
   private
 
   public
@@ -109,6 +120,50 @@ begin
         PanelDebug.Visible:=False;
         PageControl.AnchorSideBottom.Control:=FormMain;
      end;
+end;
+
+procedure TFormMain.ToolBtnRequestClick(Sender: TObject);
+begin
+     RemoveToolBtnDown(Sender);
+     ToolBtnRequest.Down:=True;
+     PageControl.ActivePageIndex:=0;
+end;
+
+procedure TFormMain.ToolBtnDomainClick(Sender: TObject);
+begin
+    RemoveToolBtnDown(Sender);
+    ToolBtnDomain.Down:=True;
+    PageControl.ActivePageIndex:=1;
+end;
+
+procedure TFormMain.ToolBtnLinkClick(Sender: TObject);
+begin
+    RemoveToolBtnDown(Sender);
+    ToolBtnLink.Down:=True;
+    PageControl.ActivePageIndex:=2;
+end;
+
+procedure TFormMain.ToolBtnContentClick(Sender: TObject);
+begin
+    RemoveToolBtnDown(Sender);
+    ToolBtnContent.Down:=True;
+    PageControl.ActivePageIndex:=3;
+end;
+
+procedure TFormMain.ToolBtnToolClick(Sender: TObject);
+begin
+   RemoveToolBtnDown(Sender);
+   ToolBtnTool.Down:=True;
+   PageControl.ActivePageIndex:=4;
+end;
+
+procedure TFormMain.RemoveToolBtnDown(Sender: TObject);
+begin
+   ToolBtnRequest.Down:=False;
+   ToolBtnDomain.Down:=False;
+   ToolBtnLink.Down:=False;
+   ToolBtnContent.Down:=False;
+   ToolBtnTool.Down:=False;
 end;
 
 procedure TFormMain.MenuDebugCopyClick(Sender: TObject);

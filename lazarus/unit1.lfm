@@ -3,7 +3,7 @@ object FormMain: TFormMain
   Height = 850
   Top = 68
   Width = 1400
-  Caption = 'spider-gui'
+  Caption = 'Spider-gui'
   ClientHeight = 850
   ClientWidth = 1400
   Position = poDesktopCenter
@@ -42,6 +42,7 @@ object FormMain: TFormMain
       Caption = '请求测试'
       Down = True
       ImageIndex = 0
+      OnClick = ToolBtnRequestClick
       Style = tbsCheck
     end
     object ToolBtnSplit2: TToolButton
@@ -56,6 +57,7 @@ object FormMain: TFormMain
       Top = 0
       Caption = '域名探测'
       ImageIndex = 1
+      OnClick = ToolBtnDomainClick
       Style = tbsCheck
     end
     object ToolBtnSplit3: TToolButton
@@ -71,6 +73,7 @@ object FormMain: TFormMain
       Top = 0
       Caption = '链接提取'
       ImageIndex = 2
+      OnClick = ToolBtnLinkClick
       Style = tbsCheck
     end
     object ToolBtnSplit4: TToolButton
@@ -86,6 +89,7 @@ object FormMain: TFormMain
       Top = 0
       Caption = '新闻提取'
       ImageIndex = 3
+      OnClick = ToolBtnContentClick
       Style = tbsCheck
     end
     object ToolBtnSplit5: TToolButton
@@ -101,6 +105,7 @@ object FormMain: TFormMain
       Top = 0
       Caption = '辅助工具'
       ImageIndex = 4
+      OnClick = ToolBtnToolClick
       Style = tbsCheck
     end
     object ToolBtnSplit6: TToolButton
@@ -594,12 +599,65 @@ object FormMain: TFormMain
     end
     object TabSheetDomain: TTabSheet
       Caption = 'TabSheetDomain'
+      ClientHeight = 719
+      ClientWidth = 1392
+      object PanelDomain: TPanel
+        Left = 532
+        Height = 50
+        Top = 276
+        Width = 170
+        Caption = 'PanelDomain'
+        TabOrder = 0
+      end
     end
     object TabSheetLink: TTabSheet
       Caption = 'TabSheetLink'
+      ClientHeight = 719
+      ClientWidth = 1392
+      object PanelLink: TPanel
+        Left = 545
+        Height = 50
+        Top = 348
+        Width = 170
+        Caption = 'PanelLink'
+        TabOrder = 0
+      end
     end
     object TabSheetContent: TTabSheet
       Caption = 'TabSheetContent'
+      ClientHeight = 719
+      ClientWidth = 1392
+      object PanelContent: TPanel
+        Left = 522
+        Height = 50
+        Top = 265
+        Width = 170
+        BevelOuter = bvNone
+        Caption = 'PanelContent'
+        TabOrder = 0
+      end
+    end
+    object TabSheetTool: TTabSheet
+      Caption = 'TabSheetTool'
+      ClientHeight = 719
+      ClientWidth = 1392
+      object PanelTool: TPanel
+        AnchorSideLeft.Control = TabSheetTool
+        AnchorSideTop.Control = TabSheetTool
+        AnchorSideRight.Control = TabSheetTool
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheetTool
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 719
+        Top = 0
+        Width = 1392
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BevelOuter = bvNone
+        Caption = 'PanelTool'
+        ParentColor = False
+        TabOrder = 0
+      end
     end
   end
   object SplitterDebug: TSplitter
@@ -658,7 +716,7 @@ object FormMain: TFormMain
       Font.Height = -12
       Font.Quality = fqCleartypeNatural
       Lines.Strings = (
-        'Pkg-Spider-GUI Start...'
+        'spider-gui start'
       )
       ParentFont = False
       PopupMenu = PopupMenuDebug

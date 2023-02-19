@@ -235,3 +235,41 @@ func (f *TFormMain) OnBtnRequestLinkClick(sender vcl.IObject) {
 
 	f.OpenBrowser(urlStr)
 }
+
+func (f *TFormMain) OnToolBtnRequestClick(sender vcl.IObject) {
+	f.RemoveToolBtnDown()
+	f.ToolBtnRequest.SetDown(true)
+	f.PageControl.SetActivePageIndex(0)
+}
+
+func (f *TFormMain) OnToolBtnDomainClick(sender vcl.IObject) {
+	f.RemoveToolBtnDown()
+	f.ToolBtnDomain.SetDown(true)
+	f.PageControl.SetActivePageIndex(1)
+}
+
+func (f *TFormMain) OnToolBtnLinkClick(sender vcl.IObject) {
+	f.RemoveToolBtnDown()
+	f.ToolBtnLink.SetDown(true)
+	f.PageControl.SetActivePageIndex(2)
+}
+
+func (f *TFormMain) OnToolBtnContentClick(sender vcl.IObject) {
+	f.RemoveToolBtnDown()
+	f.ToolBtnContent.SetDown(true)
+	f.PageControl.SetActivePageIndex(3)
+}
+
+func (f *TFormMain) OnToolBtnToolClick(sender vcl.IObject) {
+	f.RemoveToolBtnDown()
+	f.ToolBtnTool.SetDown(true)
+	f.PageControl.SetActivePageIndex(4)
+}
+
+func (f *TFormMain) RemoveToolBtnDown() {
+	f.ToolBtnRequest.SetDown(false)
+	f.ToolBtnDomain.SetDown(false)
+	f.ToolBtnLink.SetDown(false)
+	f.ToolBtnContent.SetDown(false)
+	f.ToolBtnTool.SetDown(false)
+}
