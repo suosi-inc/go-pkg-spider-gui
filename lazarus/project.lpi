@@ -14,6 +14,7 @@
       <Icon Value="0"/>
     </General>
     <Res2go>
+      <Enabled Value="True"/>
       <OutputPath Value="$Path($ProjectFile())../"/>
       <PackageName Value="gui"/>
       <UseDefaultWinAppRes Value="True"/>
