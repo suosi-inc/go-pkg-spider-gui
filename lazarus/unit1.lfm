@@ -233,10 +233,10 @@ object FormMain: TFormMain
           Cursor = crHandPoint
           Left = 528
           Height = 27
-          Top = 16
+          Top = 14
           Width = 60
           Anchors = [akTop, akRight]
-          BorderSpacing.Top = 16
+          BorderSpacing.Top = 14
           BorderSpacing.Right = 10
           Caption = '运行'
           OnClick = BtnRequestClick
@@ -249,10 +249,10 @@ object FormMain: TFormMain
           Cursor = crHandPoint
           Left = 598
           Height = 20
-          Top = 20
+          Top = 18
           Width = 20
           Anchors = [akTop, akRight]
-          BorderSpacing.Top = 20
+          BorderSpacing.Top = 18
           BorderSpacing.Right = 15
           Flat = True
           Images = ImageListIcon
@@ -651,10 +651,10 @@ object FormMain: TFormMain
             AnchorSideTop.Control = GroupBoxLink
             Left = 15
             Height = 16
-            Top = 45
+            Top = 35
             Width = 116
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 45
+            BorderSpacing.Top = 35
             Caption = '超时时间（毫秒）：'
           end
           object EditLinkTimeout: TEdit
@@ -663,10 +663,10 @@ object FormMain: TFormMain
             AnchorSideTop.Control = GroupBoxLink
             Left = 141
             Height = 22
-            Top = 40
+            Top = 30
             Width = 80
             BorderSpacing.Left = 10
-            BorderSpacing.Top = 40
+            BorderSpacing.Top = 30
             NumbersOnly = True
             TabOrder = 0
             Text = '30000'
@@ -677,10 +677,10 @@ object FormMain: TFormMain
             AnchorSideTop.Control = GroupBoxLink
             Left = 251
             Height = 16
-            Top = 45
+            Top = 35
             Width = 63
             BorderSpacing.Left = 30
-            BorderSpacing.Top = 45
+            BorderSpacing.Top = 35
             Caption = '重试次数：'
           end
           object CheckLinkStrictDomain: TCheckBox
@@ -690,10 +690,10 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 409
             Height = 18
-            Top = 43
+            Top = 33
             Width = 72
             BorderSpacing.Left = 30
-            BorderSpacing.Top = 43
+            BorderSpacing.Top = 33
             Caption = '域名限制'
             Checked = True
             State = cbChecked
@@ -704,10 +704,10 @@ object FormMain: TFormMain
             AnchorSideTop.Control = GroupBoxLink
             Left = 15
             Height = 16
-            Top = 15
+            Top = 5
             Width = 63
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 15
+            BorderSpacing.Top = 5
             Caption = '请求地址：'
           end
           object EditLinkUrl: TEdit
@@ -717,11 +717,11 @@ object FormMain: TFormMain
             AnchorSideRight.Control = BtnLinkRequest
             Left = 93
             Height = 22
-            Top = 10
+            Top = 2
             Width = 1127
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 10
+            BorderSpacing.Top = 2
             BorderSpacing.Right = 15
             TabOrder = 2
             Text = 'https://news.163.com'
@@ -732,10 +732,10 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 1235
             Height = 25
-            Top = 9
+            Top = 1
             Width = 80
             Anchors = [akTop, akRight]
-            BorderSpacing.Top = 9
+            BorderSpacing.Top = 1
             BorderSpacing.Right = 20
             Caption = '运行'
             OnClick = BtnLinkRequestClick
@@ -748,10 +748,10 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Left = 1335
             Height = 20
-            Top = 12
+            Top = 2
             Width = 20
             Anchors = [akTop, akRight]
-            BorderSpacing.Top = 12
+            BorderSpacing.Top = 2
             BorderSpacing.Right = 15
             Flat = True
             Images = ImageListIcon
@@ -760,11 +760,13 @@ object FormMain: TFormMain
           object EditLinkRetry: TSpinEdit
             AnchorSideLeft.Control = LabelLinkRetry
             AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = GroupBoxLink
             Left = 329
             Height = 21
-            Top = 40
+            Top = 30
             Width = 50
             BorderSpacing.Left = 15
+            BorderSpacing.Top = 30
             MaxValue = 10
             MinValue = 1
             TabOrder = 4
@@ -1135,75 +1137,79 @@ object FormMain: TFormMain
         ClientWidth = 1400
         ParentColor = False
         TabOrder = 0
-        object GroupBoxToolDomain: TGroupBox
+        object PanelToolDomain: TPanel
           AnchorSideLeft.Control = PanelTool
           AnchorSideTop.Control = PanelTool
           AnchorSideRight.Control = PanelTool
           AnchorSideRight.Side = asrBottom
           Left = 10
-          Height = 60
-          Top = 0
+          Height = 45
+          Top = 10
           Width = 1380
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
+          BorderSpacing.Top = 10
           BorderSpacing.Right = 10
-          ClientHeight = 41
-          ClientWidth = 1370
+          BevelOuter = bvNone
+          ClientHeight = 45
+          ClientWidth = 1380
+          Color = 14935011
+          ParentColor = False
           TabOrder = 0
           object LabelToolDomain: TLabel
-            AnchorSideLeft.Control = GroupBoxToolDomain
-            AnchorSideTop.Control = GroupBoxToolDomain
+            AnchorSideLeft.Control = PanelToolDomain
+            AnchorSideTop.Control = PanelToolDomain
             Left = 15
             Height = 16
-            Top = 5
+            Top = 15
             Width = 76
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 5
+            BorderSpacing.Top = 15
             Caption = '域名或网址：'
           end
           object EditToolDomain: TEdit
             AnchorSideLeft.Control = LabelToolDomain
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = GroupBoxToolDomain
+            AnchorSideTop.Control = PanelToolDomain
             AnchorSideRight.Control = EditToolDomainResult
             Left = 101
             Height = 22
-            Top = 1
-            Width = 724
+            Top = 10
+            Width = 729
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 10
-            BorderSpacing.Top = 1
+            BorderSpacing.Top = 10
             TabOrder = 0
             Text = 'news.baidu.com'
           end
           object BtnToolDomainRequest: TButton
-            AnchorSideTop.Control = GroupBoxToolDomain
-            AnchorSideRight.Control = GroupBoxToolDomain
+            AnchorSideTop.Control = PanelToolDomain
+            AnchorSideRight.Control = PanelToolDomain
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 1265
+            Left = 1270
             Height = 20
-            Top = 3
+            Top = 10
             Width = 95
             Anchors = [akTop, akRight]
             AutoSize = True
-            BorderSpacing.Top = 3
-            BorderSpacing.Right = 10
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 15
             Caption = '提取主域名'
             OnClick = BtnToolDomainRequestClick
             TabOrder = 1
           end
           object EditToolDomainResult: TEdit
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = GroupBoxToolDomain
+            AnchorSideTop.Control = PanelToolDomain
             AnchorSideRight.Control = BtnToolDomainRequest
-            Left = 845
+            Left = 850
             Height = 22
-            Top = 2
+            Top = 10
             Width = 400
             Anchors = [akTop, akRight]
             BorderSpacing.Left = 20
-            BorderSpacing.Top = 2
+            BorderSpacing.Top = 10
             BorderSpacing.Right = 20
             ReadOnly = True
             TabOrder = 2

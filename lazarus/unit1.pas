@@ -33,7 +33,6 @@ type
     EditRequestType: TEdit;
     EditRequestUa: TEdit;
     EditRequestUrl: TEdit;
-    GroupBoxToolDomain: TGroupBox;
     GroupBoxLink: TGroupBox;
     GroupBoxRequest: TGroupBox;
     ImageListIcon: TImageList;
@@ -57,6 +56,7 @@ type
     MenuDebugClear: TMenuItem;
     PageControl: TPageControl;
     PageControlLink: TPageControl;
+    PanelToolDomain: TPanel;
     PanelDomain: TPanel;
     PanelLink: TPanel;
     PanelContent: TPanel;
