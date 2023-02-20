@@ -136,10 +136,10 @@ object FormMain: TFormMain
     Height = 727
     Top = 52
     Width = 1400
-    ActivePage = TabSheetLink
+    ActivePage = TabSheetTool
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 2
+    TabIndex = 4
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -1161,7 +1161,7 @@ object FormMain: TFormMain
             BorderSpacing.Left = 5
             BorderSpacing.Top = 15
             TabOrder = 0
-            Text = 'www.net.cn'
+            Text = 'news.baidu.com'
           end
           object LabelToolDomain: TLabel
             AnchorSideLeft.Control = GroupBoxToolDomain

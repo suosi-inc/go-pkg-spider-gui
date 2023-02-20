@@ -218,7 +218,7 @@ func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
 		use := fun.Timestamp(true) - start
 
 		f.Debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
-		f.Debug("\tStat : ")
+		f.Debug("\tResult : ")
 
 		f.RenderGridLink(f.GridLinkContent, linkData.LinkRes.Content)
 		f.RenderGridLink(f.GridLinkList, linkData.LinkRes.List)
