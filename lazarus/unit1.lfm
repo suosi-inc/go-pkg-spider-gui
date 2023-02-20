@@ -136,10 +136,10 @@ object FormMain: TFormMain
     Height = 727
     Top = 52
     Width = 1400
-    ActivePage = TabSheetTool
+    ActivePage = TabSheetLink
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 4
+    TabIndex = 2
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -629,6 +629,7 @@ object FormMain: TFormMain
         BevelOuter = bvNone
         ClientHeight = 727
         ClientWidth = 1400
+        ParentColor = False
         TabOrder = 0
         object GroupBoxLink: TGroupBox
           AnchorSideLeft.Control = PanelLink
