@@ -54,8 +54,11 @@ type TFormMain struct {
 	BtnRequestTipHeader    *vcl.TSpeedButton
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
+	PanelDomain            *vcl.TPanel
 	TabSheetLink           *vcl.TTabSheet
+	PanelLink              *vcl.TPanel
 	TabSheetContent        *vcl.TTabSheet
+	PanelContent           *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
 	SplitterDebug          *vcl.TSplitter
@@ -66,9 +69,11 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	PanelContent           *vcl.TPanel
-	PanelLink              *vcl.TPanel
-	PanelDomain            *vcl.TPanel
+	GroupBoxToolDomain     *vcl.TGroupBox
+	EditToolDomain         *vcl.TEdit
+	LabelToolDomain        *vcl.TLabel
+	BtnToolDomainRequest   *vcl.TButton
+	EditToolDomainResult   *vcl.TEdit
 
 	//::private::
 	TFormMainFields

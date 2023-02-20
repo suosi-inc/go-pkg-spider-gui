@@ -15,6 +15,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	spider "github.com/suosi-inc/go-pkg-spider"
+	"github.com/suosi-inc/go-pkg-spider/extract"
 	"github.com/x-funs/go-fun"
 	"github.com/ying32/govcl/vcl"
 )
@@ -31,6 +32,7 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 	urlStr := f.EditRequestUrl.Text()
 	if fun.Blank(urlStr) {
 		f.Debug("Request Failed : url is empty")
+		return
 	}
 
 	req := &spider.HttpReq{
@@ -163,6 +165,25 @@ func (f *TFormMain) OnBtnRequestDefaultClick(sender vcl.IObject) {
 	f.EditRequestTimeout.SetText("30000")
 }
 
+func (f *TFormMain) OnBtnToolDomainRequestClick(sender vcl.IObject) {
+	domain := f.EditToolDomain.Text()
+	if fun.Blank(domain) {
+		f.Debug("DomainTop Failed : domain is empty")
+		return
+	}
+
+	f.Debug("DomainTop : " + domain)
+	var top string
+	if strings.HasPrefix(domain, "http") {
+		top = extract.DomainTopFromUrl(domain)
+	} else {
+		top = extract.DomainTop(domain)
+	}
+
+	f.EditToolDomainResult.SetText(top)
+	f.Debug("\tResult : " + top)
+}
+
 func (f *TFormMain) OnBtnRequestTipProxyClick(sender vcl.IObject) {
 	f.EditRequestProxy.SetText("http://username:password@host:port")
 }
@@ -170,7 +191,6 @@ func (f *TFormMain) OnBtnRequestTipProxyClick(sender vcl.IObject) {
 func (f *TFormMain) OnBtnRequestTipHeaderClick(sender vcl.IObject) {
 	f.MemoRequestHeader.SetText("")
 	f.MemoRequestHeader.Append("X-Header : test-header")
-	f.MemoRequestHeader.Append("Cookie : test-cookie")
 }
 
 // OnToolBtnDebugClick 调试窗口按钮切换
