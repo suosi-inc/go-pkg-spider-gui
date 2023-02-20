@@ -217,8 +217,16 @@ func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
 	if linkData, err := spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
 		use := fun.Timestamp(true) - start
 
+		result := fmt.Sprintf("\tResult : Content(%d), List(%d), Unknown(%d), None(%d), Filters(%d), Subdomains(%d)",
+			len(linkData.LinkRes.Content),
+			len(linkData.LinkRes.List),
+			len(linkData.LinkRes.Unknown),
+			len(linkData.LinkRes.None),
+			len(linkData.Filters),
+			len(linkData.SubDomains),
+		)
 		f.Debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
-		f.Debug("\tResult : ")
+		f.Debug(result)
 
 		f.RenderGridLink(f.GridLinkContent, linkData.LinkRes.Content)
 		f.RenderGridLink(f.GridLinkList, linkData.LinkRes.List)

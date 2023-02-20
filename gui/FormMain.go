@@ -77,7 +77,6 @@ type TFormMain struct {
 	PanelContent           *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
-	GroupBoxToolDomain     *vcl.TGroupBox
 	EditToolDomain         *vcl.TEdit
 	LabelToolDomain        *vcl.TLabel
 	BtnToolDomainRequest   *vcl.TButton
@@ -97,6 +96,7 @@ type TFormMain struct {
 	GridLinkNone           *vcl.TStringGrid
 	GridLinkFilter         *vcl.TStringGrid
 	GridLinkDomain         *vcl.TStringGrid
+	PanelToolDomain        *vcl.TPanel
 
 	//::private::
 	TFormMainFields
