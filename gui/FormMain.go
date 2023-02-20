@@ -96,7 +96,7 @@ type TFormMain struct {
 	GridLinkNone           *vcl.TStringGrid
 	GridLinkFilter         *vcl.TStringGrid
 	GridLinkDomain         *vcl.TStringGrid
-	PanelToolDomain        *vcl.TPanel
+	GroupBoxToolDomain     *vcl.TGroupBox
 
 	//::private::
 	TFormMainFields

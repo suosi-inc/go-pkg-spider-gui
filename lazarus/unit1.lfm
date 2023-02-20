@@ -136,10 +136,10 @@ object FormMain: TFormMain
     Height = 727
     Top = 52
     Width = 1400
-    ActivePage = TabSheetLink
+    ActivePage = TabSheetTool
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 2
+    TabIndex = 4
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -1135,78 +1135,75 @@ object FormMain: TFormMain
         ClientWidth = 1400
         ParentColor = False
         TabOrder = 0
-        object PanelToolDomain: TPanel
+        object GroupBoxToolDomain: TGroupBox
           AnchorSideLeft.Control = PanelTool
           AnchorSideTop.Control = PanelTool
           AnchorSideRight.Control = PanelTool
           AnchorSideRight.Side = asrBottom
           Left = 10
-          Height = 40
-          Top = 10
+          Height = 50
+          Top = 0
           Width = 1380
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
-          BorderSpacing.Top = 10
           BorderSpacing.Right = 10
-          BevelOuter = bvNone
-          ClientHeight = 40
-          ClientWidth = 1380
-          ParentColor = False
+          ClientHeight = 31
+          ClientWidth = 1370
           TabOrder = 0
           object LabelToolDomain: TLabel
-            AnchorSideLeft.Control = PanelToolDomain
-            AnchorSideTop.Control = PanelToolDomain
+            AnchorSideLeft.Control = GroupBoxToolDomain
+            AnchorSideTop.Control = GroupBoxToolDomain
             Left = 15
             Height = 16
-            Top = 15
+            Top = 10
             Width = 76
             BorderSpacing.Left = 15
-            BorderSpacing.Top = 15
+            BorderSpacing.Top = 10
             Caption = '域名或网址：'
           end
           object EditToolDomain: TEdit
             AnchorSideLeft.Control = LabelToolDomain
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = PanelToolDomain
+            AnchorSideTop.Control = GroupBoxToolDomain
             AnchorSideRight.Control = EditToolDomainResult
             Left = 101
             Height = 22
-            Top = 10
-            Width = 729
+            Top = 5
+            Width = 724
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 10
-            BorderSpacing.Top = 10
+            BorderSpacing.Top = 5
             TabOrder = 0
             Text = 'news.baidu.com'
           end
           object BtnToolDomainRequest: TButton
-            AnchorSideTop.Control = PanelToolDomain
-            AnchorSideRight.Control = PanelToolDomain
+            AnchorSideTop.Control = GroupBoxToolDomain
+            AnchorSideRight.Control = GroupBoxToolDomain
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 1270
+            Left = 1265
             Height = 20
-            Top = 10
+            Top = 5
             Width = 95
             Anchors = [akTop, akRight]
             AutoSize = True
-            BorderSpacing.Top = 10
-            BorderSpacing.Right = 15
+            BorderSpacing.Top = 5
+            BorderSpacing.Right = 10
             Caption = '提取主域名'
             OnClick = BtnToolDomainRequestClick
             TabOrder = 1
           end
           object EditToolDomainResult: TEdit
             AnchorSideLeft.Side = asrBottom
-            AnchorSideTop.Control = PanelToolDomain
+            AnchorSideTop.Control = GroupBoxToolDomain
             AnchorSideRight.Control = BtnToolDomainRequest
-            Left = 850
+            Left = 845
             Height = 22
-            Top = 10
+            Top = 5
             Width = 400
             Anchors = [akTop, akRight]
             BorderSpacing.Left = 20
-            BorderSpacing.Top = 10
+            BorderSpacing.Top = 5
             BorderSpacing.Right = 20
             ReadOnly = True
             TabOrder = 2
@@ -1402,7 +1399,7 @@ object FormMain: TFormMain
   end
   object ImageListIcon: TImageList
     ImageType = itMask
-    Left = 992
+    Left = 984
     Bitmap = {
       4C7A020000001000000010000000A60300000000000078DA8D92CB6B55571487
       7728D498E601EDC0C74071E24DC8EBE671AF498C985A93700DDE40BCDE24E7EC
