@@ -9,7 +9,7 @@ import (
 
 func main() {
 	vcl.Application.SetScaled(true)
-	vcl.Application.SetTitle("spider-gui")
+	vcl.Application.SetTitle("Spider-gui")
 	vcl.Application.Initialize()
 	vcl.Application.SetMainFormOnTaskBar(true)
 	vcl.Application.CreateForm(&gui.FormMain)

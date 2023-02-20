@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, mysql80conn, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, ListFilterEdit;
+  ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, Grids,
+  ListFilterEdit;
 
 type
 
@@ -16,10 +17,14 @@ type
     BtnRequest: TButton;
     BtnRequestDefault: TButton;
     BtnToolDomainRequest: TButton;
+    BtnLinkRequest: TButton;
+    CheckLinkStrictDomain: TCheckBox;
     CheckRequestClean: TCheckBox;
     CheckRequestCharset: TCheckBox;
     CheckRequestType: TCheckBox;
     CheckRequestRedirect: TCheckBox;
+    EditLinkTimeout: TEdit;
+    EditLinkUrl: TEdit;
     EditToolDomain: TEdit;
     EditToolDomainResult: TEdit;
     EditRequestTimeout: TEdit;
@@ -28,10 +33,14 @@ type
     EditRequestType: TEdit;
     EditRequestUa: TEdit;
     EditRequestUrl: TEdit;
+    GroupBoxLink: TGroupBox;
     GroupBoxToolDomain: TGroupBox;
     GroupBoxRequest: TGroupBox;
     ImageListIcon: TImageList;
     ImageListToolBar: TImageList;
+    LabelLinkTimeout: TLabel;
+    LabelLinkRetry: TLabel;
+    LabelLinkUrl: TLabel;
     LabelToolDomain: TLabel;
     LabelRequestTimeout: TLabel;
     LabelRequestProxy: TLabel;
@@ -47,6 +56,7 @@ type
     MenuDebugCopy: TMenuItem;
     MenuDebugClear: TMenuItem;
     PageControl: TPageControl;
+    PageControlLink: TPageControl;
     PanelDomain: TPanel;
     PanelLink: TPanel;
     PanelContent: TPanel;
@@ -58,9 +68,23 @@ type
     EditRequestRedirect: TSpinEdit;
     BtnRequestTipProxy: TSpeedButton;
     BtnRequestTipHeader: TSpeedButton;
-    BtnRequestLink: TSpeedButton;
+    BtnRequestOpen: TSpeedButton;
+    BtnLinkOpen: TSpeedButton;
+    EditLinkRetry: TSpinEdit;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
+    GridLinkContent: TStringGrid;
+    GridLinkList: TStringGrid;
+    GridLinkUnknow: TStringGrid;
+    GridLinkNone: TStringGrid;
+    GridLinkFilter: TStringGrid;
+    GridLinkDomain: TStringGrid;
+    TabSheetLinkFilter: TTabSheet;
+    TabSheetLinkDomain: TTabSheet;
+    TabSheetLinkContent: TTabSheet;
+    TabSheetLinkList: TTabSheet;
+    TabSheetLinkUnknow: TTabSheet;
+    TabSheetLinkNone: TTabSheet;
     TabSheetTool: TTabSheet;
     TabSheetContent: TTabSheet;
     TabSheetLink: TTabSheet;
@@ -79,10 +103,11 @@ type
     ToolBtnSplit5: TToolButton;
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
+    procedure BtnLinkRequestClick(Sender: TObject);
     procedure BtnRequestClick(Sender: TObject);
     procedure BtnRequestDefaultClick(Sender: TObject);
     procedure BtnRequestExampleClick(Sender: TObject);
-    procedure BtnRequestLinkClick(Sender: TObject);
+    procedure BtnRequestOpenClick(Sender: TObject);
     procedure BtnRequestTipHeaderClick(Sender: TObject);
     procedure BtnRequestTipProxyClick(Sender: TObject);
     procedure BtnToolDomainRequestClick(Sender: TObject);
@@ -215,12 +240,17 @@ begin
 
 end;
 
+procedure TFormMain.BtnLinkRequestClick(Sender: TObject);
+begin
+
+end;
+
 procedure TFormMain.BtnRequestExampleClick(Sender: TObject);
 begin
 
 end;
 
-procedure TFormMain.BtnRequestLinkClick(Sender: TObject);
+procedure TFormMain.BtnRequestOpenClick(Sender: TObject);
 begin
 
 end;

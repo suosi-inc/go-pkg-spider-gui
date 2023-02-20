@@ -29,7 +29,7 @@ type TFormMain struct {
 	LabelRequestUrl        *vcl.TLabel
 	EditRequestUrl         *vcl.TEdit
 	BtnRequest             *vcl.TButton
-	BtnRequestLink         *vcl.TSpeedButton
+	BtnRequestOpen         *vcl.TSpeedButton
 	GroupBoxRequest        *vcl.TGroupBox
 	LabelRequestUa         *vcl.TLabel
 	EditRequestUa          *vcl.TEdit
@@ -57,10 +57,31 @@ type TFormMain struct {
 	PanelDomain            *vcl.TPanel
 	TabSheetLink           *vcl.TTabSheet
 	PanelLink              *vcl.TPanel
+	GroupBoxLink           *vcl.TGroupBox
+	LabelLinkTimeout       *vcl.TLabel
+	EditLinkTimeout        *vcl.TEdit
+	LabelLinkRetry         *vcl.TLabel
+	CheckLinkStrictDomain  *vcl.TCheckBox
+	LabelLinkUrl           *vcl.TLabel
+	EditLinkUrl            *vcl.TEdit
+	BtnLinkRequest         *vcl.TButton
+	BtnLinkOpen            *vcl.TSpeedButton
+	EditLinkRetry          *vcl.TSpinEdit
+	PageControlLink        *vcl.TPageControl
+	TabSheetLinkContent    *vcl.TTabSheet
+	GridLinkContent        *vcl.TStringGrid
+	TabSheetLinkList       *vcl.TTabSheet
+	TabSheetLinkUnknow     *vcl.TTabSheet
+	TabSheetLinkNone       *vcl.TTabSheet
 	TabSheetContent        *vcl.TTabSheet
 	PanelContent           *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
+	GroupBoxToolDomain     *vcl.TGroupBox
+	EditToolDomain         *vcl.TEdit
+	LabelToolDomain        *vcl.TLabel
+	BtnToolDomainRequest   *vcl.TButton
+	EditToolDomainResult   *vcl.TEdit
 	SplitterDebug          *vcl.TSplitter
 	PanelDebug             *vcl.TPanel
 	MemoDebug              *vcl.TMemo
@@ -69,11 +90,13 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	GroupBoxToolDomain     *vcl.TGroupBox
-	EditToolDomain         *vcl.TEdit
-	LabelToolDomain        *vcl.TLabel
-	BtnToolDomainRequest   *vcl.TButton
-	EditToolDomainResult   *vcl.TEdit
+	TabSheetLinkFilter     *vcl.TTabSheet
+	TabSheetLinkDomain     *vcl.TTabSheet
+	GridLinkList           *vcl.TStringGrid
+	GridLinkUnknow         *vcl.TStringGrid
+	GridLinkNone           *vcl.TStringGrid
+	GridLinkFilter         *vcl.TStringGrid
+	GridLinkDomain         *vcl.TStringGrid
 
 	//::private::
 	TFormMainFields

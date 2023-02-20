@@ -184,6 +184,83 @@ func (f *TFormMain) OnBtnToolDomainRequestClick(sender vcl.IObject) {
 	f.Debug("\tResult : " + top)
 }
 
+func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
+	urlStr := f.EditLinkUrl.Text()
+	if fun.Blank(urlStr) {
+		f.Debug("Request Link Failed : url is empty")
+		return
+	}
+
+	// 超时时间
+	timeout := fun.ToInt(f.EditLinkTimeout.Text())
+	if timeout < 0 {
+		timeout = 30000
+	}
+
+	// 限制域名
+	strictDomain := true
+	if !f.CheckLinkStrictDomain.Checked() {
+		strictDomain = false
+	}
+
+	// 最大重试次数
+	maxRetry := fun.ToInt(f.EditLinkRetry.Text())
+
+	f.ClearStringGrid(f.GridLinkContent, false)
+	f.ClearStringGrid(f.GridLinkList, false)
+	f.ClearStringGrid(f.GridLinkUnknow, false)
+	f.ClearStringGrid(f.GridLinkNone, false)
+	f.ClearStringGrid(f.GridLinkFilter, false)
+	f.ClearStringGrid(f.GridLinkDomain, false)
+
+	start := fun.Timestamp(true)
+	if linkData, err := spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
+		use := fun.Timestamp(true) - start
+
+		f.Debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
+		f.Debug("\tStat : ")
+
+		f.RenderGridLink(f.GridLinkContent, linkData.LinkRes.Content)
+		f.RenderGridLink(f.GridLinkList, linkData.LinkRes.List)
+		f.RenderGridLink(f.GridLinkUnknow, linkData.LinkRes.Unknown)
+		f.RenderGridLink(f.GridLinkNone, linkData.LinkRes.None)
+		f.RenderGridLink(f.GridLinkFilter, linkData.Filters)
+
+		var i int32
+		i = 1
+		for subdomain, t := range linkData.SubDomains {
+			f.GridLinkDomain.InsertColRow(false, i)
+			f.GridLinkDomain.SetCells(1, i, subdomain)
+			f.GridLinkDomain.SetCells(2, i, fun.ToString(t))
+			i++
+		}
+	}
+}
+
+func (f *TFormMain) RenderGridLink(grid *vcl.TStringGrid, datas map[string]string) {
+	var i int32
+	i = 1
+	for key, value := range datas {
+		grid.InsertColRow(false, i)
+		grid.SetCells(1, i, key)
+		grid.SetCells(2, i, fun.ToString(value))
+		i++
+	}
+}
+
+func (f *TFormMain) ClearStringGrid(grid *vcl.TStringGrid, title bool) {
+	var i, start int32
+
+	if title {
+		start = 0
+	} else {
+		start = 1
+	}
+	for i = start; i < grid.RowCount(); i++ {
+		grid.DeleteColRow(false, i)
+	}
+}
+
 func (f *TFormMain) OnBtnRequestTipProxyClick(sender vcl.IObject) {
 	f.EditRequestProxy.SetText("http://username:password@host:port")
 }
@@ -245,6 +322,15 @@ func (f *TFormMain) OpenBrowser(urlStr string) {
 	if err != nil {
 		fmt.Printf("Error: %v", err)
 	}
+}
+
+func (f *TFormMain) OnBtnRequestOpenClick(sender vcl.IObject) {
+	urlStr := f.EditLinkUrl.Text()
+	if fun.Blank(urlStr) {
+		f.Debug("Request Link Failed : url is empty")
+	}
+
+	f.OpenBrowser(urlStr)
 }
 
 func (f *TFormMain) OnBtnRequestLinkClick(sender vcl.IObject) {
