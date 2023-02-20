@@ -97,6 +97,7 @@ type TFormMain struct {
 	GridLinkFilter         *vcl.TStringGrid
 	GridLinkDomain         *vcl.TStringGrid
 	PanelToolDomain        *vcl.TPanel
+	PanelLinkBox           *vcl.TPanel
 
 	//::private::
 	TFormMainFields

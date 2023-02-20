@@ -56,6 +56,7 @@ type
     MenuDebugClear: TMenuItem;
     PageControl: TPageControl;
     PageControlLink: TPageControl;
+    PanelLinkBox: TPanel;
     PanelToolDomain: TPanel;
     PanelDomain: TPanel;
     PanelLink: TPanel;
