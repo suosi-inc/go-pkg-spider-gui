@@ -1141,13 +1141,13 @@ object FormMain: TFormMain
           AnchorSideRight.Control = PanelTool
           AnchorSideRight.Side = asrBottom
           Left = 10
-          Height = 46
+          Height = 60
           Top = 0
           Width = 1380
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Right = 10
-          ClientHeight = 27
+          ClientHeight = 41
           ClientWidth = 1370
           TabOrder = 0
           object LabelToolDomain: TLabel
