@@ -14,15 +14,17 @@ type
   { TFormMain }
 
   TFormMain = class(TForm)
+    BtnLinkOpen: TSpeedButton;
+    BtnLinkRequest: TButton;
     BtnRequest: TButton;
     BtnRequestDefault: TButton;
     BtnToolDomainRequest: TButton;
-    BtnLinkRequest: TButton;
     CheckLinkStrictDomain: TCheckBox;
     CheckRequestClean: TCheckBox;
     CheckRequestCharset: TCheckBox;
     CheckRequestType: TCheckBox;
     CheckRequestRedirect: TCheckBox;
+    EditLinkRetry: TSpinEdit;
     EditLinkTimeout: TEdit;
     EditLinkUrl: TEdit;
     EditToolDomain: TEdit;
@@ -33,12 +35,12 @@ type
     EditRequestType: TEdit;
     EditRequestUa: TEdit;
     EditRequestUrl: TEdit;
-    GroupBoxLink: TGroupBox;
+    PanelLinkRequest: TPanel;
     GroupBoxRequest: TGroupBox;
     ImageListIcon: TImageList;
     ImageListToolBar: TImageList;
-    LabelLinkTimeout: TLabel;
     LabelLinkRetry: TLabel;
+    LabelLinkTimeout: TLabel;
     LabelLinkUrl: TLabel;
     LabelToolDomain: TLabel;
     LabelRequestTimeout: TLabel;
@@ -56,7 +58,6 @@ type
     MenuDebugClear: TMenuItem;
     PageControl: TPageControl;
     PageControlLink: TPageControl;
-    PanelLinkBox: TPanel;
     PanelToolDomain: TPanel;
     PanelDomain: TPanel;
     PanelLink: TPanel;
@@ -70,8 +71,6 @@ type
     BtnRequestTipProxy: TSpeedButton;
     BtnRequestTipHeader: TSpeedButton;
     BtnRequestOpen: TSpeedButton;
-    BtnLinkOpen: TSpeedButton;
-    EditLinkRetry: TSpinEdit;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;

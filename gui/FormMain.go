@@ -57,28 +57,26 @@ type TFormMain struct {
 	PanelDomain            *vcl.TPanel
 	TabSheetLink           *vcl.TTabSheet
 	PanelLink              *vcl.TPanel
-	GroupBoxLink           *vcl.TGroupBox
-	LabelLinkTimeout       *vcl.TLabel
-	EditLinkTimeout        *vcl.TEdit
-	LabelLinkRetry         *vcl.TLabel
-	CheckLinkStrictDomain  *vcl.TCheckBox
-	LabelLinkUrl           *vcl.TLabel
-	EditLinkUrl            *vcl.TEdit
-	BtnLinkRequest         *vcl.TButton
-	BtnLinkOpen            *vcl.TSpeedButton
-	EditLinkRetry          *vcl.TSpinEdit
 	PageControlLink        *vcl.TPageControl
 	TabSheetLinkContent    *vcl.TTabSheet
 	GridLinkContent        *vcl.TStringGrid
 	TabSheetLinkList       *vcl.TTabSheet
+	GridLinkList           *vcl.TStringGrid
 	TabSheetLinkUnknow     *vcl.TTabSheet
+	GridLinkUnknow         *vcl.TStringGrid
 	TabSheetLinkNone       *vcl.TTabSheet
+	GridLinkNone           *vcl.TStringGrid
+	TabSheetLinkFilter     *vcl.TTabSheet
+	GridLinkFilter         *vcl.TStringGrid
+	TabSheetLinkDomain     *vcl.TTabSheet
+	GridLinkDomain         *vcl.TStringGrid
 	TabSheetContent        *vcl.TTabSheet
 	PanelContent           *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
-	EditToolDomain         *vcl.TEdit
+	PanelToolDomain        *vcl.TPanel
 	LabelToolDomain        *vcl.TLabel
+	EditToolDomain         *vcl.TEdit
 	BtnToolDomainRequest   *vcl.TButton
 	EditToolDomainResult   *vcl.TEdit
 	SplitterDebug          *vcl.TSplitter
@@ -89,15 +87,16 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	TabSheetLinkFilter     *vcl.TTabSheet
-	TabSheetLinkDomain     *vcl.TTabSheet
-	GridLinkList           *vcl.TStringGrid
-	GridLinkUnknow         *vcl.TStringGrid
-	GridLinkNone           *vcl.TStringGrid
-	GridLinkFilter         *vcl.TStringGrid
-	GridLinkDomain         *vcl.TStringGrid
-	PanelToolDomain        *vcl.TPanel
-	PanelLinkBox           *vcl.TPanel
+	PanelLinkRequest       *vcl.TPanel
+	LabelLinkTimeout       *vcl.TLabel
+	EditLinkTimeout        *vcl.TEdit
+	LabelLinkRetry         *vcl.TLabel
+	CheckLinkStrictDomain  *vcl.TCheckBox
+	LabelLinkUrl           *vcl.TLabel
+	EditLinkUrl            *vcl.TEdit
+	BtnLinkRequest         *vcl.TButton
+	BtnLinkOpen            *vcl.TSpeedButton
+	EditLinkRetry          *vcl.TSpinEdit
 
 	//::private::
 	TFormMainFields
