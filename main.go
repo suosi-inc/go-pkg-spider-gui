@@ -3,7 +3,6 @@ package main
 
 import (
 	"github.com/suosi-inc/go-pkg-spider/spider-gui/gui"
-	_ "github.com/ying32/govcl/pkgs/winappres"
 	"github.com/ying32/govcl/vcl"
 )
 

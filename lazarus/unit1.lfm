@@ -38,7 +38,7 @@ object FormMain: TFormMain
     end
     object ToolBtnRequest: TToolButton
       Cursor = crHandPoint
-      Left = 11
+      Left = 9
       Top = 0
       Caption = '请求测试'
       Down = True
@@ -47,14 +47,14 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit2: TToolButton
-      Left = 111
+      Left = 109
       Height = 62
       Top = 0
       Style = tbsSeparator
     end
     object ToolBtnDomain: TToolButton
       Cursor = crHandPoint
-      Left = 121
+      Left = 117
       Top = 0
       Caption = '域名探测'
       ImageIndex = 1
@@ -62,7 +62,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit3: TToolButton
-      Left = 221
+      Left = 217
       Height = 62
       Top = 0
       Caption = 'ToolBtnSplit3'
@@ -70,7 +70,7 @@ object FormMain: TFormMain
     end
     object ToolBtnLink: TToolButton
       Cursor = crHandPoint
-      Left = 231
+      Left = 225
       Top = 0
       Caption = '链接提取'
       ImageIndex = 2
@@ -78,7 +78,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit4: TToolButton
-      Left = 331
+      Left = 325
       Height = 62
       Top = 0
       Caption = 'ToolBtnSplit4'
@@ -86,7 +86,7 @@ object FormMain: TFormMain
     end
     object ToolBtnContent: TToolButton
       Cursor = crHandPoint
-      Left = 341
+      Left = 333
       Top = 0
       Caption = '新闻提取'
       ImageIndex = 3
@@ -94,7 +94,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit5: TToolButton
-      Left = 441
+      Left = 433
       Height = 62
       Top = 0
       Caption = 'ToolBtnSplit5'
@@ -102,7 +102,7 @@ object FormMain: TFormMain
     end
     object ToolBtnTool: TToolButton
       Cursor = crHandPoint
-      Left = 451
+      Left = 441
       Top = 0
       Caption = '辅助工具'
       ImageIndex = 4
@@ -110,7 +110,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit6: TToolButton
-      Left = 551
+      Left = 541
       Height = 62
       Top = 0
       Caption = 'ToolBtnSplit6'
@@ -118,7 +118,7 @@ object FormMain: TFormMain
     end
     object ToolBtnDebug: TToolButton
       Cursor = crHandPoint
-      Left = 561
+      Left = 549
       Top = 0
       Caption = '调试窗口'
       ImageIndex = 5
@@ -1437,7 +1437,8 @@ object FormMain: TFormMain
   end
   object ImageListIcon: TImageList
     ImageType = itMask
-    Left = 1240
+    Left = 1224
+    Top = 8
     Bitmap = {
       4C7A020000001000000010000000A60300000000000078DA8D92CB6B55571487
       7728D498E601EDC0C74071E24DC8EBE671AF498C985A93700DDE40BCDE24E7EC

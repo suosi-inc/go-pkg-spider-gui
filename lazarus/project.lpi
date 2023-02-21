@@ -9,17 +9,17 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <XPManifest>
-        <DpiAware Value="True/PM"/>
+        <DpiAware Value="True/PM_V2"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
     <Res2go>
+      <Enabled Value="True"/>
       <OutputPath Value="$Path($ProjectFile())../"/>
       <PackageName Value="gui"/>
-      <UseDefaultWinAppRes Value="True"/>
       <GoUseTempdll Value="True"/>
       <GoBuildMode Value="exe"/>
-      <GoRoot Value="D:\Program\Go"/>
+      <GoRoot Value="D:\golang"/>
       <GoUseEmbed Value="True"/>
     </Res2go>
     <BuildModes>

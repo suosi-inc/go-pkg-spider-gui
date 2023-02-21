@@ -70,6 +70,16 @@ type TFormMain struct {
 	GridLinkFilter         *vcl.TStringGrid
 	TabSheetLinkDomain     *vcl.TTabSheet
 	GridLinkDomain         *vcl.TStringGrid
+	PanelLinkRequest       *vcl.TPanel
+	LabelLinkTimeout       *vcl.TLabel
+	EditLinkTimeout        *vcl.TEdit
+	LabelLinkRetry         *vcl.TLabel
+	CheckLinkStrictDomain  *vcl.TCheckBox
+	LabelLinkUrl           *vcl.TLabel
+	EditLinkUrl            *vcl.TEdit
+	BtnLinkRequest         *vcl.TButton
+	BtnLinkOpen            *vcl.TSpeedButton
+	EditLinkRetry          *vcl.TSpinEdit
 	TabSheetContent        *vcl.TTabSheet
 	PanelContent           *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
@@ -87,16 +97,6 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	PanelLinkRequest       *vcl.TPanel
-	LabelLinkTimeout       *vcl.TLabel
-	EditLinkTimeout        *vcl.TEdit
-	LabelLinkRetry         *vcl.TLabel
-	CheckLinkStrictDomain  *vcl.TCheckBox
-	LabelLinkUrl           *vcl.TLabel
-	EditLinkUrl            *vcl.TEdit
-	BtnLinkRequest         *vcl.TButton
-	BtnLinkOpen            *vcl.TSpeedButton
-	EditLinkRetry          *vcl.TSpinEdit
 
 	//::private::
 	TFormMainFields
