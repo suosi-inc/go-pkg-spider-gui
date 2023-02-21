@@ -34,22 +34,6 @@
       </Position>
       <Position>
         <Filename Value="unit1.pas"/>
-        <Caret Line="250" Column="3" TopLine="210"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="249" Column="3" TopLine="209"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="250" Column="3" TopLine="210"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="251" Column="3" TopLine="211"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
         <Caret Line="252" Column="3" TopLine="212"/>
       </Position>
       <Position>
@@ -135,6 +119,22 @@
       <Position>
         <Filename Value="unit1.pas"/>
         <Caret Line="245" Column="3" TopLine="226"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="246" Column="3" TopLine="227"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="247" Column="3" TopLine="228"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="246" Column="3" TopLine="227"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="247" Column="3" TopLine="228"/>
       </Position>
       <Position>
         <Filename Value="unit1.pas"/>
