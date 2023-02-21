@@ -9,6 +9,8 @@ go build -ldflags "-H windowsgui" -tags tempdll -o bin/win64
 # 缩小构建大小：-s 去掉符号信息, -w 去掉 DWARF 调试信息
 go build -ldflags "-w -s -H windowsgui" -tags tempdll -o bin/win64
 
+
+
 # MacOS
 go build -o bin/macos64
 ```
