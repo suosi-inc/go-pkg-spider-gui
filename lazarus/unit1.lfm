@@ -688,7 +688,7 @@ object FormMain: TFormMain
                 end>
               Flat = True
               MouseWheelOption = mwGrid
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goAlwaysShowEditor, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
+              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goAlwaysShowEditor, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
               ColWidths = (
