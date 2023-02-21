@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetRequest
+    ActivePage = TabSheetLink
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -233,11 +233,11 @@ object FormMain: TFormMain
           AnchorSideRight.Control = BtnRequestOpen
           Cursor = crHandPoint
           Left = 520
-          Height = 24
-          Top = 14
+          Height = 26
+          Top = 15
           Width = 64
           Anchors = [akTop, akRight]
-          BorderSpacing.Top = 14
+          BorderSpacing.Top = 15
           BorderSpacing.Right = 10
           Caption = '运行'
           OnClick = BtnRequestClick
@@ -636,6 +636,7 @@ object FormMain: TFormMain
         TabOrder = 0
         object PageControlLink: TPageControl
           AnchorSideLeft.Control = PanelLink
+          AnchorSideTop.Control = PanelLinkRequest
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = PanelLink
           AnchorSideRight.Side = asrBottom
@@ -643,13 +644,13 @@ object FormMain: TFormMain
           AnchorSideBottom.Side = asrBottom
           Cursor = crHandPoint
           Left = 10
-          Height = 685
-          Top = 95
+          Height = 669
+          Top = 111
           Width = 1372
           ActivePage = TabSheetLinkDomain
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 10
-          BorderSpacing.Top = 5
+          BorderSpacing.Top = 25
           BorderSpacing.Right = 10
           BorderSpacing.Bottom = 10
           ParentFont = False
@@ -658,7 +659,7 @@ object FormMain: TFormMain
           object TabSheetLinkContent: TTabSheet
             Cursor = crHandPoint
             Caption = '  内容链接  '
-            ClientHeight = 655
+            ClientHeight = 639
             ClientWidth = 1364
             object GridLinkContent: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkContent
@@ -667,16 +668,16 @@ object FormMain: TFormMain
               AnchorSideRight.Side = asrBottom
               AnchorSideBottom.Control = TabSheetLinkContent
               AnchorSideBottom.Side = asrBottom
-              Left = 10
-              Height = 635
-              Top = 10
-              Width = 1344
+              Left = 5
+              Height = 629
+              Top = 5
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
-              BorderSpacing.Left = 10
-              BorderSpacing.Top = 10
-              BorderSpacing.Right = 10
-              BorderSpacing.Bottom = 10
+              BorderSpacing.Left = 5
+              BorderSpacing.Top = 5
+              BorderSpacing.Right = 5
+              BorderSpacing.Bottom = 5
               ColCount = 3
               ColumnClickSorts = True
               Columns = <              
@@ -684,7 +685,7 @@ object FormMain: TFormMain
                   MinSize = 10
                   MaxSize = 200
                   Title.Caption = '链接'
-                  Width = 734
+                  Width = 744
                 end              
                 item
                   MinSize = 10
@@ -700,7 +701,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                734
+                744
                 550
               )
               Cells = (
@@ -714,7 +715,7 @@ object FormMain: TFormMain
           object TabSheetLinkList: TTabSheet
             Cursor = crHandPoint
             Caption = '  列表链接  '
-            ClientHeight = 655
+            ClientHeight = 639
             ClientWidth = 1364
             object GridLinkList: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkList
@@ -723,16 +724,16 @@ object FormMain: TFormMain
               AnchorSideRight.Side = asrBottom
               AnchorSideBottom.Control = TabSheetLinkList
               AnchorSideBottom.Side = asrBottom
-              Left = 10
-              Height = 635
-              Top = 10
-              Width = 1344
+              Left = 5
+              Height = 629
+              Top = 5
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
-              BorderSpacing.Left = 10
-              BorderSpacing.Top = 10
-              BorderSpacing.Right = 10
-              BorderSpacing.Bottom = 10
+              BorderSpacing.Left = 5
+              BorderSpacing.Top = 5
+              BorderSpacing.Right = 5
+              BorderSpacing.Bottom = 5
               ColCount = 3
               ColumnClickSorts = True
               Columns = <              
@@ -740,7 +741,7 @@ object FormMain: TFormMain
                   MinSize = 10
                   MaxSize = 200
                   Title.Caption = '链接'
-                  Width = 734
+                  Width = 744
                 end              
                 item
                   MinSize = 10
@@ -756,7 +757,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                734
+                744
                 550
               )
               Cells = (
@@ -769,7 +770,7 @@ object FormMain: TFormMain
           end
           object TabSheetLinkUnknow: TTabSheet
             Caption = '  未知链接  '
-            ClientHeight = 655
+            ClientHeight = 639
             ClientWidth = 1364
             object GridLinkUnknow: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkUnknow
@@ -778,16 +779,16 @@ object FormMain: TFormMain
               AnchorSideRight.Side = asrBottom
               AnchorSideBottom.Control = TabSheetLinkUnknow
               AnchorSideBottom.Side = asrBottom
-              Left = 10
-              Height = 635
-              Top = 10
-              Width = 1344
+              Left = 5
+              Height = 629
+              Top = 5
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
-              BorderSpacing.Left = 10
-              BorderSpacing.Top = 10
-              BorderSpacing.Right = 10
-              BorderSpacing.Bottom = 10
+              BorderSpacing.Left = 5
+              BorderSpacing.Top = 5
+              BorderSpacing.Right = 5
+              BorderSpacing.Bottom = 5
               ColCount = 3
               ColumnClickSorts = True
               Columns = <              
@@ -795,7 +796,7 @@ object FormMain: TFormMain
                   MinSize = 10
                   MaxSize = 200
                   Title.Caption = '链接'
-                  Width = 734
+                  Width = 744
                 end              
                 item
                   MinSize = 10
@@ -811,7 +812,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                734
+                744
                 550
               )
               Cells = (
@@ -824,7 +825,7 @@ object FormMain: TFormMain
           end
           object TabSheetLinkNone: TTabSheet
             Caption = '  排除链接  '
-            ClientHeight = 655
+            ClientHeight = 639
             ClientWidth = 1364
             object GridLinkNone: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkNone
@@ -833,16 +834,16 @@ object FormMain: TFormMain
               AnchorSideRight.Side = asrBottom
               AnchorSideBottom.Control = TabSheetLinkNone
               AnchorSideBottom.Side = asrBottom
-              Left = 10
-              Height = 635
-              Top = 10
-              Width = 1344
+              Left = 5
+              Height = 629
+              Top = 5
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
-              BorderSpacing.Left = 10
-              BorderSpacing.Top = 10
-              BorderSpacing.Right = 10
-              BorderSpacing.Bottom = 10
+              BorderSpacing.Left = 5
+              BorderSpacing.Top = 5
+              BorderSpacing.Right = 5
+              BorderSpacing.Bottom = 5
               ColCount = 3
               ColumnClickSorts = True
               Columns = <              
@@ -850,7 +851,7 @@ object FormMain: TFormMain
                   MinSize = 10
                   MaxSize = 200
                   Title.Caption = '链接'
-                  Width = 734
+                  Width = 744
                 end              
                 item
                   MinSize = 10
@@ -866,7 +867,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                734
+                744
                 550
               )
               Cells = (
@@ -879,7 +880,7 @@ object FormMain: TFormMain
           end
           object TabSheetLinkFilter: TTabSheet
             Caption = '  过滤链接  '
-            ClientHeight = 655
+            ClientHeight = 639
             ClientWidth = 1364
             object GridLinkFilter: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkFilter
@@ -888,16 +889,16 @@ object FormMain: TFormMain
               AnchorSideRight.Side = asrBottom
               AnchorSideBottom.Control = TabSheetLinkFilter
               AnchorSideBottom.Side = asrBottom
-              Left = 10
-              Height = 635
-              Top = 10
-              Width = 1344
+              Left = 5
+              Height = 629
+              Top = 5
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
-              BorderSpacing.Left = 10
-              BorderSpacing.Top = 10
-              BorderSpacing.Right = 10
-              BorderSpacing.Bottom = 10
+              BorderSpacing.Left = 5
+              BorderSpacing.Top = 5
+              BorderSpacing.Right = 5
+              BorderSpacing.Bottom = 5
               ColCount = 3
               ColumnClickSorts = True
               Columns = <              
@@ -905,7 +906,7 @@ object FormMain: TFormMain
                   MinSize = 10
                   MaxSize = 200
                   Title.Caption = '链接'
-                  Width = 734
+                  Width = 744
                 end              
                 item
                   MinSize = 10
@@ -921,7 +922,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                734
+                744
                 550
               )
               Cells = (
@@ -934,7 +935,7 @@ object FormMain: TFormMain
           end
           object TabSheetLinkDomain: TTabSheet
             Caption = '  子域名  '
-            ClientHeight = 655
+            ClientHeight = 639
             ClientWidth = 1364
             object GridLinkDomain: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkDomain
@@ -943,16 +944,16 @@ object FormMain: TFormMain
               AnchorSideRight.Side = asrBottom
               AnchorSideBottom.Control = TabSheetLinkDomain
               AnchorSideBottom.Side = asrBottom
-              Left = 10
-              Height = 635
-              Top = 10
-              Width = 1344
+              Left = 5
+              Height = 629
+              Top = 5
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
-              BorderSpacing.Left = 10
-              BorderSpacing.Top = 10
-              BorderSpacing.Right = 10
-              BorderSpacing.Bottom = 10
+              BorderSpacing.Left = 5
+              BorderSpacing.Top = 5
+              BorderSpacing.Right = 5
+              BorderSpacing.Bottom = 5
               ColCount = 3
               ColumnClickSorts = True
               Columns = <              
@@ -960,7 +961,7 @@ object FormMain: TFormMain
                   MinSize = 10
                   MaxSize = 200
                   Title.Caption = '域名'
-                  Width = 733
+                  Width = 743
                 end              
                 item
                   MinSize = 10
@@ -976,7 +977,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 60
-                733
+                743
                 550
               )
               Cells = (
@@ -991,12 +992,11 @@ object FormMain: TFormMain
         object PanelLinkRequest: TPanel
           AnchorSideLeft.Control = PanelLink
           AnchorSideTop.Control = PanelLink
-          AnchorSideRight.Control = PanelLink
-          AnchorSideRight.Side = asrBottom
+          AnchorSideRight.Control = Panel1
           Left = 11
           Height = 80
           Top = 6
-          Width = 1370
+          Width = 760
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 5
@@ -1005,7 +1005,7 @@ object FormMain: TFormMain
           BevelOuter = bvNone
           BorderStyle = bsSingle
           ClientHeight = 76
-          ClientWidth = 1366
+          ClientWidth = 756
           TabOrder = 1
           object LabelLinkTimeout: TLabel
             AnchorSideLeft.Control = PanelLinkRequest
@@ -1079,7 +1079,7 @@ object FormMain: TFormMain
             Left = 90
             Height = 25
             Top = 12
-            Width = 1126
+            Width = 516
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
@@ -1091,28 +1091,29 @@ object FormMain: TFormMain
             AnchorSideTop.Control = PanelLinkRequest
             AnchorSideRight.Control = BtnLinkOpen
             Cursor = crHandPoint
-            Left = 1231
-            Height = 25
-            Top = 10
+            Left = 621
+            Height = 26
+            Top = 11
             Width = 80
             Anchors = [akTop, akRight]
-            BorderSpacing.Top = 10
+            BorderSpacing.Top = 11
             BorderSpacing.Right = 20
             Caption = '运行'
             OnClick = BtnLinkRequestClick
             TabOrder = 3
+            TabStop = False
           end
           object BtnLinkOpen: TSpeedButton
             AnchorSideTop.Control = PanelLinkRequest
             AnchorSideRight.Control = PanelLinkRequest
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 1331
+            Left = 721
             Height = 20
-            Top = 12
+            Top = 13
             Width = 20
             Anchors = [akTop, akRight]
-            BorderSpacing.Top = 12
+            BorderSpacing.Top = 13
             BorderSpacing.Right = 15
             Flat = True
             Images = ImageListIcon
@@ -1133,6 +1134,53 @@ object FormMain: TFormMain
             TabOrder = 4
             Value = 3
           end
+        end
+        object Edit1: TEdit
+          AnchorSideTop.Control = PanelLink
+          AnchorSideRight.Control = SpeedButton1
+          AnchorSideBottom.Side = asrBottom
+          Left = 997
+          Height = 25
+          Top = 98
+          Width = 350
+          Anchors = [akTop, akRight]
+          AutoSize = False
+          BorderSpacing.Top = 98
+          BorderSpacing.Right = 5
+          TabOrder = 2
+          Text = 'Edit1'
+        end
+        object SpeedButton1: TSpeedButton
+          AnchorSideTop.Control = PanelLink
+          AnchorSideRight.Control = PanelLink
+          AnchorSideRight.Side = asrBottom
+          Cursor = crHandPoint
+          Left = 1352
+          Height = 30
+          Top = 95
+          Width = 30
+          Anchors = [akTop, akRight]
+          BorderSpacing.Top = 95
+          BorderSpacing.Right = 10
+          Flat = True
+          Images = ImageListIcon
+          ImageIndex = 2
+        end
+        object Panel1: TPanel
+          AnchorSideTop.Control = PanelLink
+          AnchorSideRight.Control = PanelLink
+          AnchorSideRight.Side = asrBottom
+          Left = 782
+          Height = 80
+          Top = 5
+          Width = 600
+          Anchors = [akTop, akRight]
+          BorderSpacing.Top = 5
+          BorderSpacing.Right = 10
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          Caption = 'Panel1'
+          TabOrder = 3
         end
       end
     end
@@ -1322,7 +1370,7 @@ object FormMain: TFormMain
   object ImageListToolBar: TImageList
     Height = 24
     Width = 24
-    Left = 1120
+    Left = 1128
     Bitmap = {
       4C7A060000001800000018000000AA0C00000000000078DAED5A7B7054D519DF
       F76EF67537FB7E25FB4C484208E115B465AA40D0009542ADF8A86065DA2253B0
@@ -1442,38 +1490,43 @@ object FormMain: TFormMain
   object ImageListIcon: TImageList
     ImageType = itMask
     Left = 1008
-    Top = 8
     Bitmap = {
-      4C7A020000001000000010000000A60300000000000078DA8D92CB6B55571487
-      7728D498E601EDC0C74071E24DC8EBE671AF498C985A93700DDE40BCDE24E7EC
-      73EEB9115BFD131C75D04E1C88A0A808299446C190522DA4681DF5817D0DC481
-      62E20B1F889108E20B47F1F45BE79E1D8E871BDAC18FBDF75AEB5B7BEDB597D6
-      B6725D47398E0EC4BEC7719CEF5CD77ECCF9295A404FB0CF68AD33B66DAB42C1
-      51EC956D6BD6F7F863EC7DD60BE8201A44FD5A3B9F93738AD825CED3F0ABCAF0
-      DF635B94F8522EE73D853129D63BE87762570BEF38C2EBA3D4F594F33AF38E50
-      5368367C5720CF2B54178BDEDD42C13D2B6F411DF03E357E2A35496C6897DC23
-      C8963BC43E36361AD49BCDEE6E64EF4F4C4CECB62CFB0479675DB7405FDC65B6
-      C4EB1CB9350A7AB667CF88EAEFEF573B767CA64647F3939EE75EC2F780BB0F98
-      774A0D46F0F7D1EB52FDA51CF97C5EE57239353E3E368EED0D7A494D39A94B14
-      7BFF15341FB5498DF4407AB185F31CF7BC745D973A5D258AF1BFA2EB2BF069CE
-      3711F5EB2F629CD16FE84664B6E4DD6AEFDEA0FE31CEAF604FD2DF0BA6FED81B
-      967961A57F838303F470A7E439E579DE65DBB6BAC8E17B9EBD8D9985373313F0
-      7368D1E4E3CE601D1ECE262C6BDC2F168B23F0C21CF73C8B59B7D7C4F8A97096
-      83FBE5EDFBF64D7CC47DB7E1664AB362497C0536DEA017509FF9C77036430539
-      DBC931CFFCFDED794E75694E2CF3EF15C4D38B6016674A33A1B7A3AD683FFA86
-      F72DD19F1F6056C3AB186F6AE67EFB1C773EC3FE88F343F6CFB19D47C312A3B5
-      A50C5F5353A3BABBBB556767A7EAE8E808D66432A91A1A1A02C95E6CEDEDEDE2
-      9F456FD08BDEDEDE2F6B6B6BFF2FFF21BE57E4B88732A9544AA7D3693F91481C
-      5E89AFAFAF57F8556B6BEB46E2DFC25D6D6969598EE1BCABABABCB8FF322A955
-      6261E5FC23BEDB6293B3AC92BFADADED63F66579B3E75E890B1891EC459287F5
-      17626E95E351259A4673C4FE04DB277E13C379921AFC8181810D65F8B5E81DBA
-      89ED10354C13FF98FBEA42FFA4D4DDDCDCBC79686828DEFF4F908F7E967AC516
-      BEA13AECC569F1E3DB0CAF32994C94AF0C7D7F0863FA18E9C991D09F941E18BE
-      AAAA4AF84AFC4BF8FF8AC4CFB39E4145743164D3A68F86AFABABFB00FE05FE7F
-      4C9FE94D05315974855AEE4B4DD83645FFC1F0D82F615B109BB9DBFC99BC59FE
-      3AFAF7715EE6102619F93B53FF7962FF943861659ECAF1F87C6ACC9B9E85FA16
-      DE27AE4FD8C6C6C620DEF434CAF7F4F47C2DFF896F04A5D065E9157C42E2E4DE
-      A6A6A615F96C362BFEAFB03F8359C4770DAD37B3FB5FFCBF3A6627C1
+      4C7A030000001000000010000000660400000000000078DAA5926D489D6518C7
+      6F1934E77C81FA608D2882D851747A7C39A66664968AC98EE07C3DCFCB798E52
+      9BD087BEF4A14F7D6804A337E865233288AC488C5C65B4F6A917AC3522F66131
+      6D15AE1A73381873930AB2A7DFF59CFB96670F47A7F5C08FE7BE5EFED77DDDD7
+      7DDBB6A55CD7518E6307B06E761CE72DD7B5CE635F8445B8807FCAB6ED2ECBB2
+      543AED28D6CAB26CFED7E95F62EDF33F0A63D009EDB6ED3C4ACD097257B127D1
+      6FCFA17F1FDF92E4676B39D7A17312FC7F82AFC8DD217AC711BDFD227D5DC4BE
+      CD9C43330133FA5C019E972ECC64BC9FD369F71D390BD4A1F7E9F101E94972B5
+      5F6AF782257B887F686830E83799DC5BC1DA1F1919D99B4A59AF5277C675D3CC
+      C55DD366F5761FB56D0866B66F5FAF6A6F6F576D6D0FAAC1C18171CF738F113B
+      C7DE07CC39A50703FA05B896ED3F5B63606040F5F5F5A9E1E1A1617C2BB04C4F
+      7DD2971039FF2CCC877DD223339059DC833DC73ECBAEEBD2A7AB8488FE0B38BD
+      8EBE01FB0CD0BFBD3FA2337C093F84DE969C5BF5F707FD0F615F457B98F91E35
+      FD47CEB0A617ADCCAFB3B383193E24758E789E77DCB2528DD4F03DCFBA8F378B
+      DEBC99403F074BA61E7B06FF9E9E642C951AF633994C2F7AD1BCEC7929DEBA55
+      1AD14FE8B71CEC2F671F1D1DD9C97E67D14D65DF4A4AF2F3F071067B115ACD3D
+      EAB7A9096AD652639EF7F7ADE73985D9779232F79E473EB308DEE254F64DD8F7
+      C3BDF008BCC1F95699CF076876A05711BDE999FDADF7D8F312FEDFB07F657D19
+      DF34F4488E6DA794D1171515A9A6A626555F5FAFEAEAEA827F3C1E57E5E5E501
+      B2165F6D6DADC4676005AEB4B4B43C555C5CBC59FD4DC4AE52E317E84A241276
+      4343831F8BC50EADA72F2B2B53C4557575F59DE4FF81EEFBAAAAAAB51CEC871B
+      1B1BFDA85E905E2517ADD81F123B2B3EB1E52FF56B6A6A6E669D536FD6EC2B79
+      814690B52075F87F4ECE8FB9F4900F933047EE27685B256E72B0C7E9C1EFE8E8
+      B82387FE56F807CEE07B921E26C93FCF7E253A3E2E7DEFD9B3677777777774FE
+      B7800F9F49BFE2D36728D4B3784DE2C476A3575D5D5D617DBE8E7D2D1A33C7D0
+      4C9ED7F1B8CCC0E80B0A0A449F4F7C95F88950FE3CFFB721039F6A6D8399A3D1
+      9794946C437F85F84933676693474E1266E965417AC27757F81E8C1EFF317C8B
+      E2337B9B3B9333CB5D87EF3EAA977788261EBA3BD3FF34B9DF489E68E53DE5D2
+      13F3E971C0CC4CF3267A9FBC56D156545404F966A6617D7373F341B94F62BD90
+      80E3322BF431C9937D2B2B2BD7D5279349893F8DFF129A2562A7609779BB37D2
+      47BE0238022BE0879885B8DAF8EB0EE54B8D1EE880276041FB0FAFA34DE9F8C1
+      0DEA2774CE47117FA9F63FA36EFC55E8DCB190EF5DF85D6DFE7B01FE0CD94BF0
+      EC16F465BA87266DCBDAD9827E1BFC0DA3DAFE0BF66F41BF53EF39ACEDD3F0F1
+      16F449ADDFA5ED316D976E527F0A4E467CDFC1B54D689FD37BDD1EF16F870B3A
+      D69F4377379CD0F1C737A8FF4AE80D9F837958D6F634BCAED72D1BD42882C760
+      4A6BE45DC622EF4D6AB4A9FFFE1DD2350EFC8F1AE370F95FAC2F64B0
     }
   end
 end

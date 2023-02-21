@@ -20,34 +20,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="126"/>
-        <CursorPos X="78" Y="152"/>
+        <TopLine Value="129"/>
+        <CursorPos X="78" Y="155"/>
         <UsageCount Value="209"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="258" Column="3" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="264" Column="3" TopLine="220"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="239" Column="3" TopLine="220"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="240" Column="3" TopLine="221"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="241" Column="3" TopLine="222"/>
-      </Position>
       <Position>
         <Filename Value="unit1.pas"/>
         <Caret Line="242" Column="3" TopLine="223"/>
@@ -147,6 +127,26 @@
       <Position>
         <Filename Value="unit1.pas"/>
         <Caret Line="245" Column="3" TopLine="226"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="152" Column="78" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="153" Column="78" TopLine="127"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="154" Column="78" TopLine="128"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="155" Column="78" TopLine="129"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="154" Column="78" TopLine="128"/>
       </Position>
     </JumpHistory>
     <RunParams>

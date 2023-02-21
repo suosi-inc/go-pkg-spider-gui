@@ -97,6 +97,9 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
+	Edit1                  *vcl.TEdit
+	SpeedButton1           *vcl.TSpeedButton
+	Panel1                 *vcl.TPanel
 
 	//::private::
 	TFormMainFields

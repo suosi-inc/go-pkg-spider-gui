@@ -26,6 +26,7 @@ type
     CheckRequestClean: TCheckBox;
     CheckRequestRedirect: TCheckBox;
     CheckRequestType: TCheckBox;
+    Edit1: TEdit;
     EditLinkRetry: TSpinEdit;
     EditLinkTimeout: TEdit;
     EditLinkUrl: TEdit;
@@ -38,6 +39,7 @@ type
     EditToolDomain: TEdit;
     EditToolDomainResult: TEdit;
     EditRequestUrl: TEdit;
+    Panel1: TPanel;
     PanelRequestBox: TPanel;
     LabelRequestHeader: TLabel;
     LabelRequestLength: TLabel;
@@ -71,6 +73,7 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     BtnRequestOpen: TSpeedButton;
+    SpeedButton1: TSpeedButton;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;
