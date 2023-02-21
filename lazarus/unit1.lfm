@@ -642,12 +642,12 @@ object FormMain: TFormMain
           Left = 10
           Height = 622
           Top = 95
-          Width = 1375
+          Width = 1380
           ActivePage = TabSheetLinkDomain
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 5
-          BorderSpacing.Right = 15
+          BorderSpacing.Right = 10
           BorderSpacing.Bottom = 10
           ParentFont = False
           TabIndex = 5
@@ -656,7 +656,7 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Caption = '内容链接'
             ClientHeight = 592
-            ClientWidth = 1369
+            ClientWidth = 1374
             object GridLinkContent: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkContent
               AnchorSideTop.Control = TabSheetLinkContent
@@ -667,7 +667,7 @@ object FormMain: TFormMain
               Left = 10
               Height = 572
               Top = 10
-              Width = 1349
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
               BorderSpacing.Left = 10
@@ -679,7 +679,7 @@ object FormMain: TFormMain
               Columns = <              
                 item
                   Title.Caption = '链接'
-                  Width = 739
+                  Width = 744
                 end              
                 item
                   SizePriority = 0
@@ -693,7 +693,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                739
+                744
                 550
               )
               Cells = (
@@ -708,7 +708,7 @@ object FormMain: TFormMain
             Cursor = crHandPoint
             Caption = '列表链接'
             ClientHeight = 592
-            ClientWidth = 1369
+            ClientWidth = 1374
             object GridLinkList: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkList
               AnchorSideTop.Control = TabSheetLinkList
@@ -719,7 +719,7 @@ object FormMain: TFormMain
               Left = 10
               Height = 572
               Top = 10
-              Width = 1349
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
               BorderSpacing.Left = 10
@@ -731,7 +731,7 @@ object FormMain: TFormMain
               Columns = <              
                 item
                   Title.Caption = '链接'
-                  Width = 739
+                  Width = 744
                 end              
                 item
                   SizePriority = 0
@@ -745,7 +745,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                739
+                744
                 550
               )
               Cells = (
@@ -759,7 +759,7 @@ object FormMain: TFormMain
           object TabSheetLinkUnknow: TTabSheet
             Caption = '未知链接'
             ClientHeight = 592
-            ClientWidth = 1369
+            ClientWidth = 1374
             object GridLinkUnknow: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkUnknow
               AnchorSideTop.Control = TabSheetLinkUnknow
@@ -770,7 +770,7 @@ object FormMain: TFormMain
               Left = 10
               Height = 572
               Top = 10
-              Width = 1349
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
               BorderSpacing.Left = 10
@@ -782,7 +782,7 @@ object FormMain: TFormMain
               Columns = <              
                 item
                   Title.Caption = '链接'
-                  Width = 739
+                  Width = 744
                 end              
                 item
                   SizePriority = 0
@@ -796,7 +796,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                739
+                744
                 550
               )
               Cells = (
@@ -810,7 +810,7 @@ object FormMain: TFormMain
           object TabSheetLinkNone: TTabSheet
             Caption = '排除链接'
             ClientHeight = 592
-            ClientWidth = 1369
+            ClientWidth = 1374
             object GridLinkNone: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkNone
               AnchorSideTop.Control = TabSheetLinkNone
@@ -821,7 +821,7 @@ object FormMain: TFormMain
               Left = 10
               Height = 572
               Top = 10
-              Width = 1349
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
               BorderSpacing.Left = 10
@@ -833,7 +833,7 @@ object FormMain: TFormMain
               Columns = <              
                 item
                   Title.Caption = '链接'
-                  Width = 739
+                  Width = 744
                 end              
                 item
                   SizePriority = 0
@@ -847,7 +847,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                739
+                744
                 550
               )
               Cells = (
@@ -861,7 +861,7 @@ object FormMain: TFormMain
           object TabSheetLinkFilter: TTabSheet
             Caption = '过滤链接'
             ClientHeight = 592
-            ClientWidth = 1369
+            ClientWidth = 1374
             object GridLinkFilter: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkFilter
               AnchorSideTop.Control = TabSheetLinkFilter
@@ -872,7 +872,7 @@ object FormMain: TFormMain
               Left = 10
               Height = 572
               Top = 10
-              Width = 1349
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
               BorderSpacing.Left = 10
@@ -884,7 +884,7 @@ object FormMain: TFormMain
               Columns = <              
                 item
                   Title.Caption = '链接'
-                  Width = 739
+                  Width = 744
                 end              
                 item
                   SizePriority = 0
@@ -898,7 +898,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 59
-                739
+                744
                 550
               )
               Cells = (
@@ -912,7 +912,7 @@ object FormMain: TFormMain
           object TabSheetLinkDomain: TTabSheet
             Caption = '子域名'
             ClientHeight = 592
-            ClientWidth = 1369
+            ClientWidth = 1374
             object GridLinkDomain: TStringGrid
               AnchorSideLeft.Control = TabSheetLinkDomain
               AnchorSideTop.Control = TabSheetLinkDomain
@@ -923,7 +923,7 @@ object FormMain: TFormMain
               Left = 10
               Height = 572
               Top = 10
-              Width = 1349
+              Width = 1354
               Anchors = [akTop, akLeft, akRight, akBottom]
               AutoFillColumns = True
               BorderSpacing.Left = 10
@@ -935,7 +935,7 @@ object FormMain: TFormMain
               Columns = <              
                 item
                   Title.Caption = '域名'
-                  Width = 738
+                  Width = 743
                 end              
                 item
                   SizePriority = 0
@@ -949,7 +949,7 @@ object FormMain: TFormMain
               TabOrder = 0
               ColWidths = (
                 60
-                738
+                743
                 550
               )
               Cells = (
@@ -966,18 +966,19 @@ object FormMain: TFormMain
           AnchorSideTop.Control = PanelLink
           AnchorSideRight.Control = PanelLink
           AnchorSideRight.Side = asrBottom
-          Left = 10
+          Left = 11
           Height = 80
-          Top = 5
-          Width = 1380
+          Top = 6
+          Width = 1378
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 5
           BorderSpacing.Right = 10
+          BorderSpacing.Around = 1
           BevelOuter = bvNone
           BorderStyle = bsSingle
           ClientHeight = 78
-          ClientWidth = 1378
+          ClientWidth = 1376
           TabOrder = 1
           object LabelLinkTimeout: TLabel
             AnchorSideLeft.Control = PanelLinkRequest
@@ -1051,7 +1052,7 @@ object FormMain: TFormMain
             Left = 93
             Height = 22
             Top = 10
-            Width = 1135
+            Width = 1133
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 10
@@ -1063,7 +1064,7 @@ object FormMain: TFormMain
             AnchorSideTop.Control = PanelLinkRequest
             AnchorSideRight.Control = BtnLinkOpen
             Cursor = crHandPoint
-            Left = 1243
+            Left = 1241
             Height = 25
             Top = 7
             Width = 80
@@ -1079,7 +1080,7 @@ object FormMain: TFormMain
             AnchorSideRight.Control = PanelLinkRequest
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 1343
+            Left = 1341
             Height = 20
             Top = 12
             Width = 20
@@ -1411,7 +1412,7 @@ object FormMain: TFormMain
   end
   object ImageListIcon: TImageList
     ImageType = itMask
-    Left = 984
+    Left = 992
     Bitmap = {
       4C7A020000001000000010000000A60300000000000078DA8D92CB6B55571487
       7728D498E601EDC0C74071E24DC8EBE671AF498C985A93700DDE40BCDE24E7EC
