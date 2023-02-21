@@ -220,7 +220,7 @@ object FormMain: TFormMain
           Left = 106
           Height = 28
           Top = 20
-          Width = 538
+          Width = 533
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 12
           BorderSpacing.Top = 20
@@ -232,10 +232,10 @@ object FormMain: TFormMain
           AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = BtnRequestOpen
           Cursor = crHandPoint
-          Left = 656
-          Height = 34
+          Left = 651
+          Height = 30
           Top = 18
-          Width = 75
+          Width = 80
           Anchors = [akTop, akRight]
           BorderSpacing.Top = 18
           BorderSpacing.Right = 12
@@ -262,7 +262,7 @@ object FormMain: TFormMain
           OnClick = BtnRequestOpenClick
           ShowCaption = False
         end
-        object GroupBoxRequest: TGroupBox
+        object PanelRequestBox: TPanel
           AnchorSideLeft.Control = PanelRequestController
           AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = PanelRequestController
@@ -278,13 +278,15 @@ object FormMain: TFormMain
           BorderSpacing.Top = 69
           BorderSpacing.Right = 19
           BorderSpacing.Bottom = 19
-          ClientHeight = 877
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          ClientHeight = 898
           ClientWidth = 745
           ParentFont = False
           TabOrder = 2
           object LabelRequestUa: TLabel
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Left = 19
             Height = 20
             Top = 19
@@ -294,10 +296,10 @@ object FormMain: TFormMain
             Caption = '用户代理 (UserAgent)'
           end
           object EditRequestUa: TEdit
-            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
             AnchorSideTop.Control = LabelRequestUa
             AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = GroupBoxRequest
+            AnchorSideRight.Control = PanelRequestBox
             AnchorSideRight.Side = asrBottom
             Left = 19
             Height = 28
@@ -311,8 +313,8 @@ object FormMain: TFormMain
             Text = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
           end
           object LabelRequestLength: TLabel
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Left = 19
             Height = 20
             Top = 169
@@ -322,8 +324,8 @@ object FormMain: TFormMain
             Caption = '响应最大长度 (ContentLength)（字节数）'
           end
           object LabelRequestType: TLabel
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Left = 19
             Height = 20
             Top = 94
@@ -333,10 +335,10 @@ object FormMain: TFormMain
             Caption = '响应内容类型 (ContentType)'
           end
           object EditRequestType: TEdit
-            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
             AnchorSideTop.Control = LabelRequestType
             AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = GroupBoxRequest
+            AnchorSideRight.Control = PanelRequestBox
             AnchorSideRight.Side = asrBottom
             Left = 19
             Height = 28
@@ -351,8 +353,8 @@ object FormMain: TFormMain
             Text = 'text/html'
           end
           object LabelRequestRedirect: TLabel
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Left = 19
             Height = 20
             Top = 244
@@ -362,8 +364,8 @@ object FormMain: TFormMain
             Caption = '最大跳转次数 (MaxRedirect)'
           end
           object CheckRequestCharset: TCheckBox
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Cursor = crHandPoint
             Left = 19
             Height = 25
@@ -379,7 +381,7 @@ object FormMain: TFormMain
             TabOrder = 2
           end
           object CheckRequestType: TCheckBox
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideTop.Control = PanelRequestBox
             Cursor = crHandPoint
             Left = 290
             Height = 24
@@ -395,7 +397,7 @@ object FormMain: TFormMain
           object MemoRequestHeader: TMemo
             AnchorSideTop.Control = LabelRequestHeader
             AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = GroupBoxRequest
+            AnchorSideRight.Control = PanelRequestBox
             AnchorSideRight.Side = asrBottom
             Left = 19
             Height = 125
@@ -409,8 +411,8 @@ object FormMain: TFormMain
             TabOrder = 5
           end
           object LabelRequestHeader: TLabel
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Left = 19
             Height = 20
             Top = 394
@@ -420,7 +422,7 @@ object FormMain: TFormMain
             Caption = '请求头 (Header)'
           end
           object CheckRequestRedirect: TCheckBox
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideTop.Control = PanelRequestBox
             Cursor = crHandPoint
             Left = 290
             Height = 24
@@ -432,8 +434,8 @@ object FormMain: TFormMain
             TabOrder = 6
           end
           object LabelRequestProxy: TLabel
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Left = 19
             Height = 20
             Top = 562
@@ -443,10 +445,10 @@ object FormMain: TFormMain
             Caption = 'Http代理 (Proxy)'
           end
           object EditRequestProxy: TEdit
-            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
             AnchorSideTop.Control = LabelRequestProxy
             AnchorSideTop.Side = asrBottom
-            AnchorSideRight.Control = GroupBoxRequest
+            AnchorSideRight.Control = PanelRequestBox
             AnchorSideRight.Side = asrBottom
             Left = 19
             Height = 28
@@ -462,11 +464,11 @@ object FormMain: TFormMain
             TabOrder = 7
           end
           object BtnRequestDefault: TButton
-            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
             AnchorSideTop.Control = CheckRequestClean
             AnchorSideTop.Side = asrBottom
             AnchorSideRight.Side = asrBottom
-            AnchorSideBottom.Control = GroupBoxRequest
+            AnchorSideBottom.Control = PanelRequestBox
             AnchorSideBottom.Side = asrBottom
             Cursor = crHandPoint
             Left = 19
@@ -481,7 +483,7 @@ object FormMain: TFormMain
             TabOrder = 4
           end
           object EditRequestRedirect: TSpinEdit
-            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
             AnchorSideTop.Control = LabelRequestRedirect
             AnchorSideTop.Side = asrBottom
             Left = 19
@@ -496,7 +498,7 @@ object FormMain: TFormMain
             Value = 2
           end
           object EditRequestLength: TEdit
-            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
             AnchorSideTop.Control = LabelRequestLength
             AnchorSideTop.Side = asrBottom
             Left = 19
@@ -510,8 +512,8 @@ object FormMain: TFormMain
             Text = '4096000'
           end
           object CheckRequestClean: TCheckBox
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Cursor = crHandPoint
             Left = 19
             Height = 24
@@ -525,8 +527,8 @@ object FormMain: TFormMain
             TabOrder = 10
           end
           object LabelRequestTimeout: TLabel
-            AnchorSideLeft.Control = GroupBoxRequest
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
+            AnchorSideTop.Control = PanelRequestBox
             Left = 19
             Height = 20
             Top = 319
@@ -536,7 +538,7 @@ object FormMain: TFormMain
             Caption = '超时时间（毫秒）'
           end
           object EditRequestTimeout: TEdit
-            AnchorSideLeft.Control = GroupBoxRequest
+            AnchorSideLeft.Control = PanelRequestBox
             AnchorSideTop.Control = LabelRequestTimeout
             AnchorSideTop.Side = asrBottom
             Left = 19
@@ -550,7 +552,7 @@ object FormMain: TFormMain
             Text = '30000'
           end
           object BtnRequestTipProxy: TSpeedButton
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideTop.Control = PanelRequestBox
             Cursor = crHandPoint
             Left = 160
             Height = 20
@@ -566,7 +568,7 @@ object FormMain: TFormMain
             ShowCaption = False
           end
           object BtnRequestTipHeader: TSpeedButton
-            AnchorSideTop.Control = GroupBoxRequest
+            AnchorSideTop.Control = PanelRequestBox
             Cursor = crHandPoint
             Left = 160
             Height = 20
