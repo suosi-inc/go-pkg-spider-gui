@@ -643,14 +643,14 @@ object FormMain: TFormMain
           Height = 622
           Top = 95
           Width = 1375
-          ActivePage = TabSheetLinkDomain
+          ActivePage = TabSheetLinkContent
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 5
           BorderSpacing.Right = 15
           BorderSpacing.Bottom = 10
           ParentFont = False
-          TabIndex = 5
+          TabIndex = 0
           TabOrder = 0
           object TabSheetLinkContent: TTabSheet
             Cursor = crHandPoint
@@ -679,20 +679,21 @@ object FormMain: TFormMain
               Columns = <              
                 item
                   Title.Caption = '链接'
-                  Width = 738
+                  Width = 739
                 end              
                 item
                   SizePriority = 0
                   Title.Caption = '标题'
                   Width = 550
                 end>
+              Flat = True
               MouseWheelOption = mwGrid
               Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goAlwaysShowEditor, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
               ColWidths = (
                 59
-                738
+                739
                 550
               )
               Cells = (
