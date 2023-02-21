@@ -24,7 +24,11 @@ import (
 type TFormMainFields struct {
 }
 
-// OnBtnRequestClick 请求测试功能运行
+func (f *TFormMain) OnFormCreate(sender vcl.IObject) {
+	f.PageControl.SetActivePageIndex(0)
+}
+
+// OnBtnRequestClick 请求测试功能
 func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 	f.MemoRequest.SetText("")
 
@@ -139,12 +143,6 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 
 	} else {
 		f.Debug("Request Failed : " + err.Error())
-	}
-}
-
-func (f *TFormMain) Debug(str string) {
-	if f.PanelDebug.Visible() {
-		f.MemoDebug.Append(str)
 	}
 }
 
@@ -291,6 +289,12 @@ func (f *TFormMain) OnToolBtnDebugClick(sender vcl.IObject) {
 	}
 }
 
+func (f *TFormMain) Debug(str string) {
+	if f.PanelDebug.Visible() {
+		f.MemoDebug.Append(str)
+	}
+}
+
 func (f *TFormMain) OnMenuDebugCopyClick(sender vcl.IObject) {
 	f.MemoDebug.CopyToClipboard()
 }
@@ -366,6 +370,7 @@ func (f *TFormMain) OnToolBtnLinkClick(sender vcl.IObject) {
 	f.RemoveToolBtnDown()
 	f.ToolBtnLink.SetDown(true)
 	f.PageControl.SetActivePageIndex(2)
+	f.PageControlLink.SetActivePageIndex(0)
 }
 
 func (f *TFormMain) OnToolBtnContentClick(sender vcl.IObject) {

@@ -113,6 +113,7 @@ type
     procedure BtnToolDomainRequestClick(Sender: TObject);
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure ToolBtnContentClick(Sender: TObject);
@@ -214,6 +215,11 @@ begin
        EditRequestType.Enabled:=False
     else
        EditRequestType.Enabled:=True;
+end;
+
+procedure TFormMain.FormCreate(Sender: TObject);
+begin
+
 end;
 
 procedure TFormMain.CheckRequestRedirectChange(Sender: TObject);

@@ -30,6 +30,28 @@ type TFormMain struct {
 	EditRequestUrl         *vcl.TEdit
 	BtnRequest             *vcl.TButton
 	BtnRequestOpen         *vcl.TSpeedButton
+	PanelRequestBox        *vcl.TPanel
+	LabelRequestUa         *vcl.TLabel
+	EditRequestUa          *vcl.TEdit
+	LabelRequestLength     *vcl.TLabel
+	LabelRequestType       *vcl.TLabel
+	EditRequestType        *vcl.TEdit
+	LabelRequestRedirect   *vcl.TLabel
+	CheckRequestCharset    *vcl.TCheckBox
+	CheckRequestType       *vcl.TCheckBox
+	MemoRequestHeader      *vcl.TMemo
+	LabelRequestHeader     *vcl.TLabel
+	CheckRequestRedirect   *vcl.TCheckBox
+	LabelRequestProxy      *vcl.TLabel
+	EditRequestProxy       *vcl.TEdit
+	BtnRequestDefault      *vcl.TButton
+	EditRequestRedirect    *vcl.TSpinEdit
+	EditRequestLength      *vcl.TEdit
+	CheckRequestClean      *vcl.TCheckBox
+	LabelRequestTimeout    *vcl.TLabel
+	EditRequestTimeout     *vcl.TEdit
+	BtnRequestTipProxy     *vcl.TSpeedButton
+	BtnRequestTipHeader    *vcl.TSpeedButton
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
 	PanelDomain            *vcl.TPanel
@@ -75,28 +97,6 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	PanelRequestBox        *vcl.TPanel
-	LabelRequestUa         *vcl.TLabel
-	EditRequestUa          *vcl.TEdit
-	LabelRequestLength     *vcl.TLabel
-	LabelRequestType       *vcl.TLabel
-	EditRequestType        *vcl.TEdit
-	LabelRequestRedirect   *vcl.TLabel
-	CheckRequestCharset    *vcl.TCheckBox
-	CheckRequestType       *vcl.TCheckBox
-	MemoRequestHeader      *vcl.TMemo
-	LabelRequestHeader     *vcl.TLabel
-	CheckRequestRedirect   *vcl.TCheckBox
-	LabelRequestProxy      *vcl.TLabel
-	EditRequestProxy       *vcl.TEdit
-	BtnRequestDefault      *vcl.TButton
-	EditRequestRedirect    *vcl.TSpinEdit
-	EditRequestLength      *vcl.TEdit
-	CheckRequestClean      *vcl.TCheckBox
-	LabelRequestTimeout    *vcl.TLabel
-	EditRequestTimeout     *vcl.TEdit
-	BtnRequestTipProxy     *vcl.TSpeedButton
-	BtnRequestTipHeader    *vcl.TSpeedButton
 
 	//::private::
 	TFormMainFields
