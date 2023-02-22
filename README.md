@@ -36,18 +36,23 @@ Linux 依次安装： `fpc-laz -> fpc-src -> lazarus`
 
 `包 -> 安装卸载包 -> 右侧双击选择 'anchordockingdsgn'、'dockerformeditor' -> 保存并重建IDE`，等待构建后重启
 
-> 很遗憾，MacOS 的切换窗口停靠后，运行会产生莫名的错误，忍受分离模式。
+> 很遗憾，MacOS 的切换窗口停靠后，运行会产生莫名奇妙的 Bug，折腾未果。
 
 #### res2go
 
-安装 govcl 配套的 [res2go](https://github.com/ying32/res2go-ide-plugin)，这是 govcl 官方的 Lazarus 插件，
+安装 govcl 官方的 Lazarus 插件： [res2go](https://github.com/ying32/res2go-ide-plugin)，用于同步生成 Golang 代码。
 
-建议配置：
+本项目配置：
+
+* 不使用默认的 `winappres`
+* 输出路径使用环境变量：`$Path($ProjectFile())../`，包名：`gui`，输出语言：Go。即代码输出到项目的 `/gui` 目录中
+* 使用 `tempdll`约束，使用 `go:embed`
+* Build mode：`exe` (针对 Windows)
 
 ### Windows 构建
 
 ```
-go mod tidy
+go mod download
 
 # Windows 下隐藏 cmd 窗口，并且将 liblcl 打包到可执行文件内，
 go build -ldflags "-H windowsgui" -tags tempdll -o bin/win64
@@ -60,12 +65,12 @@ go build -ldflags "-w -s -H windowsgui" -tags tempdll -o bin/win64
 
 
 ```
-go mod tidy
+go mod download
 
 go build -o bin/macos64
 ```
 
-## 一些注意事项
+## 注意事项
 
 ### 关于 DPI Awareness
 
