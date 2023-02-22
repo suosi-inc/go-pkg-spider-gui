@@ -3,6 +3,7 @@ package gui
 
 import (
 	_ "embed"
+
 	"github.com/ying32/govcl/vcl"
 )
 
@@ -82,6 +83,7 @@ type TFormMain struct {
 	EditLinkRetry          *vcl.TSpinEdit
 	EditLinkSearch         *vcl.TEdit
 	PanelLinkRule          *vcl.TPanel
+	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
@@ -99,7 +101,6 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	BtnLinkSearch          *vcl.TButton
 
 	//::private::
 	TFormMainFields
