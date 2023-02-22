@@ -35,7 +35,7 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 	// Request Url
 	urlStr := f.EditRequestUrl.Text()
 	if fun.Blank(urlStr) {
-		f.Debug("Request Failed : url is empty")
+		f.debug("Request Failed : url is empty")
 		return
 	}
 
@@ -126,9 +126,9 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 	if resp, err := spider.HttpGetResp(urlStr, req, timeout); err == nil {
 		use := fun.Timestamp(true) - start
 
-		f.Debug("Request Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
-		f.Debug("\tCharset : " + fun.ToString(resp.Charset))
-		f.Debug("\tContent-Length : " + fun.ToString(resp.ContentLength))
+		f.debug("Request Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
+		f.debug("\tCharset : " + fun.ToString(resp.Charset))
+		f.debug("\tContent-Length : " + fun.ToString(resp.ContentLength))
 
 		if f.CheckRequestClean.Checked() {
 			doc, _ := goquery.NewDocumentFromReader(bytes.NewReader(resp.Body))
@@ -142,7 +142,7 @@ func (f *TFormMain) OnBtnRequestClick(sender vcl.IObject) {
 		}
 
 	} else {
-		f.Debug("Request Failed : " + err.Error())
+		f.debug("Request Failed : " + err.Error())
 	}
 }
 
@@ -166,11 +166,11 @@ func (f *TFormMain) OnBtnRequestDefaultClick(sender vcl.IObject) {
 func (f *TFormMain) OnBtnToolDomainRequestClick(sender vcl.IObject) {
 	domain := f.EditToolDomain.Text()
 	if fun.Blank(domain) {
-		f.Debug("DomainTop Failed : domain is empty")
+		f.debug("DomainTop Failed : domain is empty")
 		return
 	}
 
-	f.Debug("DomainTop : " + domain)
+	f.debug("DomainTop : " + domain)
 	var top string
 	if strings.HasPrefix(domain, "http") {
 		top = extract.DomainTopFromUrl(domain)
@@ -179,13 +179,13 @@ func (f *TFormMain) OnBtnToolDomainRequestClick(sender vcl.IObject) {
 	}
 
 	f.EditToolDomainResult.SetText(top)
-	f.Debug("\tResult : " + top)
+	f.debug("\tResult : " + top)
 }
 
 func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
 	urlStr := f.EditLinkUrl.Text()
 	if fun.Blank(urlStr) {
-		f.Debug("Request Link Failed : url is empty")
+		f.debug("Request Link Failed : url is empty")
 		return
 	}
 
@@ -204,12 +204,12 @@ func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
 	// 最大重试次数
 	maxRetry := fun.ToInt(f.EditLinkRetry.Text())
 
-	f.ClearStringGrid(f.GridLinkContent, false)
-	f.ClearStringGrid(f.GridLinkList, false)
-	f.ClearStringGrid(f.GridLinkUnknow, false)
-	f.ClearStringGrid(f.GridLinkNone, false)
-	f.ClearStringGrid(f.GridLinkFilter, false)
-	f.ClearStringGrid(f.GridLinkDomain, false)
+	f.clearStringGrid(f.GridLinkContent, false)
+	f.clearStringGrid(f.GridLinkList, false)
+	f.clearStringGrid(f.GridLinkUnknow, false)
+	f.clearStringGrid(f.GridLinkNone, false)
+	f.clearStringGrid(f.GridLinkFilter, false)
+	f.clearStringGrid(f.GridLinkDomain, false)
 
 	start := fun.Timestamp(true)
 	if linkData, err := spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
@@ -223,14 +223,14 @@ func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
 			len(linkData.Filters),
 			len(linkData.SubDomains),
 		)
-		f.Debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
-		f.Debug(result)
+		f.debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
+		f.debug(result)
 
-		f.RenderGridLink(f.GridLinkContent, linkData.LinkRes.Content)
-		f.RenderGridLink(f.GridLinkList, linkData.LinkRes.List)
-		f.RenderGridLink(f.GridLinkUnknow, linkData.LinkRes.Unknown)
-		f.RenderGridLink(f.GridLinkNone, linkData.LinkRes.None)
-		f.RenderGridLink(f.GridLinkFilter, linkData.Filters)
+		f.renderGridLink(f.GridLinkContent, linkData.LinkRes.Content)
+		f.renderGridLink(f.GridLinkList, linkData.LinkRes.List)
+		f.renderGridLink(f.GridLinkUnknow, linkData.LinkRes.Unknown)
+		f.renderGridLink(f.GridLinkNone, linkData.LinkRes.None)
+		f.renderGridLink(f.GridLinkFilter, linkData.Filters)
 
 		var i int32
 		i = 1
@@ -246,7 +246,7 @@ func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
 func (f *TFormMain) OnBtnLinkSearchClick(sender vcl.IObject) {
 	keyword := f.EditLinkSearch.Text()
 	if fun.Blank(keyword) {
-		f.Debug("Link Search Failed : keyword is empty")
+		f.debug("Link Search Failed : keyword is empty")
 		return
 	}
 
@@ -261,17 +261,18 @@ func (f *TFormMain) OnBtnLinkSearchClick(sender vcl.IObject) {
 			if strings.Contains(cell, keyword) {
 				f.GridLinkContent.SetTopRow(i)
 				found = true
+				return
 			}
 		}
 		if !found {
-			f.Debug("Link Search Failed : not found")
+			f.debug("Link Search Failed : not found")
 		}
 	} else {
-		f.Debug("Link Search Failed : data is empty")
+		f.debug("Link Search Failed : data is empty")
 	}
 }
 
-func (f *TFormMain) RenderGridLink(grid *vcl.TStringGrid, datas map[string]string) {
+func (f *TFormMain) renderGridLink(grid *vcl.TStringGrid, datas map[string]string) {
 	var i int32
 	i = 1
 	for key, value := range datas {
@@ -282,7 +283,7 @@ func (f *TFormMain) RenderGridLink(grid *vcl.TStringGrid, datas map[string]strin
 	}
 }
 
-func (f *TFormMain) ClearStringGrid(grid *vcl.TStringGrid, title bool) {
+func (f *TFormMain) clearStringGrid(grid *vcl.TStringGrid, title bool) {
 	var i, start int32
 
 	if title {
@@ -317,7 +318,7 @@ func (f *TFormMain) OnToolBtnDebugClick(sender vcl.IObject) {
 	}
 }
 
-func (f *TFormMain) Debug(str string) {
+func (f *TFormMain) debug(str string) {
 	if f.PanelDebug.Visible() {
 		f.MemoDebug.Append(str)
 	}
@@ -367,7 +368,7 @@ func (f *TFormMain) OpenBrowser(urlStr string) {
 func (f *TFormMain) OnBtnRequestOpenClick(sender vcl.IObject) {
 	urlStr := f.EditLinkUrl.Text()
 	if fun.Blank(urlStr) {
-		f.Debug("Request Link Failed : url is empty")
+		f.debug("Request Link Failed : url is empty")
 	}
 
 	f.OpenBrowser(urlStr)
@@ -376,44 +377,44 @@ func (f *TFormMain) OnBtnRequestOpenClick(sender vcl.IObject) {
 func (f *TFormMain) OnBtnRequestLinkClick(sender vcl.IObject) {
 	urlStr := f.EditRequestUrl.Text()
 	if fun.Blank(urlStr) {
-		f.Debug("Request Failed : url is empty")
+		f.debug("Request Failed : url is empty")
 	}
 
 	f.OpenBrowser(urlStr)
 }
 
 func (f *TFormMain) OnToolBtnRequestClick(sender vcl.IObject) {
-	f.RemoveToolBtnDown()
+	f.removeToolBtnDown()
 	f.ToolBtnRequest.SetDown(true)
 	f.PageControl.SetActivePageIndex(0)
 }
 
 func (f *TFormMain) OnToolBtnDomainClick(sender vcl.IObject) {
-	f.RemoveToolBtnDown()
+	f.removeToolBtnDown()
 	f.ToolBtnDomain.SetDown(true)
 	f.PageControl.SetActivePageIndex(1)
 }
 
 func (f *TFormMain) OnToolBtnLinkClick(sender vcl.IObject) {
-	f.RemoveToolBtnDown()
+	f.removeToolBtnDown()
 	f.ToolBtnLink.SetDown(true)
 	f.PageControl.SetActivePageIndex(2)
 	f.PageControlLink.SetActivePageIndex(0)
 }
 
 func (f *TFormMain) OnToolBtnContentClick(sender vcl.IObject) {
-	f.RemoveToolBtnDown()
+	f.removeToolBtnDown()
 	f.ToolBtnContent.SetDown(true)
 	f.PageControl.SetActivePageIndex(3)
 }
 
 func (f *TFormMain) OnToolBtnToolClick(sender vcl.IObject) {
-	f.RemoveToolBtnDown()
+	f.removeToolBtnDown()
 	f.ToolBtnTool.SetDown(true)
 	f.PageControl.SetActivePageIndex(4)
 }
 
-func (f *TFormMain) RemoveToolBtnDown() {
+func (f *TFormMain) removeToolBtnDown() {
 	f.ToolBtnRequest.SetDown(false)
 	f.ToolBtnDomain.SetDown(false)
 	f.ToolBtnLink.SetDown(false)
@@ -424,7 +425,7 @@ func (f *TFormMain) RemoveToolBtnDown() {
 func (f *TFormMain) OnBtnLinkOpenClick(sender vcl.IObject) {
 	urlStr := f.EditLinkUrl.Text()
 	if fun.Blank(urlStr) {
-		f.Debug("Request Link Failed : url is empty")
+		f.debug("Request Link Failed : url is empty")
 	}
 
 	f.OpenBrowser(urlStr)
