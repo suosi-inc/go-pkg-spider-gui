@@ -12,7 +12,9 @@
 
 ### MacOS
 
-![macos](images/macos.png)
+<p align="center" markdown="1" style="max-width: 100%">
+  <img src="images/macos.png" width="800" style="max-width: 100%" />
+</p>
 
 ## 使用说明
 
