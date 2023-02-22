@@ -21,6 +21,7 @@ type
     BtnRequestTipHeader: TSpeedButton;
     BtnRequestTipProxy: TSpeedButton;
     BtnToolDomainRequest: TButton;
+    BtnLinkSearch: TButton;
     CheckLinkStrictDomain: TCheckBox;
     CheckRequestCharset: TCheckBox;
     CheckRequestClean: TCheckBox;
@@ -73,7 +74,6 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     BtnRequestOpen: TSpeedButton;
-    SpeedButton1: TSpeedButton;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;
