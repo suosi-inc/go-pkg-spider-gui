@@ -1,6 +1,8 @@
-通用网站采集库 [go-pkg-spider](https://github.com/suosi-inc/go-pkg-spider) GUI 功能演示项目。
+通用网站采集库 [go-pkg-spider](https://github.com/suosi-inc/go-pkg-spider) GUI 功能演示。
 
-## 可执行二进制
+## 下载
+
+待更
 
 ## 界面预览
 
