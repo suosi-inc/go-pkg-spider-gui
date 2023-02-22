@@ -82,8 +82,8 @@ type TFormMain struct {
 	EditLinkRetry          *vcl.TSpinEdit
 	EditLinkSearch         *vcl.TEdit
 	PanelLinkRule          *vcl.TPanel
-	TabSheetContent        *vcl.TTabSheet
-	PanelContent           *vcl.TPanel
+	TabSheetNews           *vcl.TTabSheet
+	PanelNews              *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
 	PanelToolDomain        *vcl.TPanel

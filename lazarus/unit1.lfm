@@ -462,6 +462,7 @@ object FormMain: TFormMain
             ParentShowHint = False
             ShowHint = True
             TabOrder = 7
+            TextHint = 'http://username:password@host:port'
           end
           object BtnRequestDefault: TButton
             AnchorSideLeft.Control = PanelRequestBox
@@ -605,10 +606,18 @@ object FormMain: TFormMain
       ClientHeight = 798
       ClientWidth = 1400
       object PanelDomain: TPanel
-        Left = 532
-        Height = 50
-        Top = 276
-        Width = 170
+        AnchorSideLeft.Control = TabSheetDomain
+        AnchorSideTop.Control = TabSheetDomain
+        AnchorSideRight.Control = TabSheetDomain
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheetDomain
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 798
+        Top = 0
+        Width = 1400
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BevelOuter = bvNone
         Caption = 'PanelDomain'
         TabOrder = 0
       end
@@ -1118,6 +1127,7 @@ object FormMain: TFormMain
             Flat = True
             Images = ImageListIcon
             ImageIndex = 1
+            OnClick = BtnLinkOpenClick
           end
           object EditLinkRetry: TSpinEdit
             AnchorSideLeft.Control = LabelLinkRetry
@@ -1178,21 +1188,29 @@ object FormMain: TFormMain
           BorderSpacing.Top = 94
           BorderSpacing.Right = 10
           Caption = '搜索'
+          OnClick = BtnLinkSearchClick
           TabOrder = 4
         end
       end
     end
-    object TabSheetContent: TTabSheet
-      Caption = 'TabSheetContent'
+    object TabSheetNews: TTabSheet
+      Caption = 'TabSheetNews'
       ClientHeight = 798
       ClientWidth = 1400
-      object PanelContent: TPanel
-        Left = 522
-        Height = 50
-        Top = 265
-        Width = 170
+      object PanelNews: TPanel
+        AnchorSideLeft.Control = TabSheetNews
+        AnchorSideTop.Control = TabSheetNews
+        AnchorSideRight.Control = TabSheetNews
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheetNews
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 798
+        Top = 0
+        Width = 1400
+        Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
-        Caption = 'PanelContent'
+        Caption = 'PanelNews'
         TabOrder = 0
       end
     end
@@ -1220,20 +1238,17 @@ object FormMain: TFormMain
         object PanelToolDomain: TPanel
           AnchorSideLeft.Control = PanelTool
           AnchorSideTop.Control = PanelTool
-          AnchorSideRight.Control = PanelTool
           AnchorSideRight.Side = asrBottom
           Left = 10
           Height = 50
           Top = 10
-          Width = 1380
-          Anchors = [akTop, akLeft, akRight]
+          Width = 700
           BorderSpacing.Left = 10
           BorderSpacing.Top = 10
-          BorderSpacing.Right = 10
           BevelOuter = bvNone
           BorderStyle = bsSingle
           ClientHeight = 48
-          ClientWidth = 1378
+          ClientWidth = 698
           ParentColor = False
           TabOrder = 0
           object LabelToolDomain: TLabel
@@ -1255,7 +1270,7 @@ object FormMain: TFormMain
             Left = 101
             Height = 22
             Top = 12
-            Width = 727
+            Width = 297
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 10
             BorderSpacing.Top = 12
@@ -1267,7 +1282,7 @@ object FormMain: TFormMain
             AnchorSideRight.Control = PanelToolDomain
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 1268
+            Left = 588
             Height = 20
             Top = 11
             Width = 95
@@ -1283,10 +1298,10 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelToolDomain
             AnchorSideRight.Control = BtnToolDomainRequest
-            Left = 848
+            Left = 418
             Height = 22
             Top = 12
-            Width = 400
+            Width = 150
             Anchors = [akTop, akRight]
             BorderSpacing.Left = 20
             BorderSpacing.Top = 12

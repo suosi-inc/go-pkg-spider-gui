@@ -67,7 +67,7 @@ type
     PanelToolDomain: TPanel;
     PanelDomain: TPanel;
     PanelLink: TPanel;
-    PanelContent: TPanel;
+    PanelNews: TPanel;
     PanelTool: TPanel;
     PanelRequestView: TPanel;
     PanelRequestController: TPanel;
@@ -89,7 +89,7 @@ type
     TabSheetLinkUnknow: TTabSheet;
     TabSheetLinkNone: TTabSheet;
     TabSheetTool: TTabSheet;
-    TabSheetContent: TTabSheet;
+    TabSheetNews: TTabSheet;
     TabSheetLink: TTabSheet;
     TabSheetDomain: TTabSheet;
     TabSheetRequest: TTabSheet;
@@ -106,7 +106,9 @@ type
     ToolBtnSplit5: TToolButton;
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
+    procedure BtnLinkOpenClick(Sender: TObject);
     procedure BtnLinkRequestClick(Sender: TObject);
+    procedure BtnLinkSearchClick(Sender: TObject);
     procedure BtnRequestClick(Sender: TObject);
     procedure BtnRequestDefaultClick(Sender: TObject);
     procedure BtnRequestExampleClick(Sender: TObject);
@@ -250,6 +252,16 @@ begin
 end;
 
 procedure TFormMain.BtnLinkRequestClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnLinkSearchClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnLinkOpenClick(Sender: TObject);
 begin
 
 end;
