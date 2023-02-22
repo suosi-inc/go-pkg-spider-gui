@@ -3,6 +3,7 @@ package gui
 
 import (
 	_ "embed"
+
 	"github.com/ying32/govcl/vcl"
 )
 
