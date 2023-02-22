@@ -47,8 +47,10 @@ go build -ldflags "-w -s -H windowsgui" -tags tempdll -o bin/win64
 ```
 
 ### MacOS 构建
-go build -o bin/macos64
 
+```
+go build -o bin/macos64
+```
 
 ### 注意事项
 
