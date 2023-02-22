@@ -1,4 +1,4 @@
-本项目是 [go-pkg-spider](https://github.com/suosi-inc/go-pkg-spider) GUI 功能演示。
+通用网站采集库 [go-pkg-spider](https://github.com/suosi-inc/go-pkg-spider) GUI 功能演示项目。
 
 ## 可执行二进制
 
