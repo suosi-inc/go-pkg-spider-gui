@@ -20,7 +20,7 @@
 
 ## 构建准备
 
-本项目基于跨平台的 Golang GUI 库： [govcl](https://github.com/ying32/govcl) v2.2.0
+本项目基于跨平台的 Golang GUI 库： govcl v2.2.0 (https://github.com/ying32/govcl)
 
 ### 安装 Lazarus
 
