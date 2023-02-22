@@ -18,31 +18,31 @@
   <img src="images/macos.png" width="800" style="max-width: 100%" />
 </p>
 
-## 项目构建
+## 构建准备
 
-本项目基于跨平台的 Golang GUI 库 [govcl](https://github.com/ying32/govcl) v2.2.0
+本项目基于跨平台的 Golang GUI 库： [govcl](https://github.com/ying32/govcl) v2.2.0
 
 ### 安装 Lazarus
 
 安装对应的 Lazarus 2.2.0，用于可视化设计。官网下载： [Lazarus](https://www.lazarus-ide.org/index.php?page=downloads) 
 
-Windows 版本默认集成了 fpc、fpc-src、gdb等，直接下载安装 `Windows (64 Bits)` 版本即可
+Windows 版本默认集成了 `fpc、fpc-src、gdb` 等，直接下载安装 `Windows (64 Bits)` 版本即可
 
 MacOS 依次安装： `fpc -> fpc-src -> lazarus`
 
 Linux 依次安装： `fpc-laz -> fpc-src -> lazarus`
 
-#### 窗口停靠
+### Lazarus 窗口停靠
 
-默认 Lazarus IDE 是窗口分离模式，可以通过以下方法重新编译 IDE 切换窗口停靠模式：
+默认 Lazarus IDE 是窗口分离模式，与曾经的 Delphi 类似，可以通过以下方法重新编译 IDE 切换窗口停靠模式：
 
-`包 -> 安装卸载包 -> 右侧双击选择 'anchordockingdsgn'、'dockerformeditor' -> 保存并重建IDE`，等待构建后重启
+`包 -> 安装卸载包 -> 右侧双击选择 'anchordockingdsgn'、'dockerformeditor' -> 保存并重建IDE`，等待构建后自动重启
 
 > 很遗憾，MacOS 的切换窗口停靠后，运行会产生莫名奇妙的 Bug，折腾未果。
 
-#### res2go
+### res2go
 
-安装 govcl 官方的 Lazarus 插件： [res2go](https://github.com/ying32/res2go-ide-plugin)，用于同步生成 Golang 代码。
+安装 govcl 官方的 Lazarus 插件： [res2go](https://github.com/ying32/res2go-ide-plugin)，用于同步生成 Golang 相关代码。
 
 本项目配置：
 
@@ -50,6 +50,8 @@ Linux 依次安装： `fpc-laz -> fpc-src -> lazarus`
 * 输出路径使用环境变量：`$Path($ProjectFile())../`，包名：`gui`，输出语言：Go。即代码输出到项目的 `/gui` 目录中
 * 使用 `tempdll`约束，使用 `go:embed`
 * Build mode：`exe` (针对 Windows)
+
+## 构建
 
 ### Windows 构建
 
