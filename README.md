@@ -7,7 +7,7 @@
 ### Win10
 
 <p align="center" markdown="1" style="max-width: 100%">
-  <img src="images/win10.png" width="640" style="max-width: 100%" />
+  <img src="images/win10.png" width="800" style="max-width: 100%" />
 </p>
 
 ### MacOS
