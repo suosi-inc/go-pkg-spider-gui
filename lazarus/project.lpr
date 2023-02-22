@@ -19,7 +19,7 @@ begin
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
 
-  Application.Title:='Spider-gui1';
+  Application.Title:='Spider-gui';
 
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);

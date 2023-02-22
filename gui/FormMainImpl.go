@@ -243,6 +243,34 @@ func (f *TFormMain) OnBtnLinkRequestClick(sender vcl.IObject) {
 	}
 }
 
+func (f *TFormMain) OnBtnLinkSearchClick(sender vcl.IObject) {
+	keyword := f.EditLinkSearch.Text()
+	if fun.Blank(keyword) {
+		f.Debug("Link Search Failed : keyword is empty")
+		return
+	}
+
+	// activePage := f.PageControlLink.ActivePageIndex()
+
+	rowCount := f.GridLinkContent.RowCount()
+	if rowCount > 1 {
+		var i int32
+		var found bool
+		for i = 1; i < f.GridLinkContent.RowCount(); i++ {
+			cell := f.GridLinkContent.Cells(1, i)
+			if strings.Contains(cell, keyword) {
+				f.GridLinkContent.SetTopRow(i)
+				found = true
+			}
+		}
+		if !found {
+			f.Debug("Link Search Failed : not found")
+		}
+	} else {
+		f.Debug("Link Search Failed : data is empty")
+	}
+}
+
 func (f *TFormMain) RenderGridLink(grid *vcl.TStringGrid, datas map[string]string) {
 	var i int32
 	i = 1
@@ -391,4 +419,13 @@ func (f *TFormMain) RemoveToolBtnDown() {
 	f.ToolBtnLink.SetDown(false)
 	f.ToolBtnContent.SetDown(false)
 	f.ToolBtnTool.SetDown(false)
+}
+
+func (f *TFormMain) OnBtnLinkOpenClick(sender vcl.IObject) {
+	urlStr := f.EditLinkUrl.Text()
+	if fun.Blank(urlStr) {
+		f.Debug("Request Link Failed : url is empty")
+	}
+
+	f.OpenBrowser(urlStr)
 }
