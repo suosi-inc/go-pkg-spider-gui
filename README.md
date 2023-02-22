@@ -18,11 +18,11 @@
 
 ## 项目构建
 
-本项目基于 [govcl](https://github.com/ying32/govcl) v2.2.0
+本项目基于跨平台的 Golang GUI 库 [govcl](https://github.com/ying32/govcl) v2.2.0
 
 ### 安装 Lazarus
 
-安装对应的 Lazarus 2.2.0，用于可视化设计。下载 [Lazarus](https://www.lazarus-ide.org/index.php?page=downloads) 
+安装对应的 Lazarus 2.2.0，用于可视化设计。官网下载： [Lazarus](https://www.lazarus-ide.org/index.php?page=downloads) 
 
 Windows 版本默认集成了 fpc、fpc-src、gdb等，直接下载安装 `Windows (64 Bits)` 版本即可
 
@@ -37,6 +37,12 @@ Linux 依次安装： `fpc-laz -> fpc-src -> lazarus`
 `包 -> 安装卸载包 -> 右侧双击选择 'anchordockingdsgn'、'dockerformeditor' -> 保存并重建IDE`，等待构建后重启
 
 > 很遗憾，MacOS 的切换窗口停靠后，运行会产生莫名的错误，忍受分离模式。
+
+#### res2go
+
+安装 govcl 配套的 [res2go](https://github.com/ying32/res2go-ide-plugin)，这是 govcl 官方的 Lazarus 插件，
+
+建议配置：
 
 ### Windows 构建
 
@@ -54,13 +60,17 @@ go build -ldflags "-w -s -H windowsgui" -tags tempdll -o bin/win64
 
 
 ```
+go mod tidy
+
 go build -o bin/macos64
 ```
 
 ## 一些注意事项
 
-### 关于 DPI
+### 关于 DPI Awareness
 
 当需要跨平台构建打包时，可能涉及 DPI (高分屏) ，需要在构建前打开 Lazarus 工程同步一次工程（随便改点啥，触发 res2go ）
 
-Lazarus 会根据当前屏幕重置 DesignTimePPI/DPI，自动调整元素大小，然后再进行构建。
+Lazarus 会根据当前系统屏幕重置 DesignTimePPI/DPI，自动调整元素大小，生成工程文件。
+
+当前采用 `PerMonitorV2`
