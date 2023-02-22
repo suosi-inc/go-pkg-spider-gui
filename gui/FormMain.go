@@ -80,6 +80,9 @@ type TFormMain struct {
 	BtnLinkRequest         *vcl.TButton
 	BtnLinkOpen            *vcl.TSpeedButton
 	EditLinkRetry          *vcl.TSpinEdit
+	EditLinkSearch         *vcl.TEdit
+	SpeedButton1           *vcl.TSpeedButton
+	PanelLinkRule          *vcl.TPanel
 	TabSheetContent        *vcl.TTabSheet
 	PanelContent           *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
@@ -97,9 +100,6 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	Edit1                  *vcl.TEdit
-	SpeedButton1           *vcl.TSpeedButton
-	Panel1                 *vcl.TPanel
 
 	//::private::
 	TFormMainFields

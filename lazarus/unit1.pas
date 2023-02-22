@@ -26,7 +26,7 @@ type
     CheckRequestClean: TCheckBox;
     CheckRequestRedirect: TCheckBox;
     CheckRequestType: TCheckBox;
-    Edit1: TEdit;
+    EditLinkSearch: TEdit;
     EditLinkRetry: TSpinEdit;
     EditLinkTimeout: TEdit;
     EditLinkUrl: TEdit;
@@ -39,7 +39,7 @@ type
     EditToolDomain: TEdit;
     EditToolDomainResult: TEdit;
     EditRequestUrl: TEdit;
-    Panel1: TPanel;
+    PanelLinkRule: TPanel;
     PanelRequestBox: TPanel;
     LabelRequestHeader: TLabel;
     LabelRequestLength: TLabel;
