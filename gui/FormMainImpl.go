@@ -18,6 +18,12 @@ import (
 	"github.com/suosi-inc/go-pkg-spider/extract"
 	"github.com/x-funs/go-fun"
 	"github.com/ying32/govcl/vcl"
+	"github.com/ying32/govcl/vcl/types"
+	"github.com/ying32/govcl/vcl/types/colors"
+)
+
+var (
+	linkSearching = false
 )
 
 // ::private::
@@ -250,17 +256,37 @@ func (f *TFormMain) OnBtnLinkSearchClick(sender vcl.IObject) {
 		return
 	}
 
-	// activePage := f.PageControlLink.ActivePageIndex()
+	// 根据当前活动的 StringGrid 进行搜索
+	var gridLink *vcl.TStringGrid
+	activePage := f.PageControlLink.ActivePageIndex()
+	switch activePage {
+	case 0:
+		gridLink = f.GridLinkContent
+	case 1:
+		gridLink = f.GridLinkList
+	case 2:
+		gridLink = f.GridLinkUnknow
+	case 3:
+		gridLink = f.GridLinkNone
+	case 4:
+		gridLink = f.GridLinkFilter
+	case 5:
+		gridLink = f.GridLinkDomain
+	}
 
-	rowCount := f.GridLinkContent.RowCount()
+	rowCount := gridLink.RowCount()
 	if rowCount > 1 {
 		var i int32
 		var found bool
-		for i = 1; i < f.GridLinkContent.RowCount(); i++ {
-			cell := f.GridLinkContent.Cells(1, i)
+		for i = 1; i < gridLink.RowCount(); i++ {
+			cell := gridLink.Cells(1, i)
 			if strings.Contains(cell, keyword) {
-				f.GridLinkContent.SetTopRow(i)
-				found = true
+
+				// 重绘单元格，触发 DrawCell 事件，进行高亮
+				linkSearching = true
+				gridLink.InvalidateCell(1, i)
+				gridLink.SetRow(i)
+				f.debug(fmt.Sprintf("Link Search Result : page(%d), row(%d)", activePage, i))
 				return
 			}
 		}
@@ -269,6 +295,41 @@ func (f *TFormMain) OnBtnLinkSearchClick(sender vcl.IObject) {
 		}
 	} else {
 		f.debug("Link Search Failed : data is empty")
+	}
+}
+
+func (f *TFormMain) OnGridLinkContentDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
+	f.searchGridLinkDrawCell(f.GridLinkContent, aCol, aRow, aRect, aState)
+}
+
+func (f *TFormMain) OnGridLinkListDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
+	f.searchGridLinkDrawCell(f.GridLinkList, aCol, aRow, aRect, aState)
+}
+
+func (f *TFormMain) OnGridLinkUnknowDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
+	f.searchGridLinkDrawCell(f.GridLinkUnknow, aCol, aRow, aRect, aState)
+}
+
+func (f *TFormMain) OnGridLinkNoneDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
+	f.searchGridLinkDrawCell(f.GridLinkNone, aCol, aRow, aRect, aState)
+}
+
+func (f *TFormMain) OnGridLinkFilterDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
+	f.searchGridLinkDrawCell(f.GridLinkFilter, aCol, aRow, aRect, aState)
+}
+
+func (f *TFormMain) OnGridLinkDomainDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
+	f.searchGridLinkDrawCell(f.GridLinkDomain, aCol, aRow, aRect, aState)
+}
+
+func (f *TFormMain) searchGridLinkDrawCell(grid *vcl.TStringGrid, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
+	if linkSearching {
+		grid.Canvas().Pen().SetColor(colors.ClRed)
+		grid.Canvas().Pen().SetWidth(1)
+		grid.Canvas().Brush().SetStyle(types.BsClear)
+		f.debug(fmt.Sprintf("%d, %d", aRow, aCol))
+		grid.Canvas().Rectangle(aRect.Left+1, aRect.Top+1, aRect.Right-1, aRect.Bottom-1)
+		linkSearching = false
 	}
 }
 
@@ -291,8 +352,10 @@ func (f *TFormMain) clearStringGrid(grid *vcl.TStringGrid, title bool) {
 	} else {
 		start = 1
 	}
-	for i = start; i < grid.RowCount(); i++ {
-		grid.DeleteColRow(false, i)
+
+	// 需要从最后一行向前删除
+	for i = grid.RowCount() - 1; i >= start; i-- {
+		grid.DeleteRow(i)
 	}
 }
 
