@@ -18,13 +18,9 @@ import (
 	"github.com/suosi-inc/go-pkg-spider/extract"
 	"github.com/x-funs/go-fun"
 	"github.com/ying32/govcl/vcl"
-	"github.com/ying32/govcl/vcl/types"
-	"github.com/ying32/govcl/vcl/types/colors"
 )
 
-var (
-	linkSearching = false
-)
+var linkData *spider.LinkData
 
 // OnBtnRequestClick 请求测试功能
 func (f *TFormMain) btnRequestClick() {
@@ -144,6 +140,7 @@ func (f *TFormMain) btnRequestClick() {
 	}
 }
 
+// btnLinkRequestClick 链接提取功能
 func (f *TFormMain) btnLinkRequestClick() {
 	urlStr := f.EditLinkUrl.Text()
 	if fun.Blank(urlStr) {
@@ -166,15 +163,11 @@ func (f *TFormMain) btnLinkRequestClick() {
 	// 最大重试次数
 	maxRetry := fun.ToInt(f.EditLinkRetry.Text())
 
-	f.clearStringGrid(f.GridLinkContent, false)
-	f.clearStringGrid(f.GridLinkList, false)
-	f.clearStringGrid(f.GridLinkUnknow, false)
-	f.clearStringGrid(f.GridLinkNone, false)
-	f.clearStringGrid(f.GridLinkFilter, false)
-	f.clearStringGrid(f.GridLinkDomain, false)
+	f.clearGridLink()
 
+	var err error
 	start := fun.Timestamp(true)
-	if linkData, err := spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
+	if linkData, err = spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
 		use := fun.Timestamp(true) - start
 
 		result := fmt.Sprintf("\tResult : Content(%d), List(%d), Unknown(%d), None(%d), Filters(%d), Subdomains(%d)",
@@ -188,150 +181,39 @@ func (f *TFormMain) btnLinkRequestClick() {
 		f.debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
 		f.debug(result)
 
-		f.renderGridLink(f.GridLinkContent, linkData.LinkRes.Content)
-		f.renderGridLink(f.GridLinkList, linkData.LinkRes.List)
-		f.renderGridLink(f.GridLinkUnknow, linkData.LinkRes.Unknown)
-		f.renderGridLink(f.GridLinkNone, linkData.LinkRes.None)
-		f.renderGridLink(f.GridLinkFilter, linkData.Filters)
-
-		var i int32
-		i = 1
-		for subdomain, t := range linkData.SubDomains {
-			f.GridLinkDomain.InsertColRow(false, i)
-			f.GridLinkDomain.SetCells(1, i, subdomain)
-			f.GridLinkDomain.SetCells(2, i, fun.ToString(t))
-			i++
-		}
+		// 渲染所有表格
+		f.renderGridLink()
 	}
 }
 
-func (f *TFormMain) btnLinkSearchClick() {
-	keyword := f.EditLinkSearch.Text()
-	if fun.Blank(keyword) {
-		f.debug("Link Search Failed : keyword is empty")
-		return
-	}
-
-	// 根据当前活动的 StringGrid 进行搜索
-	var gridLink *vcl.TStringGrid
-	activePage := f.PageControlLink.ActivePageIndex()
-	switch activePage {
-	case 0:
-		gridLink = f.GridLinkContent
-	case 1:
-		gridLink = f.GridLinkList
-	case 2:
-		gridLink = f.GridLinkUnknow
-	case 3:
-		gridLink = f.GridLinkNone
-	case 4:
-		gridLink = f.GridLinkFilter
-	case 5:
-		gridLink = f.GridLinkDomain
-	}
-
-	rowCount := gridLink.RowCount()
-	visibleRowCount := gridLink.VisibleRowCount()
-	if rowCount > 1 {
-		var i int32
-		var found bool
-		for i = 1; i < gridLink.RowCount(); i++ {
-			cell := gridLink.Cells(1, i)
-			if strings.Contains(cell, keyword) {
-
-				// 重绘单元格，触发 DrawCell 事件，进行高亮
-				linkSearching = true
-
-				//gridLink.InvalidateCell(1, i)
-
-				//if rowCount > visibleRowCount {
-				//	if i < (rowCount - visibleRowCount) {
-				//		gridLink.SetTopRow(i)
-				//	} else {
-				//		gridLink.SetTopRow(rowCount - visibleRowCount + 1)
-				//	}
-				//}
-
-				//f.debug("current:" + fun.ToString(gridLink.Row()))
-				//
-				//if gridLink.Row() != i {
-				//	gridLink.SetTopRow(i)
-				//} else {
-				//	gridLink.InvalidateCell(1, i)
-				//}
-
-				gridLink.SetRow(i)
-				f.debug(fmt.Sprintf("Link Search Result : activePage(%d), rowCount(%d), visibleRowCount(%d), row(%d)", activePage, rowCount, visibleRowCount, i))
-				return
-			}
-		}
-
-		if !found {
-			f.debug("Link Search Failed : not found")
-		}
-	} else {
-		f.debug("Link Search Failed : data is empty")
-	}
+// clearGridLink 清空 GridLink
+func (f *TFormMain) clearGridLink() {
+	f.clearStringGrid(f.GridLinkContent, false)
+	f.clearStringGrid(f.GridLinkList, false)
+	f.clearStringGrid(f.GridLinkUnknown, false)
+	f.clearStringGrid(f.GridLinkNone, false)
+	f.clearStringGrid(f.GridLinkFilter, false)
+	f.clearStringGrid(f.GridLinkDomain, false)
 }
 
-func (f *TFormMain) btnToolDomainRequestClick() {
-	domain := f.EditToolDomain.Text()
-	if fun.Blank(domain) {
-		f.debug("DomainTop Failed : domain is empty")
-		return
+// renderGridLink 绘制 GridLink
+func (f *TFormMain) renderGridLink() {
+	// 处理 linkData.SubDomains 数据格式
+	subdomains := make(map[string]string, 0)
+	for subdomain, v := range linkData.SubDomains {
+		subdomains[subdomain] = fun.ToString(v)
 	}
 
-	f.debug("DomainTop : " + domain)
-	var top string
-	if strings.HasPrefix(domain, "http") {
-		top = extract.DomainTopFromUrl(domain)
-	} else {
-		top = extract.DomainTop(domain)
-	}
-
-	f.EditToolDomainResult.SetText(top)
-	f.debug("\tResult : " + top)
+	// 填充每个
+	f.fillGridLink(f.GridLinkContent, linkData.LinkRes.Content)
+	f.fillGridLink(f.GridLinkList, linkData.LinkRes.List)
+	f.fillGridLink(f.GridLinkUnknown, linkData.LinkRes.Unknown)
+	f.fillGridLink(f.GridLinkNone, linkData.LinkRes.None)
+	f.fillGridLink(f.GridLinkFilter, linkData.Filters)
+	f.fillGridLink(f.GridLinkDomain, subdomains)
 }
 
-func (f *TFormMain) openBrowser(urlStr string) {
-	if fun.Blank(urlStr) {
-		f.debug("Request Link Failed : url is empty")
-		return
-	}
-
-	var err error
-	switch runtime.GOOS {
-	case "linux":
-		err = exec.Command("xdg-open", urlStr).Start()
-	case "windows":
-		err = exec.Command("cmd", "/c", "start", urlStr).Start()
-	case "darwin":
-		err = exec.Command("open", urlStr).Start()
-	default:
-		err = fmt.Errorf("unsupported platform")
-	}
-	if err != nil {
-		fmt.Printf("Error: %v", err)
-	}
-}
-
-func (f *TFormMain) searchGridLinkDrawCell(grid *vcl.TStringGrid, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
-	if linkSearching {
-		linkSearching = false
-		f.debug(fmt.Sprintf("enter draw : %d, %d", aRow, aCol))
-
-		//grid.Canvas().Pen().SetColor(colors.ClRed)
-		//grid.Canvas().Pen().SetWidth(1)
-		//grid.Canvas().Brush().SetStyle(types.BsClear)
-		//grid.Canvas().Rectangle(aRect.Left+1, aRect.Top+1, aRect.Right-1, aRect.Bottom-1)
-
-		grid.Canvas().Font().SetColor(colors.ClRed)
-		grid.Canvas().TextOut(aRect.Left+2, aRect.Top+2, grid.Cells(aCol, aRow))
-		//grid.SetTopRow(aRow)
-	}
-}
-
-func (f *TFormMain) renderGridLink(grid *vcl.TStringGrid, datas map[string]string) {
+func (f *TFormMain) fillGridLink(grid *vcl.TStringGrid, datas map[string]string) {
 	var i int32
 	i = 1
 	for key, value := range datas {
@@ -357,6 +239,121 @@ func (f *TFormMain) clearStringGrid(grid *vcl.TStringGrid, title bool) {
 	}
 }
 
+// btnLinkSearchClick 链接提取结果搜索功能
+func (f *TFormMain) btnLinkSearchClick() {
+	keyword := f.EditLinkSearch.Text()
+
+	// 已经加载数据
+	if linkData != nil {
+		if !fun.Blank(keyword) {
+			// 根据当前活动的 StringGrid 进行搜索
+			var gridLink *vcl.TStringGrid
+			activePage := f.PageControlLink.ActivePageIndex()
+			switch activePage {
+			case 0:
+				gridLink = f.GridLinkContent
+				f.searchGridLink(gridLink, keyword, linkData.LinkRes.Content)
+			case 1:
+				gridLink = f.GridLinkList
+				f.searchGridLink(gridLink, keyword, linkData.LinkRes.List)
+			case 2:
+				gridLink = f.GridLinkUnknown
+				f.searchGridLink(gridLink, keyword, linkData.LinkRes.Unknown)
+			case 3:
+				gridLink = f.GridLinkNone
+				f.searchGridLink(gridLink, keyword, linkData.LinkRes.None)
+			case 4:
+				gridLink = f.GridLinkFilter
+				f.searchGridLink(gridLink, keyword, linkData.Filters)
+			case 5:
+				gridLink = f.GridLinkDomain
+				// 处理 linkData.SubDomains 数据格式
+				subdomains := make(map[string]string, 0)
+				for subdomain, v := range linkData.SubDomains {
+					subdomains[subdomain] = fun.ToString(v)
+				}
+				f.searchGridLink(gridLink, keyword, subdomains)
+			}
+		} else {
+			f.clearGridLink()
+			f.renderGridLink()
+		}
+
+	} else {
+		f.debug("Link Search Failed : linkData is empty")
+	}
+}
+
+// searchGridLink
+func (f *TFormMain) searchGridLink(grid *vcl.TStringGrid, keyword string, datas map[string]string) {
+	count := len(datas)
+	searchData := make(map[string]string, 0)
+
+	if count > 0 {
+		for key, value := range datas {
+			if strings.Contains(key, keyword) {
+				searchData[key] = value
+			}
+		}
+
+		searchCount := len(searchData)
+		if searchCount > 0 {
+			f.debug("Link Search Result : " + fun.ToString(searchCount))
+
+			f.clearStringGrid(grid, false)
+			f.fillGridLink(grid, searchData)
+		} else {
+			f.debug("Link Search Failed : not found")
+		}
+	} else {
+		f.debug("Link Search Failed : data is empty")
+	}
+}
+
+// btnToolDomainRequestClick 辅助工具域名提取
+func (f *TFormMain) btnToolDomainRequestClick() {
+	domain := f.EditToolDomain.Text()
+	if fun.Blank(domain) {
+		f.debug("DomainTop Failed : domain is empty")
+		return
+	}
+
+	f.debug("DomainTop : " + domain)
+	var top string
+	if strings.HasPrefix(domain, "http") {
+		top = extract.DomainTopFromUrl(domain)
+	} else {
+		top = extract.DomainTop(domain)
+	}
+
+	f.EditToolDomainResult.SetText(top)
+	f.debug("\tResult : " + top)
+}
+
+// openBrowser 打开系统浏览器
+func (f *TFormMain) openBrowser(urlStr string) {
+	if fun.Blank(urlStr) {
+		f.debug("Request Link Failed : url is empty")
+		return
+	}
+
+	var err error
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", urlStr).Start()
+	case "windows":
+		err = exec.Command("cmd", "/c", "start", urlStr).Start()
+	case "darwin":
+		err = exec.Command("open", urlStr).Start()
+	default:
+		err = fmt.Errorf("unsupported platform")
+	}
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+	}
+}
+
+// removeToolBtnDown 取消功能栏按钮状态
 func (f *TFormMain) removeToolBtnDown() {
 	f.ToolBtnRequest.SetDown(false)
 	f.ToolBtnDomain.SetDown(false)

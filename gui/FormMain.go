@@ -62,8 +62,8 @@ type TFormMain struct {
 	GridLinkContent        *vcl.TStringGrid
 	TabSheetLinkList       *vcl.TTabSheet
 	GridLinkList           *vcl.TStringGrid
-	TabSheetLinkUnknow     *vcl.TTabSheet
-	GridLinkUnknow         *vcl.TStringGrid
+	TabSheetLinkUnknown    *vcl.TTabSheet
+	GridLinkUnknown        *vcl.TStringGrid
 	TabSheetLinkNone       *vcl.TTabSheet
 	GridLinkNone           *vcl.TStringGrid
 	TabSheetLinkFilter     *vcl.TTabSheet

@@ -30,18 +30,6 @@
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="unit1.pas"/>
-        <Caret Line="242" Column="3" TopLine="223"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="241" Column="3" TopLine="222"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
-        <Caret Line="240" Column="3" TopLine="221"/>
-      </Position>
-      <Position>
-        <Filename Value="unit1.pas"/>
         <Caret Line="239" Column="3" TopLine="220"/>
       </Position>
       <Position>
@@ -147,6 +135,18 @@
       <Position>
         <Filename Value="unit1.pas"/>
         <Caret Line="257" Column="3" TopLine="247"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="269" Column="62" TopLine="247"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="270" Column="62" TopLine="248"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="269" Column="62" TopLine="247"/>
       </Position>
     </JumpHistory>
     <RunParams>

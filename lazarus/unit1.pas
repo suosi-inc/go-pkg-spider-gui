@@ -78,7 +78,7 @@ type
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;
     GridLinkList: TStringGrid;
-    GridLinkUnknow: TStringGrid;
+    GridLinkUnknown: TStringGrid;
     GridLinkNone: TStringGrid;
     GridLinkFilter: TStringGrid;
     GridLinkDomain: TStringGrid;
@@ -86,7 +86,7 @@ type
     TabSheetLinkDomain: TTabSheet;
     TabSheetLinkContent: TTabSheet;
     TabSheetLinkList: TTabSheet;
-    TabSheetLinkUnknow: TTabSheet;
+    TabSheetLinkUnknown: TTabSheet;
     TabSheetLinkNone: TTabSheet;
     TabSheetTool: TTabSheet;
     TabSheetNews: TTabSheet;
@@ -129,7 +129,7 @@ type
       aRect: TRect; aState: TGridDrawState);
     procedure GridLinkNoneDrawCell(Sender: TObject; aCol, aRow: Integer;
       aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkUnknowDrawCell(Sender: TObject; aCol, aRow: Integer;
+    procedure GridLinkUnknownDrawCell(Sender: TObject; aCol, aRow: Integer;
       aRect: TRect; aState: TGridDrawState);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
@@ -269,7 +269,7 @@ begin
 
 end;
 
-procedure TFormMain.GridLinkUnknowDrawCell(Sender: TObject; aCol,
+procedure TFormMain.GridLinkUnknownDrawCell(Sender: TObject; aCol,
   aRow: Integer; aRect: TRect; aState: TGridDrawState);
 begin
 

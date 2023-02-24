@@ -3,7 +3,6 @@ package gui
 import (
 	"github.com/x-funs/go-fun"
 	"github.com/ying32/govcl/vcl"
-	"github.com/ying32/govcl/vcl/types"
 )
 
 // ::private::
@@ -47,30 +46,6 @@ func (f *TFormMain) OnBtnLinkSearchClick(sender vcl.IObject) {
 	f.btnLinkSearchClick()
 }
 
-func (f *TFormMain) OnGridLinkContentDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
-	f.searchGridLinkDrawCell(f.GridLinkContent, aCol, aRow, aRect, aState)
-}
-
-func (f *TFormMain) OnGridLinkListDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
-	f.searchGridLinkDrawCell(f.GridLinkList, aCol, aRow, aRect, aState)
-}
-
-func (f *TFormMain) OnGridLinkUnknowDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
-	f.searchGridLinkDrawCell(f.GridLinkUnknow, aCol, aRow, aRect, aState)
-}
-
-func (f *TFormMain) OnGridLinkNoneDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
-	f.searchGridLinkDrawCell(f.GridLinkNone, aCol, aRow, aRect, aState)
-}
-
-func (f *TFormMain) OnGridLinkFilterDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
-	f.searchGridLinkDrawCell(f.GridLinkFilter, aCol, aRow, aRect, aState)
-}
-
-func (f *TFormMain) OnGridLinkDomainDrawCell(sender vcl.IObject, aCol int32, aRow int32, aRect types.TRect, aState types.TGridDrawState) {
-	f.searchGridLinkDrawCell(f.GridLinkDomain, aCol, aRow, aRect, aState)
-}
-
 func (f *TFormMain) OnBtnRequestTipProxyClick(sender vcl.IObject) {
 	f.EditRequestProxy.SetText("http://username:password@host:port")
 }
@@ -80,7 +55,6 @@ func (f *TFormMain) OnBtnRequestTipHeaderClick(sender vcl.IObject) {
 	f.MemoRequestHeader.Append("X-Header : test-header")
 }
 
-// OnToolBtnDebugClick 调试窗口按钮切换
 func (f *TFormMain) OnToolBtnDebugClick(sender vcl.IObject) {
 	if !f.PanelDebug.Visible() {
 		f.SplitterDebug.SetVisible(true)
