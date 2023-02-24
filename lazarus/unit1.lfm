@@ -220,7 +220,7 @@ object FormMain: TFormMain
           Left = 88
           Height = 22
           Top = 16
-          Width = 425
+          Width = 409
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 16
@@ -232,10 +232,10 @@ object FormMain: TFormMain
           AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = BtnRequestOpen
           Cursor = crHandPoint
-          Left = 523
+          Left = 507
           Height = 26
           Top = 15
-          Width = 64
+          Width = 80
           Anchors = [akTop, akRight]
           BorderSpacing.Top = 15
           BorderSpacing.Right = 10
@@ -977,12 +977,11 @@ object FormMain: TFormMain
         object PanelLinkRequest: TPanel
           AnchorSideLeft.Control = PanelLink
           AnchorSideTop.Control = PanelLink
-          AnchorSideRight.Control = PanelLinkRule
+          AnchorSideRight.Control = PanelLink
           Left = 11
           Height = 80
           Top = 6
-          Width = 768
-          Anchors = [akTop, akLeft, akRight]
+          Width = 700
           BorderSpacing.Left = 10
           BorderSpacing.Top = 5
           BorderSpacing.Right = 10
@@ -990,7 +989,7 @@ object FormMain: TFormMain
           BevelOuter = bvNone
           BorderStyle = bsSingle
           ClientHeight = 78
-          ClientWidth = 766
+          ClientWidth = 698
           TabOrder = 1
           object LabelLinkTimeout: TLabel
             AnchorSideLeft.Control = PanelLinkRequest
@@ -1064,7 +1063,7 @@ object FormMain: TFormMain
             Left = 93
             Height = 22
             Top = 12
-            Width = 523
+            Width = 455
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
@@ -1076,7 +1075,7 @@ object FormMain: TFormMain
             AnchorSideTop.Control = PanelLinkRequest
             AnchorSideRight.Control = BtnLinkOpen
             Cursor = crHandPoint
-            Left = 631
+            Left = 563
             Height = 26
             Top = 11
             Width = 80
@@ -1093,7 +1092,7 @@ object FormMain: TFormMain
             AnchorSideRight.Control = PanelLinkRequest
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 731
+            Left = 663
             Height = 20
             Top = 13
             Width = 20
@@ -1137,14 +1136,17 @@ object FormMain: TFormMain
           TextHint = '链接或域名'
         end
         object PanelLinkRule: TPanel
+          AnchorSideLeft.Control = PanelLinkRequest
+          AnchorSideLeft.Side = asrBottom
           AnchorSideTop.Control = PanelLink
           AnchorSideRight.Control = PanelLink
           AnchorSideRight.Side = asrBottom
-          Left = 790
+          Left = 722
           Height = 80
           Top = 5
-          Width = 600
-          Anchors = [akTop, akRight]
+          Width = 668
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
           BorderSpacing.Top = 5
           BorderSpacing.Right = 10
           BevelOuter = bvNone
