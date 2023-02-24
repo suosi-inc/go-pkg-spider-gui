@@ -100,6 +100,17 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
+	LabelNewsUrl           *vcl.TLabel
+	EditNewsUrl            *vcl.TEdit
+	BtnNewsRequest         *vcl.TButton
+	BtnNewsOpen            *vcl.TSpeedButton
+	LabelNewsTimeout       *vcl.TLabel
+	EditNewsTimeout        *vcl.TEdit
+	LabelNewsRetry         *vcl.TLabel
+	EditNewsRetry          *vcl.TSpinEdit
+	LabelNewsTitle         *vcl.TLabel
+	EditNewsTitle          *vcl.TEdit
+	PanelNewsContent       *vcl.TPanel
 
 	//::private::
 	TFormMainFields

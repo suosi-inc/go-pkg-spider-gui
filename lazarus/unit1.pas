@@ -16,6 +16,8 @@ type
   TFormMain = class(TForm)
     BtnLinkOpen: TSpeedButton;
     BtnLinkRequest: TButton;
+    BtnNewsOpen: TSpeedButton;
+    BtnNewsRequest: TButton;
     BtnRequest: TButton;
     BtnRequestDefault: TButton;
     BtnRequestTipHeader: TSpeedButton;
@@ -27,10 +29,14 @@ type
     CheckRequestClean: TCheckBox;
     CheckRequestRedirect: TCheckBox;
     CheckRequestType: TCheckBox;
+    EditNewsRetry: TSpinEdit;
+    EditNewsTimeout: TEdit;
+    EditNewsTitle: TEdit;
     EditLinkSearch: TEdit;
     EditLinkRetry: TSpinEdit;
     EditLinkTimeout: TEdit;
     EditLinkUrl: TEdit;
+    EditNewsUrl: TEdit;
     EditRequestLength: TEdit;
     EditRequestProxy: TEdit;
     EditRequestRedirect: TSpinEdit;
@@ -40,6 +46,11 @@ type
     EditToolDomain: TEdit;
     EditToolDomainResult: TEdit;
     EditRequestUrl: TEdit;
+    LabelNewsRetry: TLabel;
+    LabelNewsTimeout: TLabel;
+    LabelNewsTitle: TLabel;
+    LabelNewsUrl: TLabel;
+    PanelNewsContent: TPanel;
     PanelLinkRule: TPanel;
     PanelRequestBox: TPanel;
     LabelRequestHeader: TLabel;
@@ -121,6 +132,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure GridLinkContentDrawCell(Sender: TObject; aCol, aRow: Integer;
       aRect: TRect; aState: TGridDrawState);
+    procedure GridLinkContentSelectCell(Sender: TObject; aCol, aRow: Integer;
+      var CanSelect: Boolean);
     procedure GridLinkDomainDrawCell(Sender: TObject; aCol, aRow: Integer;
       aRect: TRect; aState: TGridDrawState);
     procedure GridLinkFilterDrawCell(Sender: TObject; aCol, aRow: Integer;
