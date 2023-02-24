@@ -62,8 +62,8 @@ type TFormMain struct {
 	GridLinkContent        *vcl.TStringGrid
 	TabSheetLinkList       *vcl.TTabSheet
 	GridLinkList           *vcl.TStringGrid
-	TabSheetLinkUnknow     *vcl.TTabSheet
-	GridLinkUnknow         *vcl.TStringGrid
+	TabSheetLinkUnknown    *vcl.TTabSheet
+	GridLinkUnknown        *vcl.TStringGrid
 	TabSheetLinkNone       *vcl.TTabSheet
 	GridLinkNone           *vcl.TStringGrid
 	TabSheetLinkFilter     *vcl.TTabSheet
@@ -82,6 +82,7 @@ type TFormMain struct {
 	EditLinkRetry          *vcl.TSpinEdit
 	EditLinkSearch         *vcl.TEdit
 	PanelLinkRule          *vcl.TPanel
+	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
@@ -99,7 +100,6 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	BtnLinkSearch          *vcl.TButton
 
 	//::private::
 	TFormMainFields

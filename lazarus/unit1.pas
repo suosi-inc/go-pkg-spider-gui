@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, mysql80conn, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, Grids,
-  ListFilterEdit;
+  ListFilterEdit, Types;
 
 type
 
@@ -78,7 +78,7 @@ type
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;
     GridLinkList: TStringGrid;
-    GridLinkUnknow: TStringGrid;
+    GridLinkUnknown: TStringGrid;
     GridLinkNone: TStringGrid;
     GridLinkFilter: TStringGrid;
     GridLinkDomain: TStringGrid;
@@ -86,7 +86,7 @@ type
     TabSheetLinkDomain: TTabSheet;
     TabSheetLinkContent: TTabSheet;
     TabSheetLinkList: TTabSheet;
-    TabSheetLinkUnknow: TTabSheet;
+    TabSheetLinkUnknown: TTabSheet;
     TabSheetLinkNone: TTabSheet;
     TabSheetTool: TTabSheet;
     TabSheetNews: TTabSheet;
@@ -119,6 +119,18 @@ type
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure GridLinkContentDrawCell(Sender: TObject; aCol, aRow: Integer;
+      aRect: TRect; aState: TGridDrawState);
+    procedure GridLinkDomainDrawCell(Sender: TObject; aCol, aRow: Integer;
+      aRect: TRect; aState: TGridDrawState);
+    procedure GridLinkFilterDrawCell(Sender: TObject; aCol, aRow: Integer;
+      aRect: TRect; aState: TGridDrawState);
+    procedure GridLinkListDrawCell(Sender: TObject; aCol, aRow: Integer;
+      aRect: TRect; aState: TGridDrawState);
+    procedure GridLinkNoneDrawCell(Sender: TObject; aCol, aRow: Integer;
+      aRect: TRect; aState: TGridDrawState);
+    procedure GridLinkUnknownDrawCell(Sender: TObject; aCol, aRow: Integer;
+      aRect: TRect; aState: TGridDrawState);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure ToolBtnContentClick(Sender: TObject);
@@ -223,6 +235,42 @@ begin
 end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.GridLinkContentDrawCell(Sender: TObject; aCol,
+  aRow: Integer; aRect: TRect; aState: TGridDrawState);
+begin
+
+end;
+
+procedure TFormMain.GridLinkDomainDrawCell(Sender: TObject; aCol,
+  aRow: Integer; aRect: TRect; aState: TGridDrawState);
+begin
+
+end;
+
+procedure TFormMain.GridLinkFilterDrawCell(Sender: TObject; aCol,
+  aRow: Integer; aRect: TRect; aState: TGridDrawState);
+begin
+
+end;
+
+procedure TFormMain.GridLinkListDrawCell(Sender: TObject; aCol, aRow: Integer;
+  aRect: TRect; aState: TGridDrawState);
+begin
+
+end;
+
+procedure TFormMain.GridLinkNoneDrawCell(Sender: TObject; aCol, aRow: Integer;
+  aRect: TRect; aState: TGridDrawState);
+begin
+
+end;
+
+procedure TFormMain.GridLinkUnknownDrawCell(Sender: TObject; aCol,
+  aRow: Integer; aRect: TRect; aState: TGridDrawState);
 begin
 
 end;

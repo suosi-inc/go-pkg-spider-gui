@@ -38,7 +38,7 @@ object FormMain: TFormMain
     end
     object ToolBtnRequest: TToolButton
       Cursor = crHandPoint
-      Left = 7
+      Left = 9
       Top = 0
       Caption = '请求测试'
       Down = True
@@ -47,14 +47,14 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit2: TToolButton
-      Left = 87
+      Left = 89
       Height = 50
       Top = 0
       Style = tbsSeparator
     end
     object ToolBtnDomain: TToolButton
       Cursor = crHandPoint
-      Left = 93
+      Left = 97
       Top = 0
       Caption = '域名探测'
       ImageIndex = 1
@@ -62,7 +62,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit3: TToolButton
-      Left = 173
+      Left = 177
       Height = 50
       Top = 0
       Caption = 'ToolBtnSplit3'
@@ -70,7 +70,7 @@ object FormMain: TFormMain
     end
     object ToolBtnLink: TToolButton
       Cursor = crHandPoint
-      Left = 179
+      Left = 185
       Top = 0
       Caption = '链接提取'
       ImageIndex = 2
@@ -78,7 +78,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit4: TToolButton
-      Left = 259
+      Left = 265
       Height = 50
       Top = 0
       Caption = 'ToolBtnSplit4'
@@ -86,7 +86,7 @@ object FormMain: TFormMain
     end
     object ToolBtnContent: TToolButton
       Cursor = crHandPoint
-      Left = 265
+      Left = 273
       Top = 0
       Caption = '新闻提取'
       ImageIndex = 3
@@ -94,7 +94,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit5: TToolButton
-      Left = 345
+      Left = 353
       Height = 50
       Top = 0
       Caption = 'ToolBtnSplit5'
@@ -102,7 +102,7 @@ object FormMain: TFormMain
     end
     object ToolBtnTool: TToolButton
       Cursor = crHandPoint
-      Left = 351
+      Left = 361
       Top = 0
       Caption = '辅助工具'
       ImageIndex = 4
@@ -110,7 +110,7 @@ object FormMain: TFormMain
       Style = tbsCheck
     end
     object ToolBtnSplit6: TToolButton
-      Left = 431
+      Left = 441
       Height = 50
       Top = 0
       Caption = 'ToolBtnSplit6'
@@ -118,7 +118,7 @@ object FormMain: TFormMain
     end
     object ToolBtnDebug: TToolButton
       Cursor = crHandPoint
-      Left = 437
+      Left = 449
       Top = 0
       Caption = '调试窗口'
       ImageIndex = 5
@@ -386,7 +386,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 75
-            Width = 115
+            Width = 108
             BorderSpacing.Top = 75
             Caption = '强制为文本类型'
             Checked = True
@@ -427,7 +427,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 195
-            Width = 76
+            Width = 72
             BorderSpacing.Top = 195
             Caption = '禁止跳转'
             OnChange = CheckRequestRedirectChange
@@ -488,7 +488,7 @@ object FormMain: TFormMain
             AnchorSideTop.Control = LabelRequestRedirect
             AnchorSideTop.Side = asrBottom
             Left = 15
-            Height = 22
+            Height = 21
             Top = 216
             Width = 50
             BorderSpacing.Left = 15
@@ -519,7 +519,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 18
             Top = 540
-            Width = 115
+            Width = 108
             BorderSpacing.Left = 15
             BorderSpacing.Top = 540
             Caption = '标签清理格式化'
@@ -691,14 +691,10 @@ object FormMain: TFormMain
               ColumnClickSorts = True
               Columns = <              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   Title.Caption = '链接'
                   Width = 754
                 end              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   SizePriority = 0
                   Title.Caption = '标题'
                   Width = 550
@@ -747,14 +743,10 @@ object FormMain: TFormMain
               ColumnClickSorts = True
               Columns = <              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   Title.Caption = '链接'
                   Width = 754
                 end              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   SizePriority = 0
                   Title.Caption = '标题'
                   Width = 550
@@ -777,16 +769,16 @@ object FormMain: TFormMain
               )
             end
           end
-          object TabSheetLinkUnknow: TTabSheet
+          object TabSheetLinkUnknown: TTabSheet
             Caption = '  未知链接  '
             ClientHeight = 647
             ClientWidth = 1374
-            object GridLinkUnknow: TStringGrid
-              AnchorSideLeft.Control = TabSheetLinkUnknow
-              AnchorSideTop.Control = TabSheetLinkUnknow
-              AnchorSideRight.Control = TabSheetLinkUnknow
+            object GridLinkUnknown: TStringGrid
+              AnchorSideLeft.Control = TabSheetLinkUnknown
+              AnchorSideTop.Control = TabSheetLinkUnknown
+              AnchorSideRight.Control = TabSheetLinkUnknown
               AnchorSideRight.Side = asrBottom
-              AnchorSideBottom.Control = TabSheetLinkUnknow
+              AnchorSideBottom.Control = TabSheetLinkUnknown
               AnchorSideBottom.Side = asrBottom
               Left = 5
               Height = 637
@@ -802,14 +794,10 @@ object FormMain: TFormMain
               ColumnClickSorts = True
               Columns = <              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   Title.Caption = '链接'
                   Width = 754
                 end              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   SizePriority = 0
                   Title.Caption = '标题'
                   Width = 550
@@ -857,14 +845,10 @@ object FormMain: TFormMain
               ColumnClickSorts = True
               Columns = <              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   Title.Caption = '链接'
                   Width = 754
                 end              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   SizePriority = 0
                   Title.Caption = '标题'
                   Width = 550
@@ -912,14 +896,10 @@ object FormMain: TFormMain
               ColumnClickSorts = True
               Columns = <              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   Title.Caption = '链接'
                   Width = 754
                 end              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   SizePriority = 0
                   Title.Caption = '过滤信息'
                   Width = 550
@@ -967,14 +947,10 @@ object FormMain: TFormMain
               ColumnClickSorts = True
               Columns = <              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   Title.Caption = '域名'
                   Width = 753
                 end              
                 item
-                  MinSize = 10
-                  MaxSize = 200
                   SizePriority = 0
                   Title.Caption = '子域名'
                   Width = 550
@@ -1061,7 +1037,7 @@ object FormMain: TFormMain
             Left = 409
             Height = 18
             Top = 43
-            Width = 76
+            Width = 72
             BorderSpacing.Left = 30
             BorderSpacing.Top = 43
             Caption = '域名限制'
@@ -1134,7 +1110,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
             Left = 329
-            Height = 22
+            Height = 21
             Top = 42
             Width = 50
             BorderSpacing.Left = 15
@@ -1502,7 +1478,7 @@ object FormMain: TFormMain
   end
   object ImageListIcon: TImageList
     ImageType = itMask
-    Left = 1000
+    Left = 1016
     Bitmap = {
       4C7A030000001000000010000000660400000000000078DAA5926D489D6518C7
       6F1934E77C81FA608D2882D851747A7C39A66664968AC98EE07C3DCFCB798E52
