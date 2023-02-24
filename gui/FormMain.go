@@ -85,6 +85,17 @@ type TFormMain struct {
 	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
+	LabelNewsUrl           *vcl.TLabel
+	EditNewsUrl            *vcl.TEdit
+	BtnNewsRequest         *vcl.TButton
+	BtnNewsOpen            *vcl.TSpeedButton
+	LabelNewsTimeout       *vcl.TLabel
+	EditNewsTimeout        *vcl.TEdit
+	LabelNewsRetry         *vcl.TLabel
+	EditNewsRetry          *vcl.TSpinEdit
+	LabelNewsTitle         *vcl.TLabel
+	EditNewsTitle          *vcl.TEdit
+	PanelNewsContent       *vcl.TPanel
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
 	PanelToolDomain        *vcl.TPanel
@@ -100,17 +111,12 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	LabelNewsUrl           *vcl.TLabel
-	EditNewsUrl            *vcl.TEdit
-	BtnNewsRequest         *vcl.TButton
-	BtnNewsOpen            *vcl.TSpeedButton
-	LabelNewsTimeout       *vcl.TLabel
-	EditNewsTimeout        *vcl.TEdit
-	LabelNewsRetry         *vcl.TLabel
-	EditNewsRetry          *vcl.TSpinEdit
-	LabelNewsTitle         *vcl.TLabel
-	EditNewsTitle          *vcl.TEdit
-	PanelNewsContent       *vcl.TPanel
+	SplitterNews           *vcl.TSplitter
+	PanelNewsRequest       *vcl.TPanel
+	MemoNewsContent        *vcl.TMemo
+	StringGridNews1        *vcl.TStringGrid
+	EditNewsResultTitle    *vcl.TEdit
+	EditNewsResultTime     *vcl.TEdit
 
 	//::private::
 	TFormMainFields

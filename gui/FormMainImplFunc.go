@@ -312,6 +312,35 @@ func (f *TFormMain) searchGridLink(grid *vcl.TStringGrid, keyword string, datas 
 	}
 }
 
+func (f *TFormMain) btnNewsRequestClick() {
+	urlStr := f.EditNewsUrl.Text()
+	title := f.EditNewsTitle.Text()
+	if fun.Blank(urlStr) {
+		f.debug("Request Link Failed : url is empty")
+		return
+	}
+
+	// 超时时间
+	timeout := fun.ToInt(f.EditNewsTimeout.Text())
+	if timeout < 0 {
+		timeout = 30000
+	}
+
+	// 最大重试次数
+	maxRetry := fun.ToInt(f.EditNewsRetry.Text())
+
+	if news, _, err := spider.GetNews(urlStr, title, timeout, maxRetry); err == nil {
+		f.debug(news.Content)
+
+		f.EditNewsResultTitle.SetText(news.Title)
+		f.EditNewsResultTime.SetText(news.TimeLocal)
+
+		content := strings.ReplaceAll(news.Content, fun.LF, fun.CRLF)
+		f.MemoNewsContent.SetText("")
+		f.MemoNewsContent.Append(content)
+	}
+}
+
 // btnToolDomainRequestClick 辅助工具域名提取
 func (f *TFormMain) btnToolDomainRequestClick() {
 	domain := f.EditToolDomain.Text()

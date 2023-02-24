@@ -147,3 +147,7 @@ func (f *TFormMain) OnBtnLinkOpenClick(sender vcl.IObject) {
 
 	f.openBrowser(urlStr)
 }
+
+func (f *TFormMain) OnBtnNewsRequestClick(sender vcl.IObject) {
+	f.btnNewsRequestClick()
+}

@@ -29,6 +29,8 @@ type
     CheckRequestClean: TCheckBox;
     CheckRequestRedirect: TCheckBox;
     CheckRequestType: TCheckBox;
+    EditNewsResultTime: TEdit;
+    EditNewsResultTitle: TEdit;
     EditNewsRetry: TSpinEdit;
     EditNewsTimeout: TEdit;
     EditNewsTitle: TEdit;
@@ -50,6 +52,8 @@ type
     LabelNewsTimeout: TLabel;
     LabelNewsTitle: TLabel;
     LabelNewsUrl: TLabel;
+    MemoNewsContent: TMemo;
+    PanelNewsRequest: TPanel;
     PanelNewsContent: TPanel;
     PanelLinkRule: TPanel;
     PanelRequestBox: TPanel;
@@ -85,6 +89,7 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     BtnRequestOpen: TSpeedButton;
+    SplitterNews: TSplitter;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;
@@ -93,6 +98,7 @@ type
     GridLinkNone: TStringGrid;
     GridLinkFilter: TStringGrid;
     GridLinkDomain: TStringGrid;
+    StringGridNews1: TStringGrid;
     TabSheetLinkFilter: TTabSheet;
     TabSheetLinkDomain: TTabSheet;
     TabSheetLinkContent: TTabSheet;
@@ -120,6 +126,7 @@ type
     procedure BtnLinkOpenClick(Sender: TObject);
     procedure BtnLinkRequestClick(Sender: TObject);
     procedure BtnLinkSearchClick(Sender: TObject);
+    procedure BtnNewsRequestClick(Sender: TObject);
     procedure BtnRequestClick(Sender: TObject);
     procedure BtnRequestDefaultClick(Sender: TObject);
     procedure BtnRequestExampleClick(Sender: TObject);
@@ -130,20 +137,6 @@ type
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure GridLinkContentDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkContentSelectCell(Sender: TObject; aCol, aRow: Integer;
-      var CanSelect: Boolean);
-    procedure GridLinkDomainDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkFilterDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkListDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkNoneDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkUnknownDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure ToolBtnContentClick(Sender: TObject);
@@ -252,42 +245,6 @@ begin
 
 end;
 
-procedure TFormMain.GridLinkContentDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkDomainDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkFilterDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkListDrawCell(Sender: TObject; aCol, aRow: Integer;
-  aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkNoneDrawCell(Sender: TObject; aCol, aRow: Integer;
-  aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkUnknownDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
 procedure TFormMain.CheckRequestRedirectChange(Sender: TObject);
 begin
     if CheckRequestRedirect.Checked then
@@ -318,6 +275,11 @@ begin
 end;
 
 procedure TFormMain.BtnLinkSearchClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnNewsRequestClick(Sender: TObject);
 begin
 
 end;
