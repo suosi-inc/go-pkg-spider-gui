@@ -170,16 +170,7 @@ func (f *TFormMain) btnLinkRequestClick() {
 	if linkData, err = spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
 		use := fun.Timestamp(true) - start
 
-		result := fmt.Sprintf("\tResult : Content(%d), List(%d), Unknown(%d), None(%d), Filters(%d), Subdomains(%d)",
-			len(linkData.LinkRes.Content),
-			len(linkData.LinkRes.List),
-			len(linkData.LinkRes.Unknown),
-			len(linkData.LinkRes.None),
-			len(linkData.Filters),
-			len(linkData.SubDomains),
-		)
 		f.debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
-		f.debug(result)
 
 		// 渲染所有表格
 		f.renderGridLink()
@@ -211,6 +202,16 @@ func (f *TFormMain) renderGridLink() {
 	f.fillGridLink(f.GridLinkNone, linkData.LinkRes.None)
 	f.fillGridLink(f.GridLinkFilter, linkData.Filters)
 	f.fillGridLink(f.GridLinkDomain, subdomains)
+
+	result := fmt.Sprintf("\tRender : Content(%d), List(%d), Unknown(%d), None(%d), Filters(%d), Subdomains(%d)",
+		len(linkData.LinkRes.Content),
+		len(linkData.LinkRes.List),
+		len(linkData.LinkRes.Unknown),
+		len(linkData.LinkRes.None),
+		len(linkData.Filters),
+		len(linkData.SubDomains),
+	)
+	f.debug(result)
 }
 
 func (f *TFormMain) fillGridLink(grid *vcl.TStringGrid, datas map[string]string) {
@@ -298,11 +299,12 @@ func (f *TFormMain) searchGridLink(grid *vcl.TStringGrid, keyword string, datas 
 
 		searchCount := len(searchData)
 		if searchCount > 0 {
-			f.debug("Link Search Result : " + fun.ToString(searchCount))
-
 			f.clearStringGrid(grid, false)
 			f.fillGridLink(grid, searchData)
+
+			f.debug("Link Search Result : " + fun.ToString(searchCount))
 		} else {
+			f.clearStringGrid(grid, false)
 			f.debug("Link Search Failed : not found")
 		}
 	} else {
