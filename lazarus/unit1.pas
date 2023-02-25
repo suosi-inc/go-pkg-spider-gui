@@ -89,6 +89,10 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     BtnRequestOpen: TSpeedButton;
+    RadioNewsText: TRadioButton;
+    RadioNewsP: TRadioButton;
+    RadioNewsHtml: TRadioButton;
+    RadioGroup1: TRadioGroup;
     SplitterNews: TSplitter;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;

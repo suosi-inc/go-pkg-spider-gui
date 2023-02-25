@@ -1229,7 +1229,7 @@ object FormMain: TFormMain
           AnchorSideRight.Control = PanelNews
           AnchorSideRight.Side = asrBottom
           Left = 10
-          Height = 120
+          Height = 180
           Top = 10
           Width = 669
           Anchors = [akTop, akLeft, akRight]
@@ -1238,7 +1238,7 @@ object FormMain: TFormMain
           BorderSpacing.Right = 10
           BevelOuter = bvNone
           BorderStyle = bsSingle
-          ClientHeight = 116
+          ClientHeight = 176
           ClientWidth = 665
           TabOrder = 0
           object EditNewsTitle: TEdit
@@ -1379,6 +1379,54 @@ object FormMain: TFormMain
             BorderSpacing.Top = 15
             Caption = '请求地址：'
           end
+          object RadioGroup1: TRadioGroup
+            Left = 6
+            Height = 50
+            Top = 120
+            Width = 320
+            AutoFill = True
+            Caption = '正文样式：'
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclLeftToRightThenTopToBottom
+            ChildSizing.ControlsPerLine = 3
+            ClientHeight = 28
+            ClientWidth = 316
+            Columns = 3
+            TabOrder = 5
+            object RadioNewsText: TRadioButton
+              Cursor = crHandPoint
+              Left = 6
+              Height = 28
+              Top = 0
+              Width = 81
+              Caption = '纯文本'
+              Checked = True
+              TabOrder = 2
+              TabStop = True
+            end
+            object RadioNewsP: TRadioButton
+              Cursor = crHandPoint
+              Left = 87
+              Height = 28
+              Top = 0
+              Width = 129
+              Caption = '保留段落与图片'
+              TabOrder = 0
+            end
+            object RadioNewsHtml: TRadioButton
+              Cursor = crHandPoint
+              Left = 216
+              Height = 28
+              Top = 0
+              Width = 94
+              Caption = '原始Html'
+              TabOrder = 1
+            end
+          end
         end
         object StringGridNews1: TStringGrid
           AnchorSideLeft.Control = PanelNews
@@ -1389,7 +1437,7 @@ object FormMain: TFormMain
           AnchorSideBottom.Side = asrBottom
           Left = 10
           Height = 160
-          Top = 140
+          Top = 200
           Width = 669
           Anchors = [akTop, akLeft, akRight]
           AutoFillColumns = True
@@ -1476,7 +1524,7 @@ object FormMain: TFormMain
           BorderSpacing.Bottom = 5
           Font.Height = -13
           Lines.Strings = (
-            '新闻正文'
+            '正文'
           )
           ParentFont = False
           TabOrder = 0
@@ -1497,7 +1545,7 @@ object FormMain: TFormMain
           Font.Height = -13
           ParentFont = False
           TabOrder = 1
-          TextHint = '新闻标题'
+          TextHint = '标题'
         end
         object EditNewsResultTime: TEdit
           AnchorSideLeft.Control = PanelNewsContent
@@ -1516,7 +1564,7 @@ object FormMain: TFormMain
           Font.Height = -13
           ParentFont = False
           TabOrder = 2
-          TextHint = '新闻发布时间'
+          TextHint = '发布时间'
         end
       end
       object SplitterNews: TSplitter

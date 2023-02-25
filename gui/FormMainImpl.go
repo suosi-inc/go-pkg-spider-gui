@@ -151,3 +151,11 @@ func (f *TFormMain) OnBtnLinkOpenClick(sender vcl.IObject) {
 func (f *TFormMain) OnBtnNewsRequestClick(sender vcl.IObject) {
 	f.btnNewsRequestClick()
 }
+
+func (f *TFormMain) OnMemoNewsContentChange(sender vcl.IObject) {
+
+}
+
+func (f *TFormMain) OnRadioGroup1Click(sender vcl.IObject) {
+
+}

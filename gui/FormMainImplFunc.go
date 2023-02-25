@@ -316,7 +316,7 @@ func (f *TFormMain) btnNewsRequestClick() {
 	urlStr := f.EditNewsUrl.Text()
 	title := f.EditNewsTitle.Text()
 	if fun.Blank(urlStr) {
-		f.debug("Request Link Failed : url is empty")
+		f.debug("Request Content Failed : url is empty")
 		return
 	}
 
@@ -329,6 +329,8 @@ func (f *TFormMain) btnNewsRequestClick() {
 	// 最大重试次数
 	maxRetry := fun.ToInt(f.EditNewsRetry.Text())
 
+	f.clearNewsContent()
+
 	if news, _, err := spider.GetNews(urlStr, title, timeout, maxRetry); err == nil {
 		f.debug(news.Content)
 
@@ -339,6 +341,12 @@ func (f *TFormMain) btnNewsRequestClick() {
 		f.MemoNewsContent.SetText("")
 		f.MemoNewsContent.Append(content)
 	}
+}
+
+func (f *TFormMain) clearNewsContent() {
+	f.EditNewsResultTitle.SetText("")
+	f.EditNewsResultTime.SetText("")
+	f.MemoNewsContent.SetText("")
 }
 
 // btnToolDomainRequestClick 辅助工具域名提取

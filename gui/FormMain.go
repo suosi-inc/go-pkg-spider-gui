@@ -85,17 +85,23 @@ type TFormMain struct {
 	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
-	LabelNewsUrl           *vcl.TLabel
-	EditNewsUrl            *vcl.TEdit
-	BtnNewsRequest         *vcl.TButton
-	BtnNewsOpen            *vcl.TSpeedButton
-	LabelNewsTimeout       *vcl.TLabel
-	EditNewsTimeout        *vcl.TEdit
-	LabelNewsRetry         *vcl.TLabel
-	EditNewsRetry          *vcl.TSpinEdit
-	LabelNewsTitle         *vcl.TLabel
+	PanelNewsRequest       *vcl.TPanel
 	EditNewsTitle          *vcl.TEdit
+	LabelNewsTitle         *vcl.TLabel
+	EditNewsRetry          *vcl.TSpinEdit
+	LabelNewsRetry         *vcl.TLabel
+	EditNewsTimeout        *vcl.TEdit
+	LabelNewsTimeout       *vcl.TLabel
+	BtnNewsOpen            *vcl.TSpeedButton
+	BtnNewsRequest         *vcl.TButton
+	EditNewsUrl            *vcl.TEdit
+	LabelNewsUrl           *vcl.TLabel
+	StringGridNews1        *vcl.TStringGrid
 	PanelNewsContent       *vcl.TPanel
+	MemoNewsContent        *vcl.TMemo
+	EditNewsResultTitle    *vcl.TEdit
+	EditNewsResultTime     *vcl.TEdit
+	SplitterNews           *vcl.TSplitter
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
 	PanelToolDomain        *vcl.TPanel
@@ -111,12 +117,10 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	SplitterNews           *vcl.TSplitter
-	PanelNewsRequest       *vcl.TPanel
-	MemoNewsContent        *vcl.TMemo
-	StringGridNews1        *vcl.TStringGrid
-	EditNewsResultTitle    *vcl.TEdit
-	EditNewsResultTime     *vcl.TEdit
+	RadioGroup1            *vcl.TRadioGroup
+	RadioNewsText          *vcl.TRadioButton
+	RadioNewsP             *vcl.TRadioButton
+	RadioNewsHtml          *vcl.TRadioButton
 
 	//::private::
 	TFormMainFields
