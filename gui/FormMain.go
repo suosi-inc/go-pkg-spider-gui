@@ -3,7 +3,6 @@ package gui
 
 import (
 	_ "embed"
-
 	"github.com/ying32/govcl/vcl"
 )
 
@@ -63,8 +62,8 @@ type TFormMain struct {
 	GridLinkContent        *vcl.TStringGrid
 	TabSheetLinkList       *vcl.TTabSheet
 	GridLinkList           *vcl.TStringGrid
-	TabSheetLinkUnknow     *vcl.TTabSheet
-	GridLinkUnknow         *vcl.TStringGrid
+	TabSheetLinkUnknown    *vcl.TTabSheet
+	GridLinkUnknown        *vcl.TStringGrid
 	TabSheetLinkNone       *vcl.TTabSheet
 	GridLinkNone           *vcl.TStringGrid
 	TabSheetLinkFilter     *vcl.TTabSheet
@@ -86,6 +85,23 @@ type TFormMain struct {
 	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
+	PanelNewsRequest       *vcl.TPanel
+	EditNewsTitle          *vcl.TEdit
+	LabelNewsTitle         *vcl.TLabel
+	EditNewsRetry          *vcl.TSpinEdit
+	LabelNewsRetry         *vcl.TLabel
+	EditNewsTimeout        *vcl.TEdit
+	LabelNewsTimeout       *vcl.TLabel
+	BtnNewsOpen            *vcl.TSpeedButton
+	BtnNewsRequest         *vcl.TButton
+	EditNewsUrl            *vcl.TEdit
+	LabelNewsUrl           *vcl.TLabel
+	StringGridNews1        *vcl.TStringGrid
+	PanelNewsContent       *vcl.TPanel
+	MemoNewsContent        *vcl.TMemo
+	EditNewsResultTitle    *vcl.TEdit
+	EditNewsResultTime     *vcl.TEdit
+	SplitterNews           *vcl.TSplitter
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
 	PanelToolDomain        *vcl.TPanel
@@ -101,6 +117,10 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
+	RadioGroup1            *vcl.TRadioGroup
+	RadioNewsText          *vcl.TRadioButton
+	RadioNewsP             *vcl.TRadioButton
+	RadioNewsHtml          *vcl.TRadioButton
 
 	//::private::
 	TFormMainFields

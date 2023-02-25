@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, mysql80conn, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, Grids,
-  ListFilterEdit;
+  ListFilterEdit, Types;
 
 type
 
@@ -16,6 +16,8 @@ type
   TFormMain = class(TForm)
     BtnLinkOpen: TSpeedButton;
     BtnLinkRequest: TButton;
+    BtnNewsOpen: TSpeedButton;
+    BtnNewsRequest: TButton;
     BtnRequest: TButton;
     BtnRequestDefault: TButton;
     BtnRequestTipHeader: TSpeedButton;
@@ -27,10 +29,16 @@ type
     CheckRequestClean: TCheckBox;
     CheckRequestRedirect: TCheckBox;
     CheckRequestType: TCheckBox;
+    EditNewsResultTime: TEdit;
+    EditNewsResultTitle: TEdit;
+    EditNewsRetry: TSpinEdit;
+    EditNewsTimeout: TEdit;
+    EditNewsTitle: TEdit;
     EditLinkSearch: TEdit;
     EditLinkRetry: TSpinEdit;
     EditLinkTimeout: TEdit;
     EditLinkUrl: TEdit;
+    EditNewsUrl: TEdit;
     EditRequestLength: TEdit;
     EditRequestProxy: TEdit;
     EditRequestRedirect: TSpinEdit;
@@ -40,6 +48,13 @@ type
     EditToolDomain: TEdit;
     EditToolDomainResult: TEdit;
     EditRequestUrl: TEdit;
+    LabelNewsRetry: TLabel;
+    LabelNewsTimeout: TLabel;
+    LabelNewsTitle: TLabel;
+    LabelNewsUrl: TLabel;
+    MemoNewsContent: TMemo;
+    PanelNewsRequest: TPanel;
+    PanelNewsContent: TPanel;
     PanelLinkRule: TPanel;
     PanelRequestBox: TPanel;
     LabelRequestHeader: TLabel;
@@ -74,19 +89,25 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     BtnRequestOpen: TSpeedButton;
+    RadioNewsText: TRadioButton;
+    RadioNewsP: TRadioButton;
+    RadioNewsHtml: TRadioButton;
+    RadioGroup1: TRadioGroup;
+    SplitterNews: TSplitter;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;
     GridLinkList: TStringGrid;
-    GridLinkUnknow: TStringGrid;
+    GridLinkUnknown: TStringGrid;
     GridLinkNone: TStringGrid;
     GridLinkFilter: TStringGrid;
     GridLinkDomain: TStringGrid;
+    StringGridNews1: TStringGrid;
     TabSheetLinkFilter: TTabSheet;
     TabSheetLinkDomain: TTabSheet;
     TabSheetLinkContent: TTabSheet;
     TabSheetLinkList: TTabSheet;
-    TabSheetLinkUnknow: TTabSheet;
+    TabSheetLinkUnknown: TTabSheet;
     TabSheetLinkNone: TTabSheet;
     TabSheetTool: TTabSheet;
     TabSheetNews: TTabSheet;
@@ -109,6 +130,7 @@ type
     procedure BtnLinkOpenClick(Sender: TObject);
     procedure BtnLinkRequestClick(Sender: TObject);
     procedure BtnLinkSearchClick(Sender: TObject);
+    procedure BtnNewsRequestClick(Sender: TObject);
     procedure BtnRequestClick(Sender: TObject);
     procedure BtnRequestDefaultClick(Sender: TObject);
     procedure BtnRequestExampleClick(Sender: TObject);
@@ -257,6 +279,11 @@ begin
 end;
 
 procedure TFormMain.BtnLinkSearchClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnNewsRequestClick(Sender: TObject);
 begin
 
 end;
