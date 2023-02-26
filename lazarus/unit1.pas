@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, mysql80conn, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, Grids,
+  ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, Grids, CheckLst,
   ListFilterEdit, Types;
 
 type
@@ -24,11 +24,19 @@ type
     BtnRequestTipProxy: TSpeedButton;
     BtnToolDomainRequest: TButton;
     BtnLinkSearch: TButton;
+    CheckLinkRule1: TCheckBox;
+    CheckLinkRule2: TCheckBox;
     CheckLinkStrictDomain: TCheckBox;
     CheckRequestCharset: TCheckBox;
     CheckRequestClean: TCheckBox;
     CheckRequestRedirect: TCheckBox;
     CheckRequestType: TCheckBox;
+    ComboLinkRuleType2: TComboBox;
+    ComboLinkRuleType1: TComboBox;
+    EditLinkRuleContent2: TEdit;
+    EditLinkRuleContent1: TEdit;
+    EditLinkRuleDomain1: TEdit;
+    EditLinkRuleDomain2: TEdit;
     EditNewsResultTime: TEdit;
     EditNewsResultTitle: TEdit;
     EditNewsRetry: TSpinEdit;
@@ -48,6 +56,8 @@ type
     EditToolDomain: TEdit;
     EditToolDomainResult: TEdit;
     EditRequestUrl: TEdit;
+    LabelLinkRule2: TLabel;
+    LabelLinkRule1: TLabel;
     LabelNewsRetry: TLabel;
     LabelNewsTimeout: TLabel;
     LabelNewsTitle: TLabel;

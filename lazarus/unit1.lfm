@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetNews
+    ActivePage = TabSheetLink
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 3
+    TabIndex = 2
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -1181,7 +1181,161 @@ object FormMain: TFormMain
           BorderSpacing.Right = 10
           BevelOuter = bvNone
           BorderStyle = bsSingle
+          ClientHeight = 76
+          ClientWidth = 656
           TabOrder = 3
+          object EditLinkRuleDomain1: TEdit
+            AnchorSideLeft.Control = LabelLinkRule1
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelLinkRule
+            Left = 117
+            Height = 25
+            Top = 12
+            Width = 120
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            TabOrder = 0
+            TextHint = '主域名或子域名'
+          end
+          object EditLinkRuleDomain2: TEdit
+            AnchorSideLeft.Control = LabelLinkRule2
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = EditLinkRuleDomain1
+            AnchorSideTop.Side = asrBottom
+            Left = 117
+            Height = 25
+            Top = 43
+            Width = 120
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 6
+            TabOrder = 1
+            TextHint = '主域名或子域名'
+          end
+          object ComboLinkRuleType1: TComboBox
+            AnchorSideLeft.Control = EditLinkRuleDomain1
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelLinkRule
+            Left = 252
+            Height = 25
+            Top = 12
+            Width = 100
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            ItemHeight = 17
+            ItemIndex = 0
+            Items.Strings = (
+              '前缀匹配'
+              '包含匹配'
+              '正则匹配'
+            )
+            TabOrder = 2
+            Text = '前缀匹配'
+          end
+          object LabelLinkRule1: TLabel
+            AnchorSideLeft.Control = PanelLinkRule
+            AnchorSideTop.Control = PanelLinkRule
+            Left = 15
+            Height = 17
+            Top = 15
+            Width = 87
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 15
+            Caption = '内容页规则(1)：'
+          end
+          object LabelLinkRule2: TLabel
+            AnchorSideLeft.Control = PanelLinkRule
+            AnchorSideTop.Control = LabelLinkRule1
+            AnchorSideTop.Side = asrBottom
+            Left = 15
+            Height = 17
+            Top = 46
+            Width = 87
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 14
+            Caption = '内容页规则(2)：'
+          end
+          object EditLinkRuleContent1: TEdit
+            AnchorSideLeft.Control = ComboLinkRuleType1
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelLinkRule
+            AnchorSideRight.Control = CheckLinkRule1
+            Left = 367
+            Height = 25
+            Top = 12
+            Width = 213
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            BorderSpacing.Right = 15
+            TabOrder = 3
+          end
+          object CheckLinkRule1: TCheckBox
+            AnchorSideTop.Control = PanelLinkRule
+            AnchorSideRight.Control = PanelLinkRule
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 595
+            Height = 21
+            Top = 15
+            Width = 46
+            Anchors = [akTop, akRight]
+            BorderSpacing.Top = 15
+            BorderSpacing.Right = 15
+            Caption = '启用'
+            TabOrder = 4
+          end
+          object ComboLinkRuleType2: TComboBox
+            AnchorSideLeft.Control = EditLinkRuleDomain2
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = ComboLinkRuleType1
+            AnchorSideTop.Side = asrBottom
+            Left = 252
+            Height = 25
+            Top = 43
+            Width = 100
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 6
+            ItemHeight = 17
+            ItemIndex = 2
+            Items.Strings = (
+              '前缀匹配'
+              '包含匹配'
+              '正则匹配'
+            )
+            TabOrder = 5
+            Text = '正则匹配'
+          end
+          object EditLinkRuleContent2: TEdit
+            AnchorSideLeft.Control = ComboLinkRuleType2
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = EditLinkRuleContent1
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = CheckLinkRule2
+            Left = 367
+            Height = 25
+            Top = 43
+            Width = 213
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 6
+            BorderSpacing.Right = 15
+            TabOrder = 6
+          end
+          object CheckLinkRule2: TCheckBox
+            AnchorSideTop.Control = CheckLinkRule1
+            AnchorSideRight.Control = PanelLinkRule
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 595
+            Height = 21
+            Top = 45
+            Width = 46
+            Anchors = [akTop, akRight]
+            BorderSpacing.Top = 30
+            BorderSpacing.Right = 15
+            Caption = '启用'
+            TabOrder = 7
+          end
         end
         object BtnLinkSearch: TButton
           AnchorSideTop.Control = PanelLink
@@ -1501,6 +1655,7 @@ object FormMain: TFormMain
         Top = 0
         Width = 700
         Anchors = [akTop, akLeft, akRight, akBottom]
+        BevelOuter = bvNone
         ClientHeight = 790
         ClientWidth = 700
         ParentColor = False
@@ -1513,11 +1668,11 @@ object FormMain: TFormMain
           AnchorSideRight.Side = asrBottom
           AnchorSideBottom.Control = PanelNewsContent
           AnchorSideBottom.Side = asrBottom
-          Left = 11
-          Height = 699
-          Top = 85
-          Width = 678
-          Anchors = [akTop, akRight, akBottom]
+          Left = 10
+          Height = 701
+          Top = 84
+          Width = 680
+          Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 10
           BorderSpacing.Right = 10
@@ -1534,10 +1689,10 @@ object FormMain: TFormMain
           AnchorSideTop.Control = PanelNewsContent
           AnchorSideRight.Control = PanelNewsContent
           AnchorSideRight.Side = asrBottom
-          Left = 11
+          Left = 10
           Height = 27
-          Top = 11
-          Width = 678
+          Top = 10
+          Width = 680
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 10
@@ -1553,10 +1708,10 @@ object FormMain: TFormMain
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = PanelNewsContent
           AnchorSideRight.Side = asrBottom
-          Left = 11
+          Left = 10
           Height = 27
-          Top = 48
-          Width = 678
+          Top = 47
+          Width = 680
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 10
@@ -1568,13 +1723,15 @@ object FormMain: TFormMain
         end
       end
       object SplitterNews: TSplitter
+        AnchorSideTop.Control = TabSheetNews
+        AnchorSideBottom.Control = TabSheetNews
         Left = 700
-        Height = 790
+        Height = 0
         Top = 0
         Width = 3
         Align = alNone
-        Anchors = [akLeft, akBottom]
-        Color = clWindow
+        Anchors = [akTop, akBottom]
+        Color = clWhite
         ParentColor = False
         ResizeStyle = rsPattern
       end

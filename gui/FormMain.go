@@ -96,6 +96,10 @@ type TFormMain struct {
 	BtnNewsRequest         *vcl.TButton
 	EditNewsUrl            *vcl.TEdit
 	LabelNewsUrl           *vcl.TLabel
+	RadioGroup1            *vcl.TRadioGroup
+	RadioNewsText          *vcl.TRadioButton
+	RadioNewsP             *vcl.TRadioButton
+	RadioNewsHtml          *vcl.TRadioButton
 	StringGridNews1        *vcl.TStringGrid
 	PanelNewsContent       *vcl.TPanel
 	MemoNewsContent        *vcl.TMemo
@@ -117,10 +121,16 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	RadioGroup1            *vcl.TRadioGroup
-	RadioNewsText          *vcl.TRadioButton
-	RadioNewsP             *vcl.TRadioButton
-	RadioNewsHtml          *vcl.TRadioButton
+	EditLinkRuleDomain1    *vcl.TEdit
+	EditLinkRuleDomain2    *vcl.TEdit
+	ComboLinkRuleType1     *vcl.TComboBox
+	LabelLinkRule1         *vcl.TLabel
+	LabelLinkRule2         *vcl.TLabel
+	EditLinkRuleContent1   *vcl.TEdit
+	CheckLinkRule1         *vcl.TCheckBox
+	ComboLinkRuleType2     *vcl.TComboBox
+	EditLinkRuleContent2   *vcl.TEdit
+	CheckLinkRule2         *vcl.TCheckBox
 
 	//::private::
 	TFormMainFields
