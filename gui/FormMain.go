@@ -82,6 +82,16 @@ type TFormMain struct {
 	EditLinkRetry          *vcl.TSpinEdit
 	EditLinkSearch         *vcl.TEdit
 	PanelLinkRule          *vcl.TPanel
+	EditLinkRuleDomain1    *vcl.TEdit
+	EditLinkRuleDomain2    *vcl.TEdit
+	ComboLinkRuleType1     *vcl.TComboBox
+	LabelLinkRule1         *vcl.TLabel
+	LabelLinkRule2         *vcl.TLabel
+	EditLinkRuleContent1   *vcl.TEdit
+	CheckLinkRule1         *vcl.TCheckBox
+	ComboLinkRuleType2     *vcl.TComboBox
+	EditLinkRuleContent2   *vcl.TEdit
+	CheckLinkRule2         *vcl.TCheckBox
 	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
@@ -121,16 +131,6 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	EditLinkRuleDomain1    *vcl.TEdit
-	EditLinkRuleDomain2    *vcl.TEdit
-	ComboLinkRuleType1     *vcl.TComboBox
-	LabelLinkRule1         *vcl.TLabel
-	LabelLinkRule2         *vcl.TLabel
-	EditLinkRuleContent1   *vcl.TEdit
-	CheckLinkRule1         *vcl.TCheckBox
-	ComboLinkRuleType2     *vcl.TComboBox
-	EditLinkRuleContent2   *vcl.TEdit
-	CheckLinkRule2         *vcl.TCheckBox
 
 	//::private::
 	TFormMainFields
