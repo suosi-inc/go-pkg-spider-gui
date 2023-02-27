@@ -14,6 +14,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/microcosm-cc/bluemonday"
 	spider "github.com/suosi-inc/go-pkg-spider"
 	"github.com/suosi-inc/go-pkg-spider/extract"
 	"github.com/x-funs/go-fun"
@@ -174,6 +175,8 @@ func (f *TFormMain) btnLinkRequestClick() {
 
 		// 渲染所有表格
 		f.renderGridLink()
+	} else {
+		f.debug("Request Link Failed : " + err.Error())
 	}
 }
 
@@ -225,10 +228,10 @@ func (f *TFormMain) fillGridLink(grid *vcl.TStringGrid, datas map[string]string)
 	}
 }
 
-func (f *TFormMain) clearStringGrid(grid *vcl.TStringGrid, title bool) {
+func (f *TFormMain) clearStringGrid(grid *vcl.TStringGrid, fixRow bool) {
 	var i, start int32
 
-	if title {
+	if fixRow {
 		start = 0
 	} else {
 		start = 1
@@ -312,6 +315,53 @@ func (f *TFormMain) searchGridLink(grid *vcl.TStringGrid, keyword string, datas 
 	}
 }
 
+func (f *TFormMain) btnDomainRequestClick() {
+	domain := f.EditDomain.Text()
+
+	if fun.Blank(domain) {
+		f.debug("Request Domain Failed : domain is empty")
+		return
+	}
+
+	// 超时时间
+	timeout := fun.ToInt(f.EditDomainTimeout.Text())
+	if timeout < 0 {
+		timeout = 30000
+	}
+
+	// 最大重试次数
+	maxRetry := fun.ToInt(f.EditDomainRetry.Text())
+
+	if domainRes, err := spider.DetectDomain(domain, timeout, maxRetry); err == nil {
+
+		f.debug("Request Domain Success : " + domain)
+
+		charset := domainRes.Charset.Charset
+		charsetPos := domainRes.Charset.CharsetPos
+		lang := spider.LangEnZhMap[domainRes.Lang.Lang]
+		langPos := domainRes.Lang.LangPos
+
+		f.GridDomainData.SetCells(1, 1, domainRes.Title)
+		f.GridDomainData.SetCells(1, 2, domainRes.TitleClean)
+		f.GridDomainData.SetCells(1, 3, domainRes.Description)
+		f.GridDomainData.SetCells(1, 4, domainRes.Scheme)
+		f.GridDomainData.SetCells(1, 5, charset+", "+charsetPos)
+		f.GridDomainData.SetCells(1, 6, lang+", "+langPos)
+		f.GridDomainData.SetCells(1, 7, domainRes.Country)
+		f.GridDomainData.SetCells(1, 8, domainRes.Province)
+		f.GridDomainData.SetCells(1, 9, fun.ToString(domainRes.State))
+		f.GridDomainData.SetCells(1, 10, domainRes.Icp)
+		f.GridDomainData.SetCells(1, 11, domainRes.HomeDomain)
+		f.GridDomainData.SetCells(1, 12, fun.ToString(domainRes.ContentCount))
+		f.GridDomainData.SetCells(1, 13, fun.ToString(domainRes.ListCount))
+		f.GridDomainData.SetCells(1, 14, fun.ToString(len(domainRes.SubDomains)))
+	} else {
+		f.debug("Request Domain Failed : " + err.Error())
+	}
+
+	return
+}
+
 func (f *TFormMain) btnNewsRequestClick() {
 	urlStr := f.EditNewsUrl.Text()
 	title := f.EditNewsTitle.Text()
@@ -329,17 +379,49 @@ func (f *TFormMain) btnNewsRequestClick() {
 	// 最大重试次数
 	maxRetry := fun.ToInt(f.EditNewsRetry.Text())
 
+	// 正文样式
+	contentType := f.RadioNewsContentType.ItemIndex()
+
 	f.clearNewsContent()
 
 	if news, _, err := spider.GetNews(urlStr, title, timeout, maxRetry); err == nil {
-		f.debug(news.Content)
+		// Info
+		contentData := news.ContentNode.Data
+		contentAttr := fun.ToString(news.ContentNode.Attr)
 
+		f.GridNewsInfo.SetCells(1, 1, news.TitlePos)
+		f.GridNewsInfo.SetCells(1, 2, news.TimePos)
+		f.GridNewsInfo.SetCells(1, 3, contentData+contentAttr)
+		f.GridNewsInfo.SetCells(1, 4, news.Time)
+		f.GridNewsInfo.SetCells(1, 5, spider.LangEnZhMap[news.Lang])
+		f.GridNewsInfo.SetCells(1, 6, fun.ToString(news.Spend)+"ms")
+
+		f.debug(fun.ToString(news.ContentNode.Attr))
+
+		// Content
 		f.EditNewsResultTitle.SetText(news.Title)
 		f.EditNewsResultTime.SetText(news.TimeLocal)
 
-		content := strings.ReplaceAll(news.Content, fun.LF, fun.CRLF)
 		f.MemoNewsContent.SetText("")
-		f.MemoNewsContent.Append(content)
+		switch contentType {
+		case 0:
+			content := strings.ReplaceAll(news.Content, fun.LF, fun.CRLF)
+			f.MemoNewsContent.Append(content)
+		case 1:
+			node := goquery.NewDocumentFromNode(news.ContentNode)
+			contentHtml, _ := node.Html()
+			p := bluemonday.NewPolicy()
+			p.AllowElements("p")
+			p.AllowImages()
+			htmlStr := p.Sanitize(contentHtml)
+			f.MemoNewsContent.Append(fun.NormaliseLine(htmlStr))
+		case 2:
+			node := goquery.NewDocumentFromNode(news.ContentNode)
+			contentHtml, _ := node.Html()
+			f.MemoNewsContent.Append(fun.NormaliseLine(contentHtml))
+		}
+	} else {
+		f.debug("Request News Failed : " + err.Error())
 	}
 }
 
@@ -347,6 +429,10 @@ func (f *TFormMain) clearNewsContent() {
 	f.EditNewsResultTitle.SetText("")
 	f.EditNewsResultTime.SetText("")
 	f.MemoNewsContent.SetText("")
+
+	for rows := 1; rows <= 6; rows++ {
+		f.GridNewsInfo.SetCells(1, int32(rows), "")
+	}
 }
 
 // btnToolDomainRequestClick 辅助工具域名提取
@@ -399,4 +485,21 @@ func (f *TFormMain) removeToolBtnDown() {
 	f.ToolBtnLink.SetDown(false)
 	f.ToolBtnContent.SetDown(false)
 	f.ToolBtnTool.SetDown(false)
+}
+
+func (f *TFormMain) btnToolLangClick() {
+	text := f.MemoToolLang.Text()
+	if fun.Blank(text) {
+		f.debug("Request Tool Lang Failed : text is empty")
+		return
+	}
+
+	lang, _ := spider.LangText(text)
+
+	f.EditToolLang.SetText("")
+
+	if !fun.Blank(lang) {
+		f.EditToolLang.SetText(spider.LangEnZhMap[lang])
+		f.debug("\tResult : " + lang)
+	}
 }

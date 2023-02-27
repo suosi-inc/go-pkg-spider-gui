@@ -54,7 +54,22 @@ type TFormMain struct {
 	BtnRequestTipHeader    *vcl.TSpeedButton
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
+	PanelDomainContent     *vcl.TPanel
+	GridDomainSubdomain    *vcl.TStringGrid
+	Edit1                  *vcl.TEdit
+	BtnDomainSearch        *vcl.TButton
+	SplitterDomain         *vcl.TSplitter
 	PanelDomain            *vcl.TPanel
+	PanelDomainRequest     *vcl.TPanel
+	LabelDomain            *vcl.TLabel
+	EditDomain             *vcl.TEdit
+	BtnDomainRequest       *vcl.TButton
+	LabelDomainRetry       *vcl.TLabel
+	EditDomainRetry        *vcl.TSpinEdit
+	LabelDomainTimeout     *vcl.TLabel
+	EditDomainTimeout      *vcl.TEdit
+	CheckDomainSubdomain   *vcl.TCheckBox
+	GridDomainData         *vcl.TStringGrid
 	TabSheetLink           *vcl.TTabSheet
 	PanelLink              *vcl.TPanel
 	PageControlLink        *vcl.TPageControl
@@ -82,6 +97,16 @@ type TFormMain struct {
 	EditLinkRetry          *vcl.TSpinEdit
 	EditLinkSearch         *vcl.TEdit
 	PanelLinkRule          *vcl.TPanel
+	EditLinkRuleDomain1    *vcl.TEdit
+	EditLinkRuleDomain2    *vcl.TEdit
+	ComboLinkRuleType1     *vcl.TComboBox
+	LabelLinkRule1         *vcl.TLabel
+	LabelLinkRule2         *vcl.TLabel
+	EditLinkRuleContent1   *vcl.TEdit
+	CheckLinkRule1         *vcl.TCheckBox
+	ComboLinkRuleType2     *vcl.TComboBox
+	EditLinkRuleContent2   *vcl.TEdit
+	CheckLinkRule2         *vcl.TCheckBox
 	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
@@ -96,7 +121,9 @@ type TFormMain struct {
 	BtnNewsRequest         *vcl.TButton
 	EditNewsUrl            *vcl.TEdit
 	LabelNewsUrl           *vcl.TLabel
-	StringGridNews1        *vcl.TStringGrid
+	RadioNewsContentType   *vcl.TRadioGroup
+	LabelNewsContentType   *vcl.TLabel
+	GridNewsInfo           *vcl.TStringGrid
 	PanelNewsContent       *vcl.TPanel
 	MemoNewsContent        *vcl.TMemo
 	EditNewsResultTitle    *vcl.TEdit
@@ -109,6 +136,11 @@ type TFormMain struct {
 	EditToolDomain         *vcl.TEdit
 	BtnToolDomainRequest   *vcl.TButton
 	EditToolDomainResult   *vcl.TEdit
+	PanelToolLang          *vcl.TPanel
+	MemoToolLang           *vcl.TMemo
+	EditToolLang           *vcl.TEdit
+	BtnToolLang            *vcl.TButton
+	LabelToolLangTip       *vcl.TLabel
 	SplitterDebug          *vcl.TSplitter
 	PanelDebug             *vcl.TPanel
 	MemoDebug              *vcl.TMemo
@@ -117,10 +149,7 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	RadioGroup1            *vcl.TRadioGroup
-	RadioNewsText          *vcl.TRadioButton
-	RadioNewsP             *vcl.TRadioButton
-	RadioNewsHtml          *vcl.TRadioButton
+	PanelDomainSubdomain   *vcl.TPanel
 
 	//::private::
 	TFormMainFields
