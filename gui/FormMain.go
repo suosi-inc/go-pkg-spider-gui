@@ -55,6 +55,21 @@ type TFormMain struct {
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
 	PanelDomainContent     *vcl.TPanel
+	GridDomainSubdomain    *vcl.TStringGrid
+	Edit1                  *vcl.TEdit
+	BtnDomainSearch        *vcl.TButton
+	SplitterDomain         *vcl.TSplitter
+	PanelDomain            *vcl.TPanel
+	PanelDomainRequest     *vcl.TPanel
+	LabelDomain            *vcl.TLabel
+	EditDomain             *vcl.TEdit
+	BtnDomainRequest       *vcl.TButton
+	LabelDomainRetry       *vcl.TLabel
+	EditDomainRetry        *vcl.TSpinEdit
+	LabelDomainTimeout     *vcl.TLabel
+	EditDomainTimeout      *vcl.TEdit
+	CheckDomainSubdomain   *vcl.TCheckBox
+	GridDomainData         *vcl.TStringGrid
 	TabSheetLink           *vcl.TTabSheet
 	PanelLink              *vcl.TPanel
 	PageControlLink        *vcl.TPageControl
@@ -107,6 +122,7 @@ type TFormMain struct {
 	EditNewsUrl            *vcl.TEdit
 	LabelNewsUrl           *vcl.TLabel
 	RadioNewsContentType   *vcl.TRadioGroup
+	LabelNewsContentType   *vcl.TLabel
 	GridNewsInfo           *vcl.TStringGrid
 	PanelNewsContent       *vcl.TPanel
 	MemoNewsContent        *vcl.TMemo
@@ -120,6 +136,11 @@ type TFormMain struct {
 	EditToolDomain         *vcl.TEdit
 	BtnToolDomainRequest   *vcl.TButton
 	EditToolDomainResult   *vcl.TEdit
+	PanelToolLang          *vcl.TPanel
+	MemoToolLang           *vcl.TMemo
+	EditToolLang           *vcl.TEdit
+	BtnToolLang            *vcl.TButton
+	LabelToolLangTip       *vcl.TLabel
 	SplitterDebug          *vcl.TSplitter
 	PanelDebug             *vcl.TPanel
 	MemoDebug              *vcl.TMemo
@@ -128,27 +149,6 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	LabelNewsContentType   *vcl.TLabel
-	PanelToolLang          *vcl.TPanel
-	MemoToolLang           *vcl.TMemo
-	EditToolLang           *vcl.TEdit
-	BtnToolLang            *vcl.TButton
-	LabelToolLangTip       *vcl.TLabel
-	SplitterDomain         *vcl.TSplitter
-	PanelDomain            *vcl.TPanel
-	PanelDomainRequest     *vcl.TPanel
-	LabelDomain            *vcl.TLabel
-	EditDomain             *vcl.TEdit
-	BtnDomainRequest       *vcl.TButton
-	LabelDomainRetry       *vcl.TLabel
-	EditDomainRetry        *vcl.TSpinEdit
-	LabelDomainTimeout     *vcl.TLabel
-	EditDomainTimeout      *vcl.TEdit
-	GridDomainData         *vcl.TStringGrid
-	CheckDomainSubdomain   *vcl.TCheckBox
-	GridDomainSubdomain    *vcl.TStringGrid
-	Edit1                  *vcl.TEdit
-	BtnDomainSearch        *vcl.TButton
 
 	//::private::
 	TFormMainFields
