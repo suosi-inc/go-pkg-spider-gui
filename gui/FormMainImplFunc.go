@@ -500,6 +500,6 @@ func (f *TFormMain) btnToolLangClick() {
 
 	if !fun.Blank(lang) {
 		f.EditToolLang.SetText(spider.LangEnZhMap[lang])
-		f.debug("Request Tool Lang Result : " + lang)
+		f.debug("\tResult : " + lang)
 	}
 }

@@ -78,6 +78,7 @@ type
     LabelNewsUrl: TLabel;
     MemoToolLang: TMemo;
     MemoNewsContent: TMemo;
+    PanelDomainSubdomain: TPanel;
     PanelDomainRequest: TPanel;
     PanelDomain: TPanel;
     PanelToolLang: TPanel;

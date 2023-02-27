@@ -149,6 +149,7 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
+	PanelDomainSubdomain   *vcl.TPanel
 
 	//::private::
 	TFormMainFields
