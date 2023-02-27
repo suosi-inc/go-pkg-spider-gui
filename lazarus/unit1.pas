@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, mysql80conn, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, Grids,
+  ComCtrls, StdCtrls, Menus, Buttons, Spin, EditBtn, ValEdit, Grids, CheckLst,
   ListFilterEdit, Types;
 
 type
@@ -16,21 +16,45 @@ type
   TFormMain = class(TForm)
     BtnLinkOpen: TSpeedButton;
     BtnLinkRequest: TButton;
+    BtnNewsOpen: TSpeedButton;
+    BtnNewsRequest: TButton;
     BtnRequest: TButton;
     BtnRequestDefault: TButton;
     BtnRequestTipHeader: TSpeedButton;
     BtnRequestTipProxy: TSpeedButton;
     BtnToolDomainRequest: TButton;
     BtnLinkSearch: TButton;
+    BtnToolLang: TButton;
+    BtnDomainRequest: TButton;
+    BtnDomainSearch: TButton;
+    CheckDomainSubdomain: TCheckBox;
+    CheckLinkRule1: TCheckBox;
+    CheckLinkRule2: TCheckBox;
     CheckLinkStrictDomain: TCheckBox;
     CheckRequestCharset: TCheckBox;
     CheckRequestClean: TCheckBox;
     CheckRequestRedirect: TCheckBox;
     CheckRequestType: TCheckBox;
+    ComboLinkRuleType2: TComboBox;
+    ComboLinkRuleType1: TComboBox;
+    Edit1: TEdit;
+    EditDomain: TEdit;
+    EditDomainTimeout: TEdit;
+    EditToolLang: TEdit;
+    EditLinkRuleContent2: TEdit;
+    EditLinkRuleContent1: TEdit;
+    EditLinkRuleDomain1: TEdit;
+    EditLinkRuleDomain2: TEdit;
+    EditNewsResultTime: TEdit;
+    EditNewsResultTitle: TEdit;
+    EditNewsRetry: TSpinEdit;
+    EditNewsTimeout: TEdit;
+    EditNewsTitle: TEdit;
     EditLinkSearch: TEdit;
     EditLinkRetry: TSpinEdit;
     EditLinkTimeout: TEdit;
     EditLinkUrl: TEdit;
+    EditNewsUrl: TEdit;
     EditRequestLength: TEdit;
     EditRequestProxy: TEdit;
     EditRequestRedirect: TSpinEdit;
@@ -40,6 +64,25 @@ type
     EditToolDomain: TEdit;
     EditToolDomainResult: TEdit;
     EditRequestUrl: TEdit;
+    GridDomainData: TStringGrid;
+    LabelDomain: TLabel;
+    LabelDomainRetry: TLabel;
+    LabelDomainTimeout: TLabel;
+    LabelToolLangTip: TLabel;
+    LabelNewsContentType: TLabel;
+    LabelLinkRule2: TLabel;
+    LabelLinkRule1: TLabel;
+    LabelNewsRetry: TLabel;
+    LabelNewsTimeout: TLabel;
+    LabelNewsTitle: TLabel;
+    LabelNewsUrl: TLabel;
+    MemoToolLang: TMemo;
+    MemoNewsContent: TMemo;
+    PanelDomainRequest: TPanel;
+    PanelDomain: TPanel;
+    PanelToolLang: TPanel;
+    PanelNewsRequest: TPanel;
+    PanelNewsContent: TPanel;
     PanelLinkRule: TPanel;
     PanelRequestBox: TPanel;
     LabelRequestHeader: TLabel;
@@ -65,7 +108,7 @@ type
     PageControl: TPageControl;
     PageControlLink: TPageControl;
     PanelToolDomain: TPanel;
-    PanelDomain: TPanel;
+    PanelDomainContent: TPanel;
     PanelLink: TPanel;
     PanelNews: TPanel;
     PanelTool: TPanel;
@@ -74,6 +117,10 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     BtnRequestOpen: TSpeedButton;
+    RadioNewsContentType: TRadioGroup;
+    EditDomainRetry: TSpinEdit;
+    SplitterDomain: TSplitter;
+    SplitterNews: TSplitter;
     SplitterRequest: TSplitter;
     SplitterDebug: TSplitter;
     GridLinkContent: TStringGrid;
@@ -82,6 +129,8 @@ type
     GridLinkNone: TStringGrid;
     GridLinkFilter: TStringGrid;
     GridLinkDomain: TStringGrid;
+    GridNewsInfo: TStringGrid;
+    GridDomainSubdomain: TStringGrid;
     TabSheetLinkFilter: TTabSheet;
     TabSheetLinkDomain: TTabSheet;
     TabSheetLinkContent: TTabSheet;
@@ -106,9 +155,12 @@ type
     ToolBtnSplit5: TToolButton;
     ToolBtnTool: TToolButton;
     ToolBtnSplit6: TToolButton;
+    procedure BtnDomainRequestClick(Sender: TObject);
     procedure BtnLinkOpenClick(Sender: TObject);
     procedure BtnLinkRequestClick(Sender: TObject);
     procedure BtnLinkSearchClick(Sender: TObject);
+    procedure BtnNewsOpenClick(Sender: TObject);
+    procedure BtnNewsRequestClick(Sender: TObject);
     procedure BtnRequestClick(Sender: TObject);
     procedure BtnRequestDefaultClick(Sender: TObject);
     procedure BtnRequestExampleClick(Sender: TObject);
@@ -116,21 +168,10 @@ type
     procedure BtnRequestTipHeaderClick(Sender: TObject);
     procedure BtnRequestTipProxyClick(Sender: TObject);
     procedure BtnToolDomainRequestClick(Sender: TObject);
+    procedure BtnToolLangClick(Sender: TObject);
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure GridLinkContentDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkDomainDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkFilterDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkListDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkNoneDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure GridLinkUnknownDrawCell(Sender: TObject; aCol, aRow: Integer;
-      aRect: TRect; aState: TGridDrawState);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
     procedure ToolBtnContentClick(Sender: TObject);
@@ -239,42 +280,6 @@ begin
 
 end;
 
-procedure TFormMain.GridLinkContentDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkDomainDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkFilterDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkListDrawCell(Sender: TObject; aCol, aRow: Integer;
-  aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkNoneDrawCell(Sender: TObject; aCol, aRow: Integer;
-  aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
-procedure TFormMain.GridLinkUnknownDrawCell(Sender: TObject; aCol,
-  aRow: Integer; aRect: TRect; aState: TGridDrawState);
-begin
-
-end;
-
 procedure TFormMain.CheckRequestRedirectChange(Sender: TObject);
 begin
     if CheckRequestRedirect.Checked then
@@ -309,7 +314,22 @@ begin
 
 end;
 
+procedure TFormMain.BtnNewsOpenClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnNewsRequestClick(Sender: TObject);
+begin
+
+end;
+
 procedure TFormMain.BtnLinkOpenClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnDomainRequestClick(Sender: TObject);
 begin
 
 end;
@@ -335,6 +355,11 @@ begin
 end;
 
 procedure TFormMain.BtnToolDomainRequestClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.BtnToolLangClick(Sender: TObject);
 begin
 
 end;

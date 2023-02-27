@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetLink
+    ActivePage = TabSheetDomain
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 2
+    TabIndex = 1
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -220,7 +220,7 @@ object FormMain: TFormMain
           Left = 88
           Height = 22
           Top = 16
-          Width = 425
+          Width = 409
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 16
@@ -232,10 +232,10 @@ object FormMain: TFormMain
           AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = BtnRequestOpen
           Cursor = crHandPoint
-          Left = 523
+          Left = 507
           Height = 26
           Top = 15
-          Width = 64
+          Width = 80
           Anchors = [akTop, akRight]
           BorderSpacing.Top = 15
           BorderSpacing.Right = 10
@@ -605,21 +605,368 @@ object FormMain: TFormMain
       Caption = 'TabSheetDomain'
       ClientHeight = 798
       ClientWidth = 1400
-      object PanelDomain: TPanel
+      object PanelDomainContent: TPanel
         AnchorSideLeft.Control = TabSheetDomain
         AnchorSideTop.Control = TabSheetDomain
-        AnchorSideRight.Control = TabSheetDomain
-        AnchorSideRight.Side = asrBottom
+        AnchorSideRight.Control = SplitterDomain
         AnchorSideBottom.Control = TabSheetDomain
         AnchorSideBottom.Side = asrBottom
         Left = 0
         Height = 798
         Top = 0
-        Width = 1400
+        Width = 850
         Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
-        Caption = 'PanelDomain'
+        ClientHeight = 798
+        ClientWidth = 850
         TabOrder = 0
+        object GridDomainSubdomain: TStringGrid
+          AnchorSideLeft.Control = PanelDomainContent
+          AnchorSideTop.Control = PanelDomainContent
+          AnchorSideRight.Control = PanelDomainContent
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = PanelDomainContent
+          AnchorSideBottom.Side = asrBottom
+          Left = 10
+          Height = 738
+          Top = 50
+          Width = 830
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          AutoFillColumns = True
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 50
+          BorderSpacing.Right = 10
+          BorderSpacing.Bottom = 10
+          ColCount = 8
+          Columns = <          
+            item
+              SizePriority = 0
+              Title.Caption = '子域名'
+              Width = 150
+            end          
+            item
+              Title.Caption = '标题'
+              Width = 299
+            end          
+            item
+              SizePriority = 0
+              Title.Caption = '语种'
+              Width = 60
+            end          
+            item
+              SizePriority = 0
+              Title.Caption = '字符集'
+              Width = 60
+            end          
+            item
+              SizePriority = 0
+              Title.Caption = '状态'
+              Width = 60
+            end          
+            item
+              SizePriority = 0
+              Title.Caption = '内容页数量'
+              Width = 80
+            end          
+            item
+              SizePriority = 0
+              Title.Caption = '列表页数量'
+              Width = 80
+            end>
+          DefaultRowHeight = 26
+          Flat = True
+          RowCount = 2
+          TabOrder = 0
+          TitleFont.Style = [fsBold]
+          ColWidths = (
+            40
+            150
+            299
+            60
+            60
+            60
+            80
+            80
+          )
+          Cells = (
+            1
+            0
+            0
+            '序号'
+          )
+        end
+        object Edit1: TEdit
+          AnchorSideTop.Control = PanelDomainContent
+          AnchorSideRight.Control = BtnDomainSearch
+          Left = 616
+          Height = 22
+          Top = 15
+          Width = 149
+          Anchors = [akTop, akLeft, akRight]
+          AutoSize = False
+          BorderSpacing.Top = 15
+          BorderSpacing.Right = 15
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          TextHint = '子域名'
+        end
+        object BtnDomainSearch: TButton
+          AnchorSideTop.Control = PanelDomainContent
+          AnchorSideRight.Control = PanelDomainContent
+          AnchorSideRight.Side = asrBottom
+          Cursor = crHandPoint
+          Left = 780
+          Height = 26
+          Top = 12
+          Width = 60
+          Anchors = [akTop, akRight]
+          BorderSpacing.Top = 12
+          BorderSpacing.Right = 10
+          Caption = '搜索'
+          TabOrder = 2
+        end
+      end
+      object SplitterDomain: TSplitter
+        AnchorSideTop.Control = TabSheetDomain
+        AnchorSideBottom.Control = TabSheetDomain
+        AnchorSideBottom.Side = asrBottom
+        Left = 850
+        Height = 798
+        Top = 0
+        Width = 3
+        Align = alNone
+        Anchors = [akTop, akBottom]
+        Color = clWhite
+        ParentColor = False
+        ResizeStyle = rsPattern
+      end
+      object PanelDomain: TPanel
+        AnchorSideLeft.Control = SplitterDomain
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = TabSheetDomain
+        AnchorSideRight.Control = TabSheetDomain
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheetDomain
+        AnchorSideBottom.Side = asrBottom
+        Left = 853
+        Height = 798
+        Top = 0
+        Width = 547
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BevelOuter = bvNone
+        ClientHeight = 798
+        ClientWidth = 547
+        TabOrder = 2
+        object PanelDomainRequest: TPanel
+          AnchorSideLeft.Control = PanelDomain
+          AnchorSideTop.Control = PanelDomain
+          AnchorSideRight.Control = PanelDomain
+          AnchorSideRight.Side = asrBottom
+          Left = 10
+          Height = 80
+          Top = 10
+          Width = 527
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 10
+          BorderSpacing.Right = 10
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          ClientHeight = 78
+          ClientWidth = 525
+          TabOrder = 0
+          object LabelDomain: TLabel
+            AnchorSideLeft.Control = PanelDomainRequest
+            AnchorSideTop.Control = PanelDomainRequest
+            Left = 15
+            Height = 16
+            Top = 15
+            Width = 63
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 15
+            Caption = '请求域名：'
+          end
+          object EditDomain: TEdit
+            AnchorSideLeft.Control = LabelDomain
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelDomainRequest
+            AnchorSideRight.Control = BtnDomainRequest
+            Left = 93
+            Height = 22
+            Top = 12
+            Width = 322
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            BorderSpacing.Right = 15
+            TabOrder = 0
+            Text = '163.com'
+          end
+          object BtnDomainRequest: TButton
+            AnchorSideTop.Control = PanelDomainRequest
+            AnchorSideRight.Control = PanelDomainRequest
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 430
+            Height = 25
+            Top = 10
+            Width = 80
+            Anchors = [akTop, akRight]
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 15
+            Caption = '运行'
+            OnClick = BtnDomainRequestClick
+            TabOrder = 1
+          end
+          object LabelDomainRetry: TLabel
+            AnchorSideLeft.Control = PanelDomainRequest
+            AnchorSideTop.Control = PanelDomainRequest
+            Left = 15
+            Height = 16
+            Top = 50
+            Width = 63
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 50
+            Caption = '重试次数：'
+          end
+          object EditDomainRetry: TSpinEdit
+            AnchorSideLeft.Control = LabelDomainRetry
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelDomainRequest
+            Left = 93
+            Height = 21
+            Top = 46
+            Width = 50
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 46
+            MaxValue = 10
+            MinValue = 1
+            TabOrder = 2
+            Value = 3
+          end
+          object LabelDomainTimeout: TLabel
+            AnchorSideLeft.Control = EditDomainRetry
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelDomainRequest
+            Left = 173
+            Height = 16
+            Top = 50
+            Width = 63
+            BorderSpacing.Left = 30
+            BorderSpacing.Top = 50
+            Caption = '超时时间：'
+          end
+          object EditDomainTimeout: TEdit
+            AnchorSideLeft.Control = LabelDomainTimeout
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelDomainRequest
+            Left = 251
+            Height = 22
+            Top = 45
+            Width = 80
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 45
+            NumbersOnly = True
+            TabOrder = 3
+            Text = '30000'
+          end
+          object CheckDomainSubdomain: TCheckBox
+            AnchorSideLeft.Control = EditDomainTimeout
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelDomainRequest
+            Cursor = crHandPoint
+            Left = 361
+            Height = 18
+            Top = 46
+            Width = 84
+            BorderSpacing.Left = 30
+            BorderSpacing.Top = 46
+            Caption = '探测子域名'
+            TabOrder = 4
+          end
+        end
+        object GridDomainData: TStringGrid
+          AnchorSideLeft.Control = PanelDomain
+          AnchorSideTop.Control = PanelDomainRequest
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = PanelDomain
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Side = asrBottom
+          Left = 10
+          Height = 395
+          Top = 110
+          Width = 527
+          Anchors = [akTop, akLeft, akRight]
+          AutoFillColumns = True
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 20
+          BorderSpacing.Right = 10
+          ColCount = 2
+          Columns = <          
+            item
+              Title.Caption = '结果'
+              Width = 417
+            end>
+          DefaultRowHeight = 26
+          Flat = True
+          ParentFont = False
+          RowCount = 15
+          TabOrder = 1
+          TitleFont.Style = [fsBold]
+          ColWidths = (
+            109
+            417
+          )
+          Cells = (
+            15
+            0
+            0
+            '数据字段'
+            0
+            1
+            '标题'
+            0
+            2
+            '标题（清理后）'
+            0
+            3
+            '描述'
+            0
+            4
+            '协议'
+            0
+            5
+            '字符集'
+            0
+            6
+            '语种'
+            0
+            7
+            '国家'
+            0
+            8
+            '省份'
+            0
+            9
+            '状态'
+            0
+            10
+            'ICP备案'
+            0
+            11
+            'Home域名'
+            0
+            12
+            '内容页链接数量'
+            0
+            13
+            '列表页链接数量'
+            0
+            14
+            '子域名数量'
+          )
+        end
       end
     end
     object TabSheetLink: TTabSheet
@@ -656,18 +1003,18 @@ object FormMain: TFormMain
           Height = 677
           Top = 111
           Width = 1380
-          ActivePage = TabSheetLinkContent
+          ActivePage = TabSheetLinkList
           Anchors = [akTop, akLeft, akRight, akBottom]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 25
           BorderSpacing.Right = 10
           BorderSpacing.Bottom = 10
           ParentFont = False
-          TabIndex = 0
+          TabIndex = 1
           TabOrder = 0
           object TabSheetLinkContent: TTabSheet
             Cursor = crHandPoint
-            Caption = '  内容链接  '
+            Caption = '  内容页链接  '
             ClientHeight = 647
             ClientWidth = 1374
             object GridLinkContent: TStringGrid
@@ -699,11 +1046,16 @@ object FormMain: TFormMain
                   Title.Caption = '标题'
                   Width = 550
                 end>
+              DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
               Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
+              TitleFont.CharSet = GB2312_CHARSET
+              TitleFont.Pitch = fpVariable
+              TitleFont.Quality = fqDraft
+              TitleFont.Style = [fsBold]
               ColWidths = (
                 59
                 754
@@ -719,7 +1071,7 @@ object FormMain: TFormMain
           end
           object TabSheetLinkList: TTabSheet
             Cursor = crHandPoint
-            Caption = '  列表链接  '
+            Caption = '  列表页链接  '
             ClientHeight = 647
             ClientWidth = 1374
             object GridLinkList: TStringGrid
@@ -751,11 +1103,16 @@ object FormMain: TFormMain
                   Title.Caption = '标题'
                   Width = 550
                 end>
+              DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
               Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
               RowCount = 1
               TabOrder = 0
+              TitleFont.CharSet = GB2312_CHARSET
+              TitleFont.Pitch = fpVariable
+              TitleFont.Quality = fqDraft
+              TitleFont.Style = [fsBold]
               ColWidths = (
                 59
                 754
@@ -802,11 +1159,16 @@ object FormMain: TFormMain
                   Title.Caption = '标题'
                   Width = 550
                 end>
+              DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
               Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
               RowCount = 1
               TabOrder = 0
+              TitleFont.CharSet = GB2312_CHARSET
+              TitleFont.Pitch = fpVariable
+              TitleFont.Quality = fqDraft
+              TitleFont.Style = [fsBold]
               ColWidths = (
                 59
                 754
@@ -853,11 +1215,16 @@ object FormMain: TFormMain
                   Title.Caption = '标题'
                   Width = 550
                 end>
+              DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
               Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
               RowCount = 1
               TabOrder = 0
+              TitleFont.CharSet = GB2312_CHARSET
+              TitleFont.Pitch = fpVariable
+              TitleFont.Quality = fqDraft
+              TitleFont.Style = [fsBold]
               ColWidths = (
                 59
                 754
@@ -904,11 +1271,16 @@ object FormMain: TFormMain
                   Title.Caption = '过滤信息'
                   Width = 550
                 end>
+              DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
               Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
               RowCount = 1
               TabOrder = 0
+              TitleFont.CharSet = GB2312_CHARSET
+              TitleFont.Pitch = fpVariable
+              TitleFont.Quality = fqDraft
+              TitleFont.Style = [fsBold]
               ColWidths = (
                 59
                 754
@@ -955,11 +1327,16 @@ object FormMain: TFormMain
                   Title.Caption = '子域名'
                   Width = 550
                 end>
+              DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
               Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
               RowCount = 1
               TabOrder = 0
+              TitleFont.CharSet = GB2312_CHARSET
+              TitleFont.Pitch = fpVariable
+              TitleFont.Quality = fqDraft
+              TitleFont.Style = [fsBold]
               ColWidths = (
                 60
                 753
@@ -977,12 +1354,11 @@ object FormMain: TFormMain
         object PanelLinkRequest: TPanel
           AnchorSideLeft.Control = PanelLink
           AnchorSideTop.Control = PanelLink
-          AnchorSideRight.Control = PanelLinkRule
+          AnchorSideRight.Control = PanelLink
           Left = 11
           Height = 80
           Top = 6
-          Width = 768
-          Anchors = [akTop, akLeft, akRight]
+          Width = 700
           BorderSpacing.Left = 10
           BorderSpacing.Top = 5
           BorderSpacing.Right = 10
@@ -990,16 +1366,17 @@ object FormMain: TFormMain
           BevelOuter = bvNone
           BorderStyle = bsSingle
           ClientHeight = 78
-          ClientWidth = 766
+          ClientWidth = 698
           TabOrder = 1
           object LabelLinkTimeout: TLabel
-            AnchorSideLeft.Control = PanelLinkRequest
+            AnchorSideLeft.Control = EditLinkRetry
+            AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
-            Left = 15
+            Left = 173
             Height = 16
             Top = 45
             Width = 116
-            BorderSpacing.Left = 15
+            BorderSpacing.Left = 30
             BorderSpacing.Top = 45
             Caption = '超时时间（毫秒）：'
           end
@@ -1007,7 +1384,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = LabelLinkTimeout
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
-            Left = 141
+            Left = 299
             Height = 22
             Top = 42
             Width = 80
@@ -1018,19 +1395,18 @@ object FormMain: TFormMain
             Text = '30000'
           end
           object LabelLinkRetry: TLabel
-            AnchorSideLeft.Control = EditLinkTimeout
-            AnchorSideLeft.Side = asrBottom
+            AnchorSideLeft.Control = PanelLinkRequest
             AnchorSideTop.Control = PanelLinkRequest
-            Left = 251
+            Left = 15
             Height = 16
             Top = 45
             Width = 63
-            BorderSpacing.Left = 30
+            BorderSpacing.Left = 15
             BorderSpacing.Top = 45
             Caption = '重试次数：'
           end
           object CheckLinkStrictDomain: TCheckBox
-            AnchorSideLeft.Control = EditLinkRetry
+            AnchorSideLeft.Control = EditLinkTimeout
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
             Cursor = crHandPoint
@@ -1064,7 +1440,7 @@ object FormMain: TFormMain
             Left = 93
             Height = 22
             Top = 12
-            Width = 523
+            Width = 455
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
@@ -1076,7 +1452,7 @@ object FormMain: TFormMain
             AnchorSideTop.Control = PanelLinkRequest
             AnchorSideRight.Control = BtnLinkOpen
             Cursor = crHandPoint
-            Left = 631
+            Left = 563
             Height = 26
             Top = 11
             Width = 80
@@ -1093,7 +1469,7 @@ object FormMain: TFormMain
             AnchorSideRight.Control = PanelLinkRequest
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 731
+            Left = 663
             Height = 20
             Top = 13
             Width = 20
@@ -1109,7 +1485,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = LabelLinkRetry
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
-            Left = 329
+            Left = 93
             Height = 21
             Top = 42
             Width = 50
@@ -1137,19 +1513,176 @@ object FormMain: TFormMain
           TextHint = '链接或域名'
         end
         object PanelLinkRule: TPanel
+          AnchorSideLeft.Control = PanelLinkRequest
+          AnchorSideLeft.Side = asrBottom
           AnchorSideTop.Control = PanelLink
           AnchorSideRight.Control = PanelLink
           AnchorSideRight.Side = asrBottom
-          Left = 790
+          Left = 722
           Height = 80
           Top = 5
-          Width = 600
-          Anchors = [akTop, akRight]
+          Width = 668
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
           BorderSpacing.Top = 5
           BorderSpacing.Right = 10
           BevelOuter = bvNone
           BorderStyle = bsSingle
+          ClientHeight = 78
+          ClientWidth = 666
           TabOrder = 3
+          object EditLinkRuleDomain1: TEdit
+            AnchorSideLeft.Control = LabelLinkRule1
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelLinkRule
+            Left = 152
+            Height = 22
+            Top = 12
+            Width = 120
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            TabOrder = 0
+            TextHint = '主域名或子域名'
+          end
+          object EditLinkRuleDomain2: TEdit
+            AnchorSideLeft.Control = LabelLinkRule2
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = EditLinkRuleDomain1
+            AnchorSideTop.Side = asrBottom
+            Left = 154
+            Height = 22
+            Top = 40
+            Width = 120
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 6
+            TabOrder = 1
+            TextHint = '主域名或子域名'
+          end
+          object ComboLinkRuleType1: TComboBox
+            AnchorSideLeft.Control = EditLinkRuleDomain1
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelLinkRule
+            Left = 287
+            Height = 20
+            Top = 12
+            Width = 100
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            ItemHeight = 19
+            ItemIndex = 0
+            Items.Strings = (
+              '前缀匹配'
+              '包含匹配'
+              '正则匹配'
+            )
+            TabOrder = 2
+            Text = '前缀匹配'
+          end
+          object LabelLinkRule1: TLabel
+            AnchorSideLeft.Control = PanelLinkRule
+            AnchorSideTop.Control = PanelLinkRule
+            Left = 15
+            Height = 16
+            Top = 15
+            Width = 122
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 15
+            Caption = '内容页URL规则(1)：'
+          end
+          object LabelLinkRule2: TLabel
+            AnchorSideLeft.Control = PanelLinkRule
+            AnchorSideTop.Control = LabelLinkRule1
+            AnchorSideTop.Side = asrBottom
+            Left = 15
+            Height = 16
+            Top = 45
+            Width = 124
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 14
+            Caption = '内容页URL规则(2)：'
+          end
+          object EditLinkRuleContent1: TEdit
+            AnchorSideLeft.Control = ComboLinkRuleType1
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelLinkRule
+            AnchorSideRight.Control = CheckLinkRule1
+            Left = 402
+            Height = 22
+            Top = 12
+            Width = 187
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            BorderSpacing.Right = 15
+            TabOrder = 3
+          end
+          object CheckLinkRule1: TCheckBox
+            AnchorSideTop.Control = PanelLinkRule
+            AnchorSideRight.Control = PanelLinkRule
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 604
+            Height = 18
+            Top = 15
+            Width = 47
+            Anchors = [akTop, akRight]
+            BorderSpacing.Top = 15
+            BorderSpacing.Right = 15
+            Caption = '启用'
+            TabOrder = 4
+          end
+          object ComboLinkRuleType2: TComboBox
+            AnchorSideLeft.Control = EditLinkRuleDomain2
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = ComboLinkRuleType1
+            AnchorSideTop.Side = asrBottom
+            Left = 289
+            Height = 20
+            Top = 38
+            Width = 100
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 6
+            ItemHeight = 19
+            ItemIndex = 2
+            Items.Strings = (
+              '前缀匹配'
+              '包含匹配'
+              '正则匹配'
+            )
+            TabOrder = 5
+            Text = '正则匹配'
+          end
+          object EditLinkRuleContent2: TEdit
+            AnchorSideLeft.Control = ComboLinkRuleType2
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = EditLinkRuleContent1
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = CheckLinkRule2
+            Left = 404
+            Height = 22
+            Top = 40
+            Width = 185
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 6
+            BorderSpacing.Right = 15
+            TabOrder = 6
+          end
+          object CheckLinkRule2: TCheckBox
+            AnchorSideTop.Control = CheckLinkRule1
+            AnchorSideRight.Control = PanelLinkRule
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 604
+            Height = 18
+            Top = 45
+            Width = 47
+            Anchors = [akTop, akRight]
+            BorderSpacing.Top = 30
+            BorderSpacing.Right = 15
+            Caption = '启用'
+            TabOrder = 7
+          end
         end
         object BtnLinkSearch: TButton
           AnchorSideTop.Control = PanelLink
@@ -1173,21 +1706,387 @@ object FormMain: TFormMain
       Caption = 'TabSheetNews'
       ClientHeight = 798
       ClientWidth = 1400
+      ParentShowHint = False
       object PanelNews: TPanel
-        AnchorSideLeft.Control = TabSheetNews
+        AnchorSideLeft.Control = SplitterNews
+        AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = TabSheetNews
         AnchorSideRight.Control = TabSheetNews
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = TabSheetNews
         AnchorSideBottom.Side = asrBottom
+        Left = 707
+        Height = 798
+        Top = 0
+        Width = 693
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BevelOuter = bvNone
+        ClientHeight = 798
+        ClientWidth = 693
+        ParentColor = False
+        TabOrder = 0
+        object PanelNewsRequest: TPanel
+          AnchorSideLeft.Control = PanelNews
+          AnchorSideTop.Control = PanelNews
+          AnchorSideRight.Control = PanelNews
+          AnchorSideRight.Side = asrBottom
+          Left = 10
+          Height = 160
+          Top = 10
+          Width = 673
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 10
+          BorderSpacing.Right = 10
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          ClientHeight = 158
+          ClientWidth = 671
+          TabOrder = 0
+          object EditNewsTitle: TEdit
+            AnchorSideLeft.Control = LabelNewsTitle
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideRight.Control = BtnNewsRequest
+            Left = 100
+            Height = 22
+            Top = 45
+            Width = 431
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 45
+            BorderSpacing.Right = 15
+            TabOrder = 0
+          end
+          object LabelNewsTitle: TLabel
+            AnchorSideLeft.Control = PanelNewsRequest
+            AnchorSideTop.Control = PanelNewsRequest
+            Left = 15
+            Height = 16
+            Top = 50
+            Width = 70
+            AutoSize = False
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 50
+            Caption = '列表页标题：'
+          end
+          object EditNewsRetry: TSpinEdit
+            AnchorSideLeft.Control = LabelNewsRetry
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelNewsRequest
+            Left = 100
+            Height = 21
+            Top = 80
+            Width = 50
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 80
+            MaxValue = 10
+            MinValue = 1
+            TabOrder = 1
+            Value = 3
+          end
+          object LabelNewsRetry: TLabel
+            AnchorSideLeft.Control = PanelNewsRequest
+            AnchorSideTop.Control = PanelNewsRequest
+            Left = 15
+            Height = 17
+            Top = 85
+            Width = 70
+            AutoSize = False
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 85
+            Caption = '重试次数：'
+          end
+          object EditNewsTimeout: TEdit
+            AnchorSideLeft.Control = LabelNewsTimeout
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelNewsRequest
+            Left = 305
+            Height = 22
+            Top = 80
+            Width = 80
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 80
+            NumbersOnly = True
+            TabOrder = 2
+            Text = '30000'
+          end
+          object LabelNewsTimeout: TLabel
+            AnchorSideLeft.Control = EditNewsRetry
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelNewsRequest
+            Left = 180
+            Height = 17
+            Top = 85
+            Width = 110
+            AutoSize = False
+            BorderSpacing.Left = 30
+            BorderSpacing.Top = 85
+            Caption = '超时时间（毫秒）：'
+          end
+          object BtnNewsOpen: TSpeedButton
+            AnchorSideTop.Control = PanelNewsRequest
+            AnchorSideRight.Control = PanelNewsRequest
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 636
+            Height = 20
+            Top = 13
+            Width = 20
+            Anchors = [akTop, akRight]
+            BorderSpacing.Top = 13
+            BorderSpacing.Right = 15
+            Flat = True
+            Images = ImageListIcon
+            ImageIndex = 1
+            OnClick = BtnNewsOpenClick
+          end
+          object BtnNewsRequest: TButton
+            AnchorSideRight.Control = BtnNewsOpen
+            Cursor = crHandPoint
+            Left = 546
+            Height = 25
+            Top = 11
+            Width = 80
+            Anchors = [akTop, akRight]
+            BorderSpacing.Top = 11
+            BorderSpacing.Right = 10
+            Caption = '运行'
+            OnClick = BtnNewsRequestClick
+            TabOrder = 3
+          end
+          object EditNewsUrl: TEdit
+            AnchorSideLeft.Control = LabelNewsUrl
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideRight.Control = BtnNewsRequest
+            Left = 100
+            Height = 22
+            Top = 12
+            Width = 431
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 12
+            BorderSpacing.Right = 15
+            TabOrder = 4
+            Text = 'https://www.163.com/tech/article/HUCH2DH900097U7R.html'
+          end
+          object LabelNewsUrl: TLabel
+            AnchorSideLeft.Control = PanelNewsRequest
+            AnchorSideTop.Control = PanelNewsRequest
+            Left = 15
+            Height = 16
+            Top = 15
+            Width = 70
+            AutoSize = False
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 15
+            Caption = '请求地址：'
+          end
+          object RadioNewsContentType: TRadioGroup
+            AnchorSideLeft.Control = LabelNewsContentType
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = PanelNewsRequest
+            Cursor = crHandPoint
+            Left = 100
+            Height = 48
+            Top = 95
+            Width = 371
+            AutoFill = True
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 95
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclTopToBottomThenLeftToRight
+            ChildSizing.ControlsPerLine = 1
+            ClientHeight = 26
+            ClientWidth = 361
+            ColumnLayout = clVerticalThenHorizontal
+            Columns = 3
+            Font.Height = -13
+            ItemIndex = 0
+            Items.Strings = (
+              '纯文本'
+              '段落和图片'
+              '原始HTML'
+            )
+            ParentFont = False
+            TabOrder = 5
+          end
+          object LabelNewsContentType: TLabel
+            AnchorSideLeft.Control = PanelNewsRequest
+            AnchorSideTop.Control = PanelNewsRequest
+            Left = 15
+            Height = 16
+            Top = 120
+            Width = 70
+            AutoSize = False
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 120
+            Caption = '正文样式：'
+          end
+        end
+        object GridNewsInfo: TStringGrid
+          AnchorSideLeft.Control = PanelNews
+          AnchorSideTop.Control = PanelNewsRequest
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = PanelNews
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Side = asrBottom
+          Left = 10
+          Height = 185
+          Top = 190
+          Width = 673
+          Anchors = [akTop, akLeft, akRight]
+          AutoFillColumns = True
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 20
+          BorderSpacing.Right = 10
+          ColCount = 2
+          Columns = <          
+            item
+              Title.Caption = '结果'
+              Width = 547
+            end>
+          DefaultRowHeight = 26
+          Flat = True
+          Font.CharSet = GB2312_CHARSET
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goThumbTracking, goSmoothScroll]
+          ParentFont = False
+          RowCount = 7
+          TabOrder = 1
+          TitleFont.CharSet = GB2312_CHARSET
+          TitleFont.Pitch = fpVariable
+          TitleFont.Quality = fqDraft
+          TitleFont.Style = [fsBold]
+          ColWidths = (
+            125
+            547
+          )
+          Cells = (
+            7
+            0
+            0
+            '数据字段'
+            0
+            1
+            '标题提取依据'
+            0
+            2
+            '时间提取依据'
+            0
+            3
+            '正文提取依据'
+            0
+            4
+            '原始时间'
+            0
+            5
+            '语种'
+            0
+            6
+            '提取耗时'
+          )
+        end
+      end
+      object PanelNewsContent: TPanel
+        AnchorSideLeft.Control = TabSheetNews
+        AnchorSideTop.Control = TabSheetNews
+        AnchorSideRight.Control = SplitterNews
+        AnchorSideBottom.Control = TabSheetNews
+        AnchorSideBottom.Side = asrBottom
         Left = 0
         Height = 798
         Top = 0
-        Width = 1400
+        Width = 704
         Anchors = [akTop, akLeft, akRight, akBottom]
         BevelOuter = bvNone
-        Caption = 'PanelNews'
-        TabOrder = 0
+        ClientHeight = 798
+        ClientWidth = 704
+        ParentColor = False
+        TabOrder = 1
+        object MemoNewsContent: TMemo
+          AnchorSideLeft.Control = PanelNewsContent
+          AnchorSideTop.Control = EditNewsResultTime
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = PanelNewsContent
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = PanelNewsContent
+          AnchorSideBottom.Side = asrBottom
+          Left = 10
+          Height = 704
+          Hint = '正文'
+          Top = 89
+          Width = 684
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 15
+          BorderSpacing.Right = 10
+          BorderSpacing.Bottom = 5
+          Font.Height = -13
+          ParentFont = False
+          ParentShowHint = False
+          ReadOnly = True
+          ScrollBars = ssAutoVertical
+          ShowHint = True
+          TabOrder = 0
+        end
+        object EditNewsResultTitle: TEdit
+          AnchorSideLeft.Control = PanelNewsContent
+          AnchorSideTop.Control = PanelNewsContent
+          AnchorSideRight.Control = PanelNewsContent
+          AnchorSideRight.Side = asrBottom
+          Left = 10
+          Height = 22
+          Top = 15
+          Width = 684
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 15
+          BorderSpacing.Right = 10
+          Font.Height = -13
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 1
+          TextHint = '标题'
+        end
+        object EditNewsResultTime: TEdit
+          AnchorSideLeft.Control = PanelNewsContent
+          AnchorSideTop.Control = EditNewsResultTitle
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = PanelNewsContent
+          AnchorSideRight.Side = asrBottom
+          Left = 10
+          Height = 22
+          Top = 52
+          Width = 684
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 15
+          BorderSpacing.Right = 10
+          Font.Height = -13
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 2
+          TextHint = '发布时间'
+        end
+      end
+      object SplitterNews: TSplitter
+        AnchorSideTop.Control = TabSheetNews
+        AnchorSideBottom.Control = TabSheetNews
+        AnchorSideBottom.Side = asrBottom
+        Left = 704
+        Height = 798
+        Top = 0
+        Width = 3
+        Align = alNone
+        Anchors = [akTop, akBottom]
+        Color = clWhite
+        ParentColor = False
+        ResizeStyle = rsPattern
       end
     end
     object TabSheetTool: TTabSheet
@@ -1218,13 +2117,13 @@ object FormMain: TFormMain
           Left = 10
           Height = 50
           Top = 10
-          Width = 700
+          Width = 690
           BorderSpacing.Left = 10
           BorderSpacing.Top = 10
           BevelOuter = bvNone
           BorderStyle = bsSingle
           ClientHeight = 48
-          ClientWidth = 698
+          ClientWidth = 688
           ParentColor = False
           TabOrder = 0
           object LabelToolDomain: TLabel
@@ -1246,7 +2145,7 @@ object FormMain: TFormMain
             Left = 101
             Height = 22
             Top = 12
-            Width = 297
+            Width = 287
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 10
             BorderSpacing.Top = 12
@@ -1258,12 +2157,11 @@ object FormMain: TFormMain
             AnchorSideRight.Control = PanelToolDomain
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 588
+            Left = 578
             Height = 20
             Top = 11
             Width = 95
             Anchors = [akTop, akRight]
-            AutoSize = True
             BorderSpacing.Top = 11
             BorderSpacing.Right = 15
             Caption = '提取主域名'
@@ -1274,7 +2172,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelToolDomain
             AnchorSideRight.Control = BtnToolDomainRequest
-            Left = 418
+            Left = 408
             Height = 22
             Top = 12
             Width = 150
@@ -1284,6 +2182,87 @@ object FormMain: TFormMain
             BorderSpacing.Right = 20
             ReadOnly = True
             TabOrder = 2
+          end
+        end
+        object PanelToolLang: TPanel
+          AnchorSideLeft.Control = PanelTool
+          AnchorSideTop.Control = PanelToolDomain
+          AnchorSideTop.Side = asrBottom
+          Left = 10
+          Height = 220
+          Top = 80
+          Width = 690
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 20
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          ClientHeight = 218
+          ClientWidth = 688
+          TabOrder = 1
+          object MemoToolLang: TMemo
+            AnchorSideLeft.Control = PanelToolLang
+            AnchorSideTop.Control = PanelToolLang
+            AnchorSideRight.Control = PanelToolLang
+            AnchorSideRight.Side = asrBottom
+            Left = 10
+            Height = 160
+            Top = 10
+            Width = 668
+            Anchors = [akTop, akLeft, akRight]
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 10
+            Lines.Strings = (
+              '中国は２４日午後０時１分（日本時間同１時１分）、酒泉衛星発射センターから運搬ロケット「長征２号Ｃ」でリモートセンシング衛星「荷魯斯１号」を打ち上げた。衛星は予定の軌道に順調に投入され、打ち上げは成功した。'
+            )
+            TabOrder = 0
+          end
+          object EditToolLang: TEdit
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = MemoToolLang
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = BtnToolLang
+            Left = 483
+            Height = 22
+            Top = 180
+            Width = 80
+            Anchors = [akTop, akRight]
+            BorderSpacing.Left = 15
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 15
+            TabOrder = 1
+            TextHint = '探测结果'
+          end
+          object BtnToolLang: TButton
+            AnchorSideTop.Control = MemoToolLang
+            AnchorSideTop.Side = asrBottom
+            AnchorSideRight.Control = PanelToolLang
+            AnchorSideRight.Side = asrBottom
+            Cursor = crHandPoint
+            Left = 578
+            Height = 20
+            Top = 180
+            Width = 95
+            Anchors = [akTop, akRight]
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 15
+            Caption = '探测语种'
+            OnClick = BtnToolLangClick
+            TabOrder = 2
+          end
+          object LabelToolLangTip: TLabel
+            AnchorSideLeft.Control = PanelToolLang
+            AnchorSideTop.Control = MemoToolLang
+            AnchorSideTop.Side = asrBottom
+            Left = 10
+            Height = 32
+            Top = 180
+            Width = 462
+            AutoSize = False
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            Caption = '当前支持语种：中文、英语、日语、俄语、韩语、阿拉伯语、印地语、德语'#10'法语、西班牙语、葡萄牙语、意大利语、泰语、越南语、缅甸语'
           end
         end
       end
@@ -1478,7 +2457,7 @@ object FormMain: TFormMain
   end
   object ImageListIcon: TImageList
     ImageType = itMask
-    Left = 1016
+    Left = 960
     Bitmap = {
       4C7A030000001000000010000000660400000000000078DAA5926D489D6518C7
       6F1934E77C81FA608D2882D851747A7C39A66664968AC98EE07C3DCFCB798E52
