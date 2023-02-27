@@ -152,10 +152,27 @@ func (f *TFormMain) OnBtnNewsRequestClick(sender vcl.IObject) {
 	f.btnNewsRequestClick()
 }
 
-func (f *TFormMain) OnMemoNewsContentChange(sender vcl.IObject) {
+func (f *TFormMain) OnBtnNewsOpenClick(sender vcl.IObject) {
+	urlStr := f.EditNewsUrl.Text()
+	if fun.Blank(urlStr) {
+		f.debug("Request News Failed : url is empty")
+	}
+
+	f.openBrowser(urlStr)
+}
+
+func (f *TFormMain) OnBtnToolLangClick(sender vcl.IObject) {
+	f.btnToolLangClick()
+}
+
+func (f *TFormMain) OnLabelToolLangTipClick(sender vcl.IObject) {
 
 }
 
-func (f *TFormMain) OnRadioGroup1Click(sender vcl.IObject) {
+func (f *TFormMain) OnPageControlLinkChange(sender vcl.IObject) {
 
+}
+
+func (f *TFormMain) OnBtnDomainRequestClick(sender vcl.IObject) {
+	f.btnDomainRequestClick()
 }

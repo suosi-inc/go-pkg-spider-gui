@@ -54,7 +54,7 @@ type TFormMain struct {
 	BtnRequestTipHeader    *vcl.TSpeedButton
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
-	PanelDomain            *vcl.TPanel
+	PanelDomainContent     *vcl.TPanel
 	TabSheetLink           *vcl.TTabSheet
 	PanelLink              *vcl.TPanel
 	PageControlLink        *vcl.TPageControl
@@ -106,11 +106,8 @@ type TFormMain struct {
 	BtnNewsRequest         *vcl.TButton
 	EditNewsUrl            *vcl.TEdit
 	LabelNewsUrl           *vcl.TLabel
-	RadioGroup1            *vcl.TRadioGroup
-	RadioNewsText          *vcl.TRadioButton
-	RadioNewsP             *vcl.TRadioButton
-	RadioNewsHtml          *vcl.TRadioButton
-	StringGridNews1        *vcl.TStringGrid
+	RadioNewsContentType   *vcl.TRadioGroup
+	GridNewsInfo           *vcl.TStringGrid
 	PanelNewsContent       *vcl.TPanel
 	MemoNewsContent        *vcl.TMemo
 	EditNewsResultTitle    *vcl.TEdit
@@ -131,6 +128,27 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
+	LabelNewsContentType   *vcl.TLabel
+	PanelToolLang          *vcl.TPanel
+	MemoToolLang           *vcl.TMemo
+	EditToolLang           *vcl.TEdit
+	BtnToolLang            *vcl.TButton
+	LabelToolLangTip       *vcl.TLabel
+	SplitterDomain         *vcl.TSplitter
+	PanelDomain            *vcl.TPanel
+	PanelDomainRequest     *vcl.TPanel
+	LabelDomain            *vcl.TLabel
+	EditDomain             *vcl.TEdit
+	BtnDomainRequest       *vcl.TButton
+	LabelDomainRetry       *vcl.TLabel
+	EditDomainRetry        *vcl.TSpinEdit
+	LabelDomainTimeout     *vcl.TLabel
+	EditDomainTimeout      *vcl.TEdit
+	GridDomainData         *vcl.TStringGrid
+	CheckDomainSubdomain   *vcl.TCheckBox
+	GridDomainSubdomain    *vcl.TStringGrid
+	Edit1                  *vcl.TEdit
+	BtnDomainSearch        *vcl.TButton
 
 	//::private::
 	TFormMainFields
