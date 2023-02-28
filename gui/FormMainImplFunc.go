@@ -24,6 +24,10 @@ import (
 
 var linkData *spider.LinkData
 
+var (
+	processingDomain = false
+)
+
 // OnBtnRequestClick 请求测试功能
 func (f *TFormMain) btnRequestClick() {
 	f.MemoRequest.SetText("")
@@ -322,6 +326,15 @@ func (f *TFormMain) btnDomainRequestClick() {
 		return
 	}
 
+	f.debug(fun.ToString(processingDomain))
+
+	if !processingDomain {
+		processingDomain = true
+	} else {
+		processingDomain = false
+		return
+	}
+
 	// 超时时间
 	timeout := fun.ToInt(f.EditDomainTimeout.Text())
 	if timeout < 0 {
@@ -370,6 +383,8 @@ func (f *TFormMain) btnDomainRequestClick() {
 	} else {
 		f.debug("Request Domain Failed : " + err.Error())
 	}
+
+	processingDomain = false
 }
 
 func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout int, maxRetry int) {
