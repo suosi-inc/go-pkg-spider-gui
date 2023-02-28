@@ -18,6 +18,8 @@
 
 ## 项目构建
 
+Golang 1.18
+
 本项目基于跨平台的 Golang GUI 库 [govcl](https://github.com/ying32/govcl) v2.2.0
 
 ### 安装 Lazarus
@@ -57,7 +59,6 @@ go build -ldflags "-w -s -H windowsgui" -tags tempdll -o bin/win64
 ```
 
 ### MacOS 构建
-
 
 ```
 go mod tidy
