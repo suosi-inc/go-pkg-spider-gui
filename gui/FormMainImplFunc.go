@@ -402,9 +402,15 @@ func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout 
 
 					if e == nil {
 						f.debug("\tRequest Domain Subdomain Success : " + subdomain)
+
+						lang := ""
+						if _, exist := spider.LangEnZhMap[subDomainRes.Lang.Lang]; exist {
+							lang = spider.LangEnZhMap[subDomainRes.Lang.Lang]
+						}
+
 						f.GridDomainSubdomain.SetCells(2, i, subDomainRes.Title)
 						f.GridDomainSubdomain.SetCells(3, i, subDomainRes.Charset.Charset)
-						f.GridDomainSubdomain.SetCells(4, i, subDomainRes.Lang.Lang)
+						f.GridDomainSubdomain.SetCells(4, i, lang)
 						f.GridDomainSubdomain.SetCells(5, i, fun.ToString(subDomainRes.State))
 						f.GridDomainSubdomain.SetCells(6, i, fun.ToString(subDomainRes.ContentCount))
 						f.GridDomainSubdomain.SetCells(7, i, fun.ToString(subDomainRes.ListCount))

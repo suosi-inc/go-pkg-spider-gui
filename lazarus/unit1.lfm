@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetDomain
+    ActivePage = TabSheetNews
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 1
+    TabIndex = 3
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -549,7 +549,7 @@ object FormMain: TFormMain
             BorderSpacing.Top = 5
             NumbersOnly = True
             TabOrder = 11
-            Text = '15000'
+            Text = '10000'
           end
           object BtnRequestTipProxy: TSpeedButton
             AnchorSideTop.Control = PanelRequestBox
@@ -668,7 +668,7 @@ object FormMain: TFormMain
               end            
               item
                 Title.Caption = '标题'
-                Width = 337
+                Width = 332
               end            
               item
                 SizePriority = 0
@@ -678,7 +678,7 @@ object FormMain: TFormMain
               item
                 SizePriority = 0
                 Title.Caption = '语种'
-                Width = 60
+                Width = 65
               end            
               item
                 SizePriority = 0
@@ -704,9 +704,9 @@ object FormMain: TFormMain
             ColWidths = (
               40
               150
-              337
+              332
               60
-              60
+              65
               50
               55
               55
@@ -812,7 +812,7 @@ object FormMain: TFormMain
             BorderSpacing.Top = 12
             BorderSpacing.Right = 15
             TabOrder = 0
-            Text = 'cankaoxiaoxi.com'
+            Text = 'news.cn'
           end
           object BtnDomainRequest: TButton
             AnchorSideTop.Control = PanelDomainRequest
@@ -854,7 +854,7 @@ object FormMain: TFormMain
             MaxValue = 10
             MinValue = 1
             TabOrder = 2
-            Value = 3
+            Value = 2
           end
           object LabelDomainTimeout: TLabel
             AnchorSideLeft.Control = EditDomainRetry
@@ -880,7 +880,7 @@ object FormMain: TFormMain
             BorderSpacing.Top = 45
             NumbersOnly = True
             TabOrder = 3
-            Text = '15000'
+            Text = '10000'
           end
           object CheckDomainSubdomain: TCheckBox
             AnchorSideLeft.Control = EditDomainTimeout
@@ -1407,7 +1407,7 @@ object FormMain: TFormMain
             BorderSpacing.Top = 42
             NumbersOnly = True
             TabOrder = 0
-            Text = '15000'
+            Text = '10000'
           end
           object LabelLinkRetry: TLabel
             AnchorSideLeft.Control = PanelLinkRequest
@@ -1509,7 +1509,7 @@ object FormMain: TFormMain
             MaxValue = 10
             MinValue = 1
             TabOrder = 4
-            Value = 3
+            Value = 2
           end
         end
         object EditLinkSearch: TEdit
@@ -1796,7 +1796,7 @@ object FormMain: TFormMain
             MaxValue = 10
             MinValue = 1
             TabOrder = 1
-            Value = 3
+            Value = 2
           end
           object LabelNewsRetry: TLabel
             AnchorSideLeft.Control = PanelNewsRequest
@@ -1822,7 +1822,7 @@ object FormMain: TFormMain
             BorderSpacing.Top = 80
             NumbersOnly = True
             TabOrder = 2
-            Text = '15000'
+            Text = '10000'
           end
           object LabelNewsTimeout: TLabel
             AnchorSideLeft.Control = EditNewsRetry
