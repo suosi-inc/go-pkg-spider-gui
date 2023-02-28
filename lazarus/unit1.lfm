@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetLink
+    ActivePage = TabSheetDomain
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 2
+    TabIndex = 1
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -698,7 +698,8 @@ object FormMain: TFormMain
               end>
             DefaultRowHeight = 26
             Flat = True
-            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+            MouseWheelOption = mwGrid
+            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
             RowCount = 1
             TabOrder = 0
             TitleFont.Style = [fsBold]
@@ -1121,7 +1122,7 @@ object FormMain: TFormMain
               DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
               TitleFont.CharSet = GB2312_CHARSET
@@ -1177,7 +1178,7 @@ object FormMain: TFormMain
               DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
               TitleFont.CharSet = GB2312_CHARSET
@@ -1233,7 +1234,7 @@ object FormMain: TFormMain
               DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
               TitleFont.CharSet = GB2312_CHARSET
@@ -1289,7 +1290,7 @@ object FormMain: TFormMain
               DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
               TitleFont.CharSet = GB2312_CHARSET
@@ -1345,7 +1346,7 @@ object FormMain: TFormMain
               DefaultRowHeight = 26
               Flat = True
               MouseWheelOption = mwGrid
-              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+              Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goEditing, goThumbTracking, goSmoothScroll, goFixedRowNumbering, goDontScrollPartCell]
               RowCount = 1
               TabOrder = 0
               TitleFont.CharSet = GB2312_CHARSET
@@ -1973,7 +1974,7 @@ object FormMain: TFormMain
           Font.CharSet = GB2312_CHARSET
           Font.Pitch = fpVariable
           Font.Quality = fqDraft
-          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goThumbTracking, goSmoothScroll]
+          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goThumbTracking, goSmoothScroll, goDontScrollPartCell]
           ParentFont = False
           RowCount = 7
           TabOrder = 1
