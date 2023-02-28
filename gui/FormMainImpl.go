@@ -165,14 +165,6 @@ func (f *TFormMain) OnBtnToolLangClick(sender vcl.IObject) {
 	f.btnToolLangClick()
 }
 
-func (f *TFormMain) OnLabelToolLangTipClick(sender vcl.IObject) {
-
-}
-
-func (f *TFormMain) OnPageControlLinkChange(sender vcl.IObject) {
-
-}
-
 func (f *TFormMain) OnBtnDomainRequestClick(sender vcl.IObject) {
 	f.btnDomainRequestClick()
 }

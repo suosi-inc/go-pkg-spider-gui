@@ -12,6 +12,7 @@ import (
 	"os/exec"
 	"runtime"
 	"strings"
+	"sync/atomic"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/microcosm-cc/bluemonday"
@@ -75,7 +76,7 @@ func (f *TFormMain) btnRequestClick() {
 		req.HttpReq.MaxRedirect = maxRedirect
 	}
 
-	// Headers
+	// Headers 解析
 	if !fun.Blank(f.MemoRequestHeader.Text()) {
 		headerText := f.MemoRequestHeader.Text()
 
@@ -218,13 +219,11 @@ func (f *TFormMain) renderGridLink() {
 }
 
 func (f *TFormMain) fillGridLink(grid *vcl.TStringGrid, datas map[string]string) {
-	var i int32
-	i = 1
 	for key, value := range datas {
+		i := grid.RowCount()
 		grid.InsertColRow(false, i)
 		grid.SetCells(1, i, key)
 		grid.SetCells(2, i, fun.ToString(value))
-		i++
 	}
 }
 
@@ -332,10 +331,15 @@ func (f *TFormMain) btnDomainRequestClick() {
 	// 最大重试次数
 	maxRetry := fun.ToInt(f.EditDomainRetry.Text())
 
+	f.clearDomainContent()
+	f.clearStringGrid(f.GridDomainSubdomain, false)
+
+	start := fun.Timestamp(true)
 	if domainRes, err := spider.DetectDomain(domain, timeout, maxRetry); err == nil {
+		use := fun.Timestamp(true) - start
+		f.debug("Request Domain Success : " + domain + ", use " + fun.ToString(use) + "ms")
 
-		f.debug("Request Domain Success : " + domain)
-
+		// 填充基本信息
 		charset := domainRes.Charset.Charset
 		charsetPos := domainRes.Charset.CharsetPos
 		lang := spider.LangEnZhMap[domainRes.Lang.Lang]
@@ -355,11 +359,86 @@ func (f *TFormMain) btnDomainRequestClick() {
 		f.GridDomainData.SetCells(1, 12, fun.ToString(domainRes.ContentCount))
 		f.GridDomainData.SetCells(1, 13, fun.ToString(domainRes.ListCount))
 		f.GridDomainData.SetCells(1, 14, fun.ToString(len(domainRes.SubDomains)))
+
+		// 是否请求子域名
+		if f.CheckDomainSubdomain.Checked() && len(domainRes.SubDomains) > 0 {
+			f.domainSubdomainRequest(domainRes, timeout, maxRetry)
+		}
+
 	} else {
 		f.debug("Request Domain Failed : " + err.Error())
 	}
+}
 
-	return
+func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout int, maxRetry int) {
+	// 重置进度条
+	var process int32
+	total := len(domainRes.SubDomains)
+	vcl.ThreadSync(func() {
+		f.ProgressBarDomain.SetMax(int32(total))
+	})
+
+	// 数据分片，使用 5 个协程请求
+	subdomainList := make([]string, 0)
+	for s := range domainRes.SubDomains {
+		subdomainList = append(subdomainList, s)
+	}
+	subdomainMutiParts := fun.SliceSplit(subdomainList, 5)
+
+	for _, subdomainParts := range subdomainMutiParts {
+		subdomainParts := subdomainParts
+		go func() {
+
+			for _, subdomain := range subdomainParts {
+				atomic.AddInt32(&process, 1)
+
+				subDomainRes, e := spider.DetectSubDomain(subdomain, timeout, maxRetry)
+
+				vcl.ThreadSync(func() {
+
+					i := f.GridDomainSubdomain.RowCount()
+					f.GridDomainSubdomain.InsertColRow(false, i)
+					f.GridDomainSubdomain.SetCells(1, i, subdomain)
+
+					if e == nil {
+						f.debug("\tRequest Domain Subdomain Success : " + subdomain)
+
+						lang := ""
+						if _, exist := spider.LangEnZhMap[subDomainRes.Lang.Lang]; exist {
+							lang = spider.LangEnZhMap[subDomainRes.Lang.Lang]
+						}
+
+						f.GridDomainSubdomain.SetCells(2, i, subDomainRes.Title)
+						f.GridDomainSubdomain.SetCells(3, i, subDomainRes.Charset.Charset)
+						f.GridDomainSubdomain.SetCells(4, i, lang)
+						f.GridDomainSubdomain.SetCells(5, i, fun.ToString(subDomainRes.State))
+						f.GridDomainSubdomain.SetCells(6, i, fun.ToString(subDomainRes.ContentCount))
+						f.GridDomainSubdomain.SetCells(7, i, fun.ToString(subDomainRes.ListCount))
+					} else {
+						f.debug("\tRequest Domain Subdomain Error : " + subdomain)
+						f.GridDomainSubdomain.SetCells(2, i, e.Error())
+						f.GridDomainSubdomain.SetCells(3, i, "")
+						f.GridDomainSubdomain.SetCells(4, i, "")
+						f.GridDomainSubdomain.SetCells(5, i, "false")
+						f.GridDomainSubdomain.SetCells(6, i, "")
+						f.GridDomainSubdomain.SetCells(7, i, "")
+					}
+
+					// 更新进度条
+					f.ProgressBarDomain.SetPosition(atomic.LoadInt32(&process))
+				})
+			}
+		}()
+	}
+}
+
+func (f *TFormMain) clearDomainContent() {
+	f.ProgressBarDomain.SetPosition(0)
+	f.ProgressBarDomain.SetMax(100)
+
+	for rows := 1; rows <= 14; rows++ {
+		f.GridDomainData.SetCells(1, int32(rows), "")
+	}
 }
 
 func (f *TFormMain) btnNewsRequestClick() {

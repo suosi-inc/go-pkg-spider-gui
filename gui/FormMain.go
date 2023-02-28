@@ -55,9 +55,8 @@ type TFormMain struct {
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
 	PanelDomainContent     *vcl.TPanel
+	PanelDomainSubdomain   *vcl.TPanel
 	GridDomainSubdomain    *vcl.TStringGrid
-	Edit1                  *vcl.TEdit
-	BtnDomainSearch        *vcl.TButton
 	SplitterDomain         *vcl.TSplitter
 	PanelDomain            *vcl.TPanel
 	PanelDomainRequest     *vcl.TPanel
@@ -149,7 +148,7 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	PanelDomainSubdomain   *vcl.TPanel
+	ProgressBarDomain      *vcl.TProgressBar
 
 	//::private::
 	TFormMainFields

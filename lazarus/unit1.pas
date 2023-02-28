@@ -26,7 +26,6 @@ type
     BtnLinkSearch: TButton;
     BtnToolLang: TButton;
     BtnDomainRequest: TButton;
-    BtnDomainSearch: TButton;
     CheckDomainSubdomain: TCheckBox;
     CheckLinkRule1: TCheckBox;
     CheckLinkRule2: TCheckBox;
@@ -37,7 +36,6 @@ type
     CheckRequestType: TCheckBox;
     ComboLinkRuleType2: TComboBox;
     ComboLinkRuleType1: TComboBox;
-    Edit1: TEdit;
     EditDomain: TEdit;
     EditDomainTimeout: TEdit;
     EditToolLang: TEdit;
@@ -118,6 +116,7 @@ type
     PanelDebug: TPanel;
     PopupMenuDebug: TPopupMenu;
     BtnRequestOpen: TSpeedButton;
+    ProgressBarDomain: TProgressBar;
     RadioNewsContentType: TRadioGroup;
     EditDomainRetry: TSpinEdit;
     SplitterDomain: TSplitter;
