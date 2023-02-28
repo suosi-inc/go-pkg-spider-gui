@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetNews
+    ActivePage = TabSheetLink
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 3
+    TabIndex = 2
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -225,6 +225,7 @@ object FormMain: TFormMain
           BorderSpacing.Left = 10
           BorderSpacing.Top = 16
           BorderSpacing.Right = 10
+          OnKeyDown = EditRequestUrlKeyDown
           TabOrder = 0
           Text = 'https://www.163.com'
         end
@@ -811,6 +812,7 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
             BorderSpacing.Right = 15
+            OnKeyDown = EditDomainKeyDown
             TabOrder = 0
             Text = 'news.cn'
           end
@@ -1460,6 +1462,7 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
             BorderSpacing.Right = 15
+            OnKeyDown = EditLinkUrlKeyDown
             TabOrder = 2
             Text = 'https://news.163.com'
           end
@@ -1524,6 +1527,7 @@ object FormMain: TFormMain
           AutoSize = False
           BorderSpacing.Top = 95
           BorderSpacing.Right = 10
+          OnKeyDown = EditLinkSearchKeyDown
           TabOrder = 2
           TextHint = '链接或域名'
         end
@@ -1880,6 +1884,7 @@ object FormMain: TFormMain
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
             BorderSpacing.Right = 15
+            OnKeyDown = EditNewsUrlKeyDown
             TabOrder = 4
             Text = 'https://www.163.com/tech/article/HUCH2DH900097U7R.html'
           end

@@ -3,6 +3,8 @@ package gui
 import (
 	"github.com/x-funs/go-fun"
 	"github.com/ying32/govcl/vcl"
+	"github.com/ying32/govcl/vcl/types"
+	"github.com/ying32/govcl/vcl/types/keys"
 )
 
 // ::private::
@@ -167,4 +169,34 @@ func (f *TFormMain) OnBtnToolLangClick(sender vcl.IObject) {
 
 func (f *TFormMain) OnBtnDomainRequestClick(sender vcl.IObject) {
 	f.btnDomainRequestClick()
+}
+
+func (f *TFormMain) OnEditRequestUrlKeyDown(sender vcl.IObject, key *uint16, shift types.TShiftState) {
+	if *key == uint16(keys.VkReturn) {
+		f.btnRequestClick()
+	}
+}
+
+func (f *TFormMain) OnEditDomainKeyDown(sender vcl.IObject, key *uint16, shift types.TShiftState) {
+	if *key == uint16(keys.VkReturn) {
+		f.btnDomainRequestClick()
+	}
+}
+
+func (f *TFormMain) OnEditLinkUrlKeyDown(sender vcl.IObject, key *uint16, shift types.TShiftState) {
+	if *key == uint16(keys.VkReturn) {
+		f.btnLinkRequestClick()
+	}
+}
+
+func (f *TFormMain) OnEditNewsUrlKeyDown(sender vcl.IObject, key *uint16, shift types.TShiftState) {
+	if *key == uint16(keys.VkReturn) {
+		f.btnNewsRequestClick()
+	}
+}
+
+func (f *TFormMain) OnEditLinkSearchKeyDown(sender vcl.IObject, key *uint16, shift types.TShiftState) {
+	if *key == uint16(keys.VkReturn) {
+		f.btnLinkSearchClick()
+	}
 }

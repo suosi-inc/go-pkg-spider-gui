@@ -360,6 +360,8 @@ func (f *TFormMain) btnDomainRequestClick() {
 		f.GridDomainData.SetCells(1, 13, fun.ToString(domainRes.ListCount))
 		f.GridDomainData.SetCells(1, 14, fun.ToString(len(domainRes.SubDomains)))
 
+		f.GridDomainData.Update()
+
 		// 是否请求子域名
 		if f.CheckDomainSubdomain.Checked() && len(domainRes.SubDomains) > 0 {
 			f.domainSubdomainRequest(domainRes, timeout, maxRetry)
@@ -416,6 +418,7 @@ func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout 
 						f.GridDomainSubdomain.SetCells(7, i, fun.ToString(subDomainRes.ListCount))
 					} else {
 						f.debug("\tRequest Domain Subdomain Error : " + subdomain)
+
 						f.GridDomainSubdomain.SetCells(2, i, e.Error())
 						f.GridDomainSubdomain.SetCells(3, i, "")
 						f.GridDomainSubdomain.SetCells(4, i, "")
