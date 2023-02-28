@@ -378,7 +378,7 @@ func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout 
 		f.ProgressBarDomain.SetMax(int32(total))
 	})
 
-	// 分区，使用 10 个协程更新
+	// 数据分片，使用 5 个协程请求
 	subdomainList := make([]string, 0)
 	for s := range domainRes.SubDomains {
 		subdomainList = append(subdomainList, s)
