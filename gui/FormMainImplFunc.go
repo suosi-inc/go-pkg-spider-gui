@@ -12,6 +12,7 @@ import (
 	"os/exec"
 	"runtime"
 	"strings"
+	"sync"
 	"sync/atomic"
 
 	"github.com/PuerkitoBio/goquery"
@@ -35,111 +36,132 @@ func (f *TFormMain) btnRequestClick() {
 		return
 	}
 
-	req := &spider.HttpReq{
-		HttpReq: &fun.HttpReq{
-			DisableRedirect: true,
-			Headers:         make(map[string]string),
-		},
-		ForceTextContentType: true,
-		DisableCharset:       false,
-	}
+	// 禁用按钮, 避免重复点击事件
+	f.BtnRequest.SetEnabled(false)
+	f.EditRequestUrl.SetEnabled(false)
 
-	// 超时时间
-	timeout := fun.ToInt(f.EditRequestTimeout.Text())
-	if timeout < 0 {
-		timeout = 30000
-	}
-
-	// UserAgent
-	if !fun.Blank(f.EditRequestUa.Text()) {
-		req.HttpReq.UserAgent = f.EditRequestUa.Text()
-	}
-
-	// ContentType
-	if !f.CheckRequestType.Checked() {
-		if !fun.Blank(f.EditRequestType.Text()) {
-			req.ForceTextContentType = false
-			req.AllowedContentTypes = []string{f.EditRequestType.Text()}
+	// 必须在新协程执行完回调恢复按钮状态, 因为事件是独立消息
+	go func() {
+		req := &spider.HttpReq{
+			HttpReq: &fun.HttpReq{
+				DisableRedirect: true,
+				Headers:         make(map[string]string),
+			},
+			ForceTextContentType: true,
+			DisableCharset:       false,
 		}
-	}
 
-	// MaxContentLength
-	contentLength := fun.ToInt64(f.EditRequestLength.Text())
-	if contentLength > 0 {
-		req.HttpReq.MaxContentLength = contentLength
-	}
+		// 超时时间
+		timeout := fun.ToInt(f.EditRequestTimeout.Text())
+		if timeout < 0 {
+			timeout = 10000
+		}
 
-	// MaxRedirect
-	if !f.CheckRequestRedirect.Checked() {
-		maxRedirect := fun.ToInt(f.EditRequestRedirect.Text())
-		req.DisableRedirect = false
-		req.HttpReq.MaxRedirect = maxRedirect
-	}
+		// UserAgent
+		if !fun.Blank(f.EditRequestUa.Text()) {
+			req.HttpReq.UserAgent = f.EditRequestUa.Text()
+		}
 
-	// Headers 解析
-	if !fun.Blank(f.MemoRequestHeader.Text()) {
-		headerText := f.MemoRequestHeader.Text()
-
-		buffer := bytes.NewBufferString(headerText)
-		scanner := bufio.NewScanner(buffer)
-		mimeHeader := textproto.MIMEHeader{}
-		for scanner.Scan() {
-			line := scanner.Text()
-			parts := strings.SplitN(line, ":", 2)
-			if len(parts) == 2 {
-				mimeHeader.Add(strings.TrimSpace(parts[0]), strings.TrimSpace(parts[1]))
+		// ContentType
+		if !f.CheckRequestType.Checked() {
+			if !fun.Blank(f.EditRequestType.Text()) {
+				req.ForceTextContentType = false
+				req.AllowedContentTypes = []string{f.EditRequestType.Text()}
 			}
 		}
 
-		headerMap := make(map[string]string, len(mimeHeader))
-		for key, values := range mimeHeader {
-			if len(values) > 0 {
-				headerMap[key] = values[0]
+		// MaxContentLength
+		contentLength := fun.ToInt64(f.EditRequestLength.Text())
+		if contentLength > 0 {
+			req.HttpReq.MaxContentLength = contentLength
+		}
+
+		// MaxRedirect
+		if !f.CheckRequestRedirect.Checked() {
+			maxRedirect := fun.ToInt(f.EditRequestRedirect.Text())
+			req.DisableRedirect = false
+			req.HttpReq.MaxRedirect = maxRedirect
+		}
+
+		// Headers 解析
+		if !fun.Blank(f.MemoRequestHeader.Text()) {
+			headerText := f.MemoRequestHeader.Text()
+
+			buffer := bytes.NewBufferString(headerText)
+			scanner := bufio.NewScanner(buffer)
+			mimeHeader := textproto.MIMEHeader{}
+			for scanner.Scan() {
+				line := scanner.Text()
+				parts := strings.SplitN(line, ":", 2)
+				if len(parts) == 2 {
+					mimeHeader.Add(strings.TrimSpace(parts[0]), strings.TrimSpace(parts[1]))
+				}
 			}
+
+			headerMap := make(map[string]string, len(mimeHeader))
+			for key, values := range mimeHeader {
+				if len(values) > 0 {
+					headerMap[key] = values[0]
+				}
+			}
+			req.HttpReq.Headers = headerMap
 		}
-		req.HttpReq.Headers = headerMap
-	}
 
-	// Proxy
-	if !fun.Blank(f.EditRequestProxy.Text()) {
-		transport := &http.Transport{
-			TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
-			DisableKeepAlives: true,
+		// Proxy
+		if !fun.Blank(f.EditRequestProxy.Text()) {
+			transport := &http.Transport{
+				TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
+				DisableKeepAlives: true,
+			}
+			proxyString := f.EditRequestProxy.Text()
+			proxy, _ := url.Parse(proxyString)
+			transport.Proxy = http.ProxyURL(proxy)
+
+			req.HttpReq.Transport = transport
 		}
-		proxyString := f.EditRequestProxy.Text()
-		proxy, _ := url.Parse(proxyString)
-		transport.Proxy = http.ProxyURL(proxy)
 
-		req.HttpReq.Transport = transport
-	}
+		// Charset
+		if !f.CheckRequestCharset.Checked() {
+			req.DisableCharset = true
+		}
 
-	// Charset
-	if !f.CheckRequestCharset.Checked() {
-		req.DisableCharset = true
-	}
+		start := fun.Timestamp(true)
+		if resp, err := spider.HttpGetResp(urlStr, req, timeout); err == nil {
+			use := fun.Timestamp(true) - start
 
-	start := fun.Timestamp(true)
-	if resp, err := spider.HttpGetResp(urlStr, req, timeout); err == nil {
-		use := fun.Timestamp(true) - start
+			var memoText string
+			if f.CheckRequestClean.Checked() {
+				doc, _ := goquery.NewDocumentFromReader(bytes.NewReader(resp.Body))
+				doc.Find(spider.DefaultDocRemoveTags).Remove()
+				body, _ := doc.Html()
+				body = html.UnescapeString(body)
+				memoText = fun.NormaliseLine(body)
+			} else {
+				memoText = fun.String(resp.Body)
+			}
 
-		f.debug("Request Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
-		f.debug("\tCharset : " + fun.ToString(resp.Charset))
-		f.debug("\tContent-Length : " + fun.ToString(resp.ContentLength))
+			// 主协程绘制
+			vcl.ThreadSync(func() {
+				f.debug("Request Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
+				f.debug("\tCharset : " + fun.ToString(resp.Charset))
+				f.debug("\tContent-Length : " + fun.ToString(resp.ContentLength))
 
-		if f.CheckRequestClean.Checked() {
-			doc, _ := goquery.NewDocumentFromReader(bytes.NewReader(resp.Body))
-			doc.Find(spider.DefaultDocRemoveTags).Remove()
-			body, _ := doc.Html()
-			body = html.UnescapeString(body)
-			body = fun.NormaliseLine(body)
-			f.MemoRequest.SetText(body)
+				f.MemoRequest.SetText(memoText)
+			})
+
 		} else {
-			f.MemoRequest.SetText(fun.String(resp.Body))
+			// 主协程绘制
+			vcl.ThreadSync(func() {
+				f.debug("Request Failed : " + err.Error())
+			})
 		}
 
-	} else {
-		f.debug("Request Failed : " + err.Error())
-	}
+		vcl.ThreadSync(func() {
+			f.BtnRequest.SetEnabled(true)
+			f.EditRequestUrl.SetEnabled(true)
+		})
+	}()
+
 }
 
 // btnLinkRequestClick 链接提取功能
@@ -150,35 +172,53 @@ func (f *TFormMain) btnLinkRequestClick() {
 		return
 	}
 
-	// 超时时间
-	timeout := fun.ToInt(f.EditLinkTimeout.Text())
-	if timeout < 0 {
-		timeout = 30000
-	}
+	f.BtnLinkRequest.SetEnabled(false)
+	f.EditLinkUrl.SetEnabled(false)
 
-	// 限制域名
-	strictDomain := true
-	if !f.CheckLinkStrictDomain.Checked() {
-		strictDomain = false
-	}
-
-	// 最大重试次数
-	maxRetry := fun.ToInt(f.EditLinkRetry.Text())
-
+	// 清空数据
 	f.clearGridLink()
 
-	var err error
-	start := fun.Timestamp(true)
-	if linkData, err = spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
-		use := fun.Timestamp(true) - start
+	go func() {
+		// 超时时间
+		timeout := fun.ToInt(f.EditLinkTimeout.Text())
+		if timeout < 0 {
+			timeout = 10000
+		}
 
-		f.debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
+		// 限制域名
+		strictDomain := true
+		if !f.CheckLinkStrictDomain.Checked() {
+			strictDomain = false
+		}
 
-		// 渲染所有表格
-		f.renderGridLink()
-	} else {
-		f.debug("Request Link Failed : " + err.Error())
-	}
+		// 最大重试次数
+		maxRetry := fun.ToInt(f.EditLinkRetry.Text())
+
+		var err error
+		start := fun.Timestamp(true)
+		if linkData, err = spider.GetLinkData(urlStr, strictDomain, timeout, maxRetry); err == nil {
+			use := fun.Timestamp(true) - start
+
+			// 主线程绘制
+			vcl.ThreadSync(func() {
+				f.debug("Request Link Success : " + urlStr + ", use " + fun.ToString(use) + "ms")
+
+				f.renderGridLink()
+			})
+
+		} else {
+			// 主线程绘制
+			vcl.ThreadSync(func() {
+				f.debug("Request Link Failed : " + err.Error())
+			})
+		}
+
+		vcl.ThreadSync(func() {
+			f.BtnLinkRequest.SetEnabled(true)
+			f.EditLinkUrl.SetEnabled(true)
+		})
+	}()
+
 }
 
 // clearGridLink 清空 GridLink
@@ -322,52 +362,70 @@ func (f *TFormMain) btnDomainRequestClick() {
 		return
 	}
 
-	// 超时时间
-	timeout := fun.ToInt(f.EditDomainTimeout.Text())
-	if timeout < 0 {
-		timeout = 30000
-	}
+	f.BtnDomainRequest.SetEnabled(false)
+	f.EditDomain.SetEnabled(false)
 
-	// 最大重试次数
-	maxRetry := fun.ToInt(f.EditDomainRetry.Text())
-
+	// 清空数据
 	f.clearDomainContent()
 	f.clearStringGrid(f.GridDomainSubdomain, false)
 
-	start := fun.Timestamp(true)
-	if domainRes, err := spider.DetectDomain(domain, timeout, maxRetry); err == nil {
-		use := fun.Timestamp(true) - start
-		f.debug("Request Domain Success : " + domain + ", use " + fun.ToString(use) + "ms")
-
-		// 填充基本信息
-		charset := domainRes.Charset.Charset
-		charsetPos := domainRes.Charset.CharsetPos
-		lang := spider.LangEnZhMap[domainRes.Lang.Lang]
-		langPos := domainRes.Lang.LangPos
-
-		f.GridDomainData.SetCells(1, 1, domainRes.Title)
-		f.GridDomainData.SetCells(1, 2, domainRes.TitleClean)
-		f.GridDomainData.SetCells(1, 3, domainRes.Description)
-		f.GridDomainData.SetCells(1, 4, domainRes.Scheme)
-		f.GridDomainData.SetCells(1, 5, charset+", "+charsetPos)
-		f.GridDomainData.SetCells(1, 6, lang+", "+langPos)
-		f.GridDomainData.SetCells(1, 7, domainRes.Country)
-		f.GridDomainData.SetCells(1, 8, domainRes.Province)
-		f.GridDomainData.SetCells(1, 9, fun.ToString(domainRes.State))
-		f.GridDomainData.SetCells(1, 10, domainRes.Icp)
-		f.GridDomainData.SetCells(1, 11, domainRes.HomeDomain)
-		f.GridDomainData.SetCells(1, 12, fun.ToString(domainRes.ContentCount))
-		f.GridDomainData.SetCells(1, 13, fun.ToString(domainRes.ListCount))
-		f.GridDomainData.SetCells(1, 14, fun.ToString(len(domainRes.SubDomains)))
-
-		// 是否请求子域名
-		if f.CheckDomainSubdomain.Checked() && len(domainRes.SubDomains) > 0 {
-			f.domainSubdomainRequest(domainRes, timeout, maxRetry)
+	// 主域名请求
+	go func() {
+		// 超时时间
+		timeout := fun.ToInt(f.EditDomainTimeout.Text())
+		if timeout < 0 {
+			timeout = 10000
 		}
 
-	} else {
-		f.debug("Request Domain Failed : " + err.Error())
-	}
+		// 最大重试次数
+		maxRetry := fun.ToInt(f.EditDomainRetry.Text())
+
+		start := fun.Timestamp(true)
+		if domainRes, err := spider.DetectDomain(domain, timeout, maxRetry); err == nil {
+			use := fun.Timestamp(true) - start
+
+			// 填充基本信息
+			charset := domainRes.Charset.Charset
+			charsetPos := domainRes.Charset.CharsetPos
+			lang := spider.LangEnZhMap[domainRes.Lang.Lang]
+			langPos := domainRes.Lang.LangPos
+
+			vcl.ThreadSync(func() {
+				f.debug("Request Domain Success : " + domain + ", use " + fun.ToString(use) + "ms")
+				f.GridDomainData.SetCells(1, 1, domainRes.Title)
+				f.GridDomainData.SetCells(1, 2, domainRes.TitleClean)
+				f.GridDomainData.SetCells(1, 3, domainRes.Description)
+				f.GridDomainData.SetCells(1, 4, domainRes.Scheme)
+				f.GridDomainData.SetCells(1, 5, charset+", "+charsetPos)
+				f.GridDomainData.SetCells(1, 6, lang+", "+langPos)
+				f.GridDomainData.SetCells(1, 7, domainRes.Country)
+				f.GridDomainData.SetCells(1, 8, domainRes.Province)
+				f.GridDomainData.SetCells(1, 9, fun.ToString(domainRes.State))
+				f.GridDomainData.SetCells(1, 10, domainRes.Icp)
+				f.GridDomainData.SetCells(1, 11, domainRes.HomeDomain)
+				f.GridDomainData.SetCells(1, 12, fun.ToString(domainRes.ContentCount))
+				f.GridDomainData.SetCells(1, 13, fun.ToString(domainRes.ListCount))
+				f.GridDomainData.SetCells(1, 14, fun.ToString(len(domainRes.SubDomains)))
+			})
+
+			// 是否请求子域名
+			if f.CheckDomainSubdomain.Checked() && len(domainRes.SubDomains) > 0 {
+				f.domainSubdomainRequest(domainRes, timeout, maxRetry)
+			}
+
+		} else {
+			vcl.ThreadSync(func() {
+				f.debug("Request Domain Failed : " + err.Error())
+			})
+		}
+
+		vcl.ThreadSync(func() {
+			if !f.CheckDomainSubdomain.Checked() {
+				f.BtnDomainRequest.SetEnabled(true)
+				f.EditDomain.SetEnabled(true)
+			}
+		})
+	}()
 }
 
 func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout int, maxRetry int) {
@@ -379,13 +437,15 @@ func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout 
 	})
 
 	// 数据分片，使用 5 个协程请求
+	var wg sync.WaitGroup
 	subdomainList := make([]string, 0)
 	for s := range domainRes.SubDomains {
 		subdomainList = append(subdomainList, s)
 	}
 	subdomainMutiParts := fun.SliceSplit(subdomainList, 5)
-
 	for _, subdomainParts := range subdomainMutiParts {
+		wg.Add(1)
+
 		subdomainParts := subdomainParts
 		go func() {
 
@@ -416,6 +476,7 @@ func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout 
 						f.GridDomainSubdomain.SetCells(7, i, fun.ToString(subDomainRes.ListCount))
 					} else {
 						f.debug("\tRequest Domain Subdomain Error : " + subdomain)
+
 						f.GridDomainSubdomain.SetCells(2, i, e.Error())
 						f.GridDomainSubdomain.SetCells(3, i, "")
 						f.GridDomainSubdomain.SetCells(4, i, "")
@@ -428,8 +489,19 @@ func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout 
 					f.ProgressBarDomain.SetPosition(atomic.LoadInt32(&process))
 				})
 			}
+
+			wg.Done()
 		}()
 	}
+
+	wg.Wait()
+
+	// 所有协程执行完毕
+	vcl.ThreadSync(func() {
+		f.debug("\tRequest Domain Subdomain Done")
+		f.BtnDomainRequest.SetEnabled(true)
+		f.EditDomain.SetEnabled(true)
+	})
 }
 
 func (f *TFormMain) clearDomainContent() {
@@ -449,59 +521,69 @@ func (f *TFormMain) btnNewsRequestClick() {
 		return
 	}
 
-	// 超时时间
-	timeout := fun.ToInt(f.EditNewsTimeout.Text())
-	if timeout < 0 {
-		timeout = 30000
-	}
+	f.BtnNewsRequest.SetEnabled(false)
+	f.EditNewsUrl.SetEnabled(false)
 
-	// 最大重试次数
-	maxRetry := fun.ToInt(f.EditNewsRetry.Text())
-
-	// 正文样式
-	contentType := f.RadioNewsContentType.ItemIndex()
-
+	// 清空数据
 	f.clearNewsContent()
 
-	if news, _, err := spider.GetNews(urlStr, title, timeout, maxRetry); err == nil {
-		// Info
-		contentData := news.ContentNode.Data
-		contentAttr := fun.ToString(news.ContentNode.Attr)
-
-		f.GridNewsInfo.SetCells(1, 1, news.TitlePos)
-		f.GridNewsInfo.SetCells(1, 2, news.TimePos)
-		f.GridNewsInfo.SetCells(1, 3, contentData+contentAttr)
-		f.GridNewsInfo.SetCells(1, 4, news.Time)
-		f.GridNewsInfo.SetCells(1, 5, spider.LangEnZhMap[news.Lang])
-		f.GridNewsInfo.SetCells(1, 6, fun.ToString(news.Spend)+"ms")
-
-		f.debug(fun.ToString(news.ContentNode.Attr))
-
-		// Content
-		f.EditNewsResultTitle.SetText(news.Title)
-		f.EditNewsResultTime.SetText(news.TimeLocal)
-
-		f.MemoNewsContent.SetText("")
-		switch contentType {
-		case 0:
-			content := strings.ReplaceAll(news.Content, fun.LF, fun.CRLF)
-			f.MemoNewsContent.Append(content)
-		case 1:
-			node := goquery.NewDocumentFromNode(news.ContentNode)
-			contentHtml, _ := node.Html()
-			p := bluemonday.NewPolicy()
-			p.AllowElements("p")
-			p.AllowImages()
-			htmlStr := p.Sanitize(contentHtml)
-			f.MemoNewsContent.Append(fun.NormaliseLine(htmlStr))
-		case 2:
-			node := goquery.NewDocumentFromNode(news.ContentNode)
-			contentHtml, _ := node.Html()
-			f.MemoNewsContent.Append(fun.NormaliseLine(contentHtml))
+	go func() {
+		// 超时时间
+		timeout := fun.ToInt(f.EditNewsTimeout.Text())
+		if timeout < 0 {
+			timeout = 10000
 		}
-	} else {
-		f.debug("Request News Failed : " + err.Error())
-	}
+
+		// 最大重试次数
+		maxRetry := fun.ToInt(f.EditNewsRetry.Text())
+
+		// 正文样式
+		contentType := f.RadioNewsContentType.ItemIndex()
+
+		if news, _, err := spider.GetNews(urlStr, title, timeout, maxRetry); err == nil {
+			// Info
+			contentData := news.ContentNode.Data
+			contentAttr := fun.ToString(news.ContentNode.Attr)
+
+			var htmlStr string
+			switch contentType {
+			case 0:
+				htmlStr = strings.ReplaceAll(news.Content, fun.LF, fun.CRLF)
+			case 1:
+				node := goquery.NewDocumentFromNode(news.ContentNode)
+				contentHtml, _ := node.Html()
+				p := bluemonday.NewPolicy()
+				p.AllowElements("p")
+				p.AllowImages()
+				htmlStr = p.Sanitize(contentHtml)
+			case 2:
+				node := goquery.NewDocumentFromNode(news.ContentNode)
+				htmlStr, _ = node.Html()
+			}
+
+			vcl.ThreadSync(func() {
+				f.GridNewsInfo.SetCells(1, 1, news.TitlePos)
+				f.GridNewsInfo.SetCells(1, 2, news.TimePos)
+				f.GridNewsInfo.SetCells(1, 3, contentData+contentAttr)
+				f.GridNewsInfo.SetCells(1, 4, news.Time)
+				f.GridNewsInfo.SetCells(1, 5, spider.LangEnZhMap[news.Lang])
+				f.GridNewsInfo.SetCells(1, 6, fun.ToString(news.Spend)+"ms")
+				f.EditNewsResultTitle.SetText(news.Title)
+				f.EditNewsResultTime.SetText(news.TimeLocal)
+
+				f.MemoNewsContent.Append(htmlStr)
+			})
+		} else {
+			vcl.ThreadSync(func() {
+				f.debug("Request News Failed : " + err.Error())
+			})
+		}
+
+		vcl.ThreadSync(func() {
+			f.BtnNewsRequest.SetEnabled(true)
+			f.EditNewsUrl.SetEnabled(true)
+		})
+	}()
 }
 
 func (f *TFormMain) clearNewsContent() {

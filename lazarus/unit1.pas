@@ -169,8 +169,20 @@ type
     procedure BtnRequestTipProxyClick(Sender: TObject);
     procedure BtnToolDomainRequestClick(Sender: TObject);
     procedure BtnToolLangClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
+    procedure EditDomainKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure EditLinkSearchKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure EditLinkUrlKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure EditNewsUrlKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure EditRequestUrlEnter(Sender: TObject);
+    procedure EditRequestUrlKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure MenuDebugClearClick(Sender: TObject);
     procedure MenuDebugCopyClick(Sender: TObject);
@@ -273,6 +285,41 @@ begin
        EditRequestType.Enabled:=False
     else
        EditRequestType.Enabled:=True;
+end;
+
+procedure TFormMain.EditDomainKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+end;
+
+procedure TFormMain.EditLinkSearchKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+end;
+
+procedure TFormMain.EditLinkUrlKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+end;
+
+procedure TFormMain.EditNewsUrlKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+end;
+
+procedure TFormMain.EditRequestUrlEnter(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.EditRequestUrlKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
 end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
