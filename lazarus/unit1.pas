@@ -169,6 +169,7 @@ type
     procedure BtnRequestTipProxyClick(Sender: TObject);
     procedure BtnToolDomainRequestClick(Sender: TObject);
     procedure BtnToolLangClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
     procedure CheckRequestRedirectChange(Sender: TObject);
     procedure CheckRequestTypeChange(Sender: TObject);
     procedure EditDomainKeyDown(Sender: TObject; var Key: Word;

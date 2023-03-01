@@ -3,7 +3,6 @@ package gui
 
 import (
 	_ "embed"
-
 	"github.com/ying32/govcl/vcl"
 )
 
@@ -151,7 +150,7 @@ type TFormMain struct {
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
 
-	// ::private::
+	//::private::
 	TFormMainFields
 }
 

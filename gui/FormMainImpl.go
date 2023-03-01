@@ -32,7 +32,7 @@ func (f *TFormMain) OnBtnRequestDefaultClick(sender vcl.IObject) {
 	f.EditRequestProxy.SetText("")
 	f.CheckRequestCharset.SetChecked(true)
 	f.CheckRequestClean.SetChecked(true)
-	f.EditRequestTimeout.SetText("30000")
+	f.EditRequestTimeout.SetText("10000")
 }
 
 func (f *TFormMain) OnBtnToolDomainRequestClick(sender vcl.IObject) {

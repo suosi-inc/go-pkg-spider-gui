@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetRequest
+    ActivePage = TabSheetDomain
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -815,7 +815,7 @@ object FormMain: TFormMain
             BorderSpacing.Right = 15
             OnKeyDown = EditDomainKeyDown
             TabOrder = 0
-            Text = 'news.cn'
+            Text = 'cankaoxiaoxi.com'
           end
           object BtnDomainRequest: TButton
             AnchorSideTop.Control = PanelDomainRequest
