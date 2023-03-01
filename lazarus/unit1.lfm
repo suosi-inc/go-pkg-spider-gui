@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetDomain
+    ActivePage = TabSheetRequest
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'

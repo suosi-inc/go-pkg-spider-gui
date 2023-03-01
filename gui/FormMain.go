@@ -3,6 +3,7 @@ package gui
 
 import (
 	_ "embed"
+
 	"github.com/ying32/govcl/vcl"
 )
 
@@ -57,6 +58,7 @@ type TFormMain struct {
 	PanelDomainContent     *vcl.TPanel
 	PanelDomainSubdomain   *vcl.TPanel
 	GridDomainSubdomain    *vcl.TStringGrid
+	ProgressBarDomain      *vcl.TProgressBar
 	SplitterDomain         *vcl.TSplitter
 	PanelDomain            *vcl.TPanel
 	PanelDomainRequest     *vcl.TPanel
@@ -148,9 +150,8 @@ type TFormMain struct {
 	MenuDebugCopy          *vcl.TMenuItem
 	MenuDebugClear         *vcl.TMenuItem
 	ImageListIcon          *vcl.TImageList
-	ProgressBarDomain      *vcl.TProgressBar
 
-	//::private::
+	// ::private::
 	TFormMainFields
 }
 
