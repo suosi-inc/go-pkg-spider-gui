@@ -22,6 +22,8 @@
 
 Golang 1.18
 
+本项目基于跨平台的 Golang GUI 库 [govcl](https://github.com/ying32/govcl) v2.2.0
+
 ### 安装 Lazarus
 
 安装对应的 Lazarus 2.2.0，用于可视化设计。官网下载： [Lazarus](https://www.lazarus-ide.org/index.php?page=downloads) 
