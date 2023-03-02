@@ -9,13 +9,13 @@
 ### Win10
 
 <p align="center" markdown="1" style="max-width: 100%">
-  <img src="images/win10.png" width="800" style="max-width: 100%" />
+  <img src="images/zh/win10.png" width="800" style="max-width: 100%" />
 </p>
 
 ### MacOS
 
 <p align="center" markdown="1" style="max-width: 100%">
-  <img src="images/macos.png" width="800" style="max-width: 100%" />
+  <img src="images/zh/macos.png" width="800" style="max-width: 100%" />
 </p>
 
 ## 构建准备
@@ -77,7 +77,27 @@ go build -o bin/macos64
 
 ## 功能介绍
 
-待更...
+### 域名自动探测
+
+<p align="center" markdown="1" style="max-width: 100%">
+  <img src="images/zh/domain.png" width="800" style="max-width: 100%" />
+</p>
+
+### 网页链接分类提取
+
+<p align="center" markdown="1" style="max-width: 100%">
+  <img src="images/zh/link.png" width="800" style="max-width: 100%" />
+</p>
+
+## 网页新闻提取
+
+<p align="center" markdown="1" style="max-width: 100%">
+  <img src="images/zh/content-news.png" width="800" style="max-width: 100%" />
+</p>
+
+<p align="center" markdown="1" style="max-width: 100%">
+  <img src="images/zh/content.png" width="800" style="max-width: 100%" />
+</p>
 
 ## 注意事项
 
@@ -88,3 +108,11 @@ go build -o bin/macos64
 Lazarus 会根据当前系统屏幕重置 DesignTimePPI/DPI，自动调整元素大小，生成工程文件。
 
 当前采用 `PerMonitorV2`
+
+## 免责声明
+
+本项目是一个数据提取工具库，不是爬虫框架或采集软件，仅用于技术交流，源码中请求目标网站的相关代码仅为功能测试需要。
+
+请在符合法律法规和相关规定的情况下使用本项目，禁止使用本项目进行任何非法、侵权或者违反公序良俗的行为。
+
+使用本项目造成的直接或间接的风险由用户自行承担。
