@@ -91,11 +91,7 @@ go build -o bin/macos64
 
 ## 网页新闻提取
 
-<p align="center" markdown="1" style="max-width: 100%">
-  <img src="images/zh/content-news.png" width="400" style="max-width: 100%" />
-</p>
-
-网页新闻三要素提取：
+网页新闻三要素提取 `https://www.163.com/sports/article/HUQMNO490005877U.html` ：
 
 <p align="center" markdown="1" style="max-width: 100%">
   <img src="images/zh/content.png" width="800" style="max-width: 100%" />
