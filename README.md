@@ -1,8 +1,10 @@
-通用网站采集库 [go-pkg-spider](https://github.com/suosi-inc/go-pkg-spider) GUI 功能演示。
+<p align="center">
+    通用新闻网站数据提取工具库 [go-pkg-spider](https://github.com/suosi-inc/go-pkg-spider) GUI 功能演示。
+</p>
 
 ## 下载
 
-前往 [Releases](https://github.com/suosi-inc/go-pkg-spider-gui/releases) 页面，当前支持 Windows、MacOS 
+前往 [Releases](https://github.com/suosi-inc/go-pkg-spider-gui/releases) 页面进行功能预览，当前支持 Windows、MacOS 
 
 ## 界面预览
 
