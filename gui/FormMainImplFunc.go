@@ -542,8 +542,11 @@ func (f *TFormMain) btnNewsRequestClick() {
 
 		if news, _, err := spider.GetNews(urlStr, title, timeout, maxRetry); err == nil {
 			// Info
-			contentData := news.ContentNode.Data
-			contentAttr := fun.ToString(news.ContentNode.Attr)
+			var contentData, contentAttr string
+			if news.ContentNode != nil {
+				contentData = news.ContentNode.Data
+				contentAttr = fun.ToString(news.ContentNode.Attr)
+			}
 
 			var htmlStr string
 			switch contentType {
