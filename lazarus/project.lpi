@@ -10,6 +10,8 @@
       <UseXPManifest Value="True"/>
       <XPManifest>
         <DpiAware Value="True/PM_V2"/>
+        <TextName Value="Suosi.GoPkgSpider.SpiderGui"/>
+        <TextDesc Value="A news website data extraction tool library"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
