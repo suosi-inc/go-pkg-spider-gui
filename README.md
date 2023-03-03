@@ -2,7 +2,7 @@
 
 ## 下载
 
-[Releases](https://github.com/suosi-inc/go-pkg-spider-gui/releases)，当前支持 Windows、MacOS
+前往 [Releases](https://github.com/suosi-inc/go-pkg-spider-gui/releases) 页面，当前支持 Windows、MacOS 
 
 ## 界面预览
 
