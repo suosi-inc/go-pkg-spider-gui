@@ -19,7 +19,6 @@
       <PackageName Value="gui"/>
       <GoUseTempdll Value="True"/>
       <GoBuildMode Value="exe"/>
-      <GoRoot Value="D:\Program\Go"/>
       <GoUseEmbed Value="True"/>
     </Res2go>
     <BuildModes>

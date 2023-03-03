@@ -3,7 +3,6 @@ package gui
 
 import (
 	_ "embed"
-
 	"github.com/ying32/govcl/vcl"
 )
 
@@ -55,7 +54,22 @@ type TFormMain struct {
 	BtnRequestTipHeader    *vcl.TSpeedButton
 	SplitterRequest        *vcl.TSplitter
 	TabSheetDomain         *vcl.TTabSheet
+	PanelDomainContent     *vcl.TPanel
+	PanelDomainSubdomain   *vcl.TPanel
+	GridDomainSubdomain    *vcl.TStringGrid
+	ProgressBarDomain      *vcl.TProgressBar
+	SplitterDomain         *vcl.TSplitter
 	PanelDomain            *vcl.TPanel
+	PanelDomainRequest     *vcl.TPanel
+	LabelDomain            *vcl.TLabel
+	EditDomain             *vcl.TEdit
+	BtnDomainRequest       *vcl.TButton
+	LabelDomainRetry       *vcl.TLabel
+	EditDomainRetry        *vcl.TSpinEdit
+	LabelDomainTimeout     *vcl.TLabel
+	EditDomainTimeout      *vcl.TEdit
+	CheckDomainSubdomain   *vcl.TCheckBox
+	GridDomainData         *vcl.TStringGrid
 	TabSheetLink           *vcl.TTabSheet
 	PanelLink              *vcl.TPanel
 	PageControlLink        *vcl.TPageControl
@@ -63,8 +77,8 @@ type TFormMain struct {
 	GridLinkContent        *vcl.TStringGrid
 	TabSheetLinkList       *vcl.TTabSheet
 	GridLinkList           *vcl.TStringGrid
-	TabSheetLinkUnknow     *vcl.TTabSheet
-	GridLinkUnknow         *vcl.TStringGrid
+	TabSheetLinkUnknown    *vcl.TTabSheet
+	GridLinkUnknown        *vcl.TStringGrid
 	TabSheetLinkNone       *vcl.TTabSheet
 	GridLinkNone           *vcl.TStringGrid
 	TabSheetLinkFilter     *vcl.TTabSheet
@@ -83,9 +97,38 @@ type TFormMain struct {
 	EditLinkRetry          *vcl.TSpinEdit
 	EditLinkSearch         *vcl.TEdit
 	PanelLinkRule          *vcl.TPanel
+	EditLinkRuleDomain1    *vcl.TEdit
+	EditLinkRuleDomain2    *vcl.TEdit
+	ComboLinkRuleType1     *vcl.TComboBox
+	LabelLinkRule1         *vcl.TLabel
+	LabelLinkRule2         *vcl.TLabel
+	EditLinkRuleContent1   *vcl.TEdit
+	CheckLinkRule1         *vcl.TCheckBox
+	ComboLinkRuleType2     *vcl.TComboBox
+	EditLinkRuleContent2   *vcl.TEdit
+	CheckLinkRule2         *vcl.TCheckBox
 	BtnLinkSearch          *vcl.TButton
 	TabSheetNews           *vcl.TTabSheet
 	PanelNews              *vcl.TPanel
+	PanelNewsRequest       *vcl.TPanel
+	EditNewsTitle          *vcl.TEdit
+	LabelNewsTitle         *vcl.TLabel
+	EditNewsRetry          *vcl.TSpinEdit
+	LabelNewsRetry         *vcl.TLabel
+	EditNewsTimeout        *vcl.TEdit
+	LabelNewsTimeout       *vcl.TLabel
+	BtnNewsOpen            *vcl.TSpeedButton
+	BtnNewsRequest         *vcl.TButton
+	EditNewsUrl            *vcl.TEdit
+	LabelNewsUrl           *vcl.TLabel
+	RadioNewsContentType   *vcl.TRadioGroup
+	LabelNewsContentType   *vcl.TLabel
+	GridNewsInfo           *vcl.TStringGrid
+	PanelNewsContent       *vcl.TPanel
+	MemoNewsContent        *vcl.TMemo
+	EditNewsResultTitle    *vcl.TEdit
+	EditNewsResultTime     *vcl.TEdit
+	SplitterNews           *vcl.TSplitter
 	TabSheetTool           *vcl.TTabSheet
 	PanelTool              *vcl.TPanel
 	PanelToolDomain        *vcl.TPanel
@@ -93,6 +136,11 @@ type TFormMain struct {
 	EditToolDomain         *vcl.TEdit
 	BtnToolDomainRequest   *vcl.TButton
 	EditToolDomainResult   *vcl.TEdit
+	PanelToolLang          *vcl.TPanel
+	MemoToolLang           *vcl.TMemo
+	EditToolLang           *vcl.TEdit
+	BtnToolLang            *vcl.TButton
+	LabelToolLangTip       *vcl.TLabel
 	SplitterDebug          *vcl.TSplitter
 	PanelDebug             *vcl.TPanel
 	MemoDebug              *vcl.TMemo
