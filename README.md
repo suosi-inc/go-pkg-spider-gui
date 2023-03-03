@@ -107,7 +107,9 @@ go build -o bin/macos64
 
 ### 关于 DPI Awareness
 
-当需要跨平台构建打包时，可能涉及 DPI (高分屏) ，需要在构建前打开 Lazarus 工程同步一次工程（随便改点啥，触发 res2go ）
+当需要 **跨平台跨分辨率** 构建打包时，可能涉及 DPI (高分屏)凌乱的问题
+
+解决办法是，在构建前打开 Lazarus 工程同步一次工程（随便改点啥，触发 res2go ）
 
 Lazarus 会根据当前系统屏幕重置 DesignTimePPI/DPI，自动调整元素大小，生成工程文件。
 
