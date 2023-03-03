@@ -387,8 +387,12 @@ func (f *TFormMain) btnDomainRequestClick() {
 			// 填充基本信息
 			charset := domainRes.Charset.Charset
 			charsetPos := domainRes.Charset.CharsetPos
-			lang := spider.LangEnZhMap[domainRes.Lang.Lang]
-			langPos := domainRes.Lang.LangPos
+
+			var lang, langPos string
+			if _, exist := spider.LangEnZhMap[domainRes.Lang.Lang]; exist {
+				lang = spider.LangEnZhMap[domainRes.Lang.Lang]
+				langPos = domainRes.Lang.LangPos
+			}
 
 			vcl.ThreadSync(func() {
 				f.debug("Request Domain Success : " + domain + ", use " + fun.ToString(use) + "ms")
@@ -463,7 +467,7 @@ func (f *TFormMain) domainSubdomainRequest(domainRes *spider.DomainRes, timeout 
 					if e == nil {
 						f.debug("\tRequest Domain Subdomain Success : " + subdomain)
 
-						lang := ""
+						var lang string
 						if _, exist := spider.LangEnZhMap[subDomainRes.Lang.Lang]; exist {
 							lang = spider.LangEnZhMap[subDomainRes.Lang.Lang]
 						}
