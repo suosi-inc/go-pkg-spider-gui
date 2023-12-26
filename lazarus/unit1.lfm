@@ -137,10 +137,10 @@ object FormMain: TFormMain
     Height = 798
     Top = 52
     Width = 1400
-    ActivePage = TabSheetDomain
+    ActivePage = TabSheetLink
     Anchors = [akTop, akLeft, akRight, akBottom]
     ShowTabs = False
-    TabIndex = 1
+    TabIndex = 2
     TabOrder = 1
     object TabSheetRequest: TTabSheet
       Caption = 'TabSheetRequest'
@@ -207,7 +207,7 @@ object FormMain: TFormMain
           Left = 15
           Height = 16
           Top = 20
-          Width = 63
+          Width = 60
           BorderSpacing.Left = 15
           BorderSpacing.Top = 20
           Caption = '请求地址：'
@@ -217,10 +217,10 @@ object FormMain: TFormMain
           AnchorSideLeft.Side = asrBottom
           AnchorSideTop.Control = PanelRequestController
           AnchorSideRight.Control = BtnRequest
-          Left = 88
+          Left = 85
           Height = 22
           Top = 16
-          Width = 409
+          Width = 412
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Left = 10
           BorderSpacing.Top = 16
@@ -319,7 +319,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 16
             Top = 135
-            Width = 250
+            Width = 237
             BorderSpacing.Left = 15
             BorderSpacing.Top = 135
             Caption = '响应最大长度 (ContentLength)（字节数）'
@@ -371,7 +371,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 18
             Top = 510
-            Width = 145
+            Width = 149
             BorderSpacing.Left = 15
             BorderSpacing.Top = 510
             Caption = '编码自动转换 (UTF-8)'
@@ -386,7 +386,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 75
-            Width = 108
+            Width = 112
             BorderSpacing.Top = 75
             Caption = '强制为文本类型'
             Checked = True
@@ -427,7 +427,7 @@ object FormMain: TFormMain
             Left = 232
             Height = 18
             Top = 195
-            Width = 72
+            Width = 76
             BorderSpacing.Top = 195
             Caption = '禁止跳转'
             OnChange = CheckRequestRedirectChange
@@ -475,7 +475,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 20
             Top = 578
-            Width = 82
+            Width = 76
             AutoSize = True
             BorderSpacing.Left = 15
             BorderSpacing.Top = 20
@@ -519,7 +519,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 18
             Top = 540
-            Width = 108
+            Width = 112
             BorderSpacing.Left = 15
             BorderSpacing.Top = 540
             Caption = '标签清理格式化'
@@ -533,7 +533,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 16
             Top = 255
-            Width = 106
+            Width = 96
             BorderSpacing.Left = 15
             BorderSpacing.Top = 255
             Caption = '超时时间（毫秒）'
@@ -795,7 +795,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 16
             Top = 15
-            Width = 63
+            Width = 60
             BorderSpacing.Left = 15
             BorderSpacing.Top = 15
             Caption = '请求域名：'
@@ -805,17 +805,17 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelDomainRequest
             AnchorSideRight.Control = BtnDomainRequest
-            Left = 93
+            Left = 90
             Height = 22
             Top = 12
-            Width = 322
+            Width = 325
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
             BorderSpacing.Right = 15
             OnKeyDown = EditDomainKeyDown
             TabOrder = 0
-            Text = 'cankaoxiaoxi.com'
+            Text = 'news.cn'
           end
           object BtnDomainRequest: TButton
             AnchorSideTop.Control = PanelDomainRequest
@@ -839,7 +839,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 16
             Top = 50
-            Width = 63
+            Width = 60
             BorderSpacing.Left = 15
             BorderSpacing.Top = 50
             Caption = '重试次数：'
@@ -848,7 +848,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = LabelDomainRetry
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelDomainRequest
-            Left = 93
+            Left = 90
             Height = 21
             Top = 46
             Width = 50
@@ -863,10 +863,10 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = EditDomainRetry
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelDomainRequest
-            Left = 173
+            Left = 170
             Height = 16
             Top = 50
-            Width = 116
+            Width = 101
             BorderSpacing.Left = 30
             BorderSpacing.Top = 50
             Caption = '超时时间（毫秒）：'
@@ -875,7 +875,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = LabelDomainTimeout
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelDomainRequest
-            Left = 304
+            Left = 286
             Height = 22
             Top = 45
             Width = 80
@@ -890,10 +890,10 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelDomainRequest
             Cursor = crHandPoint
-            Left = 414
+            Left = 396
             Height = 18
             Top = 47
-            Width = 84
+            Width = 88
             BorderSpacing.Left = 30
             BorderSpacing.Top = 47
             Caption = '探测子域名'
@@ -1392,10 +1392,10 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = EditLinkRetry
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
-            Left = 173
+            Left = 170
             Height = 16
             Top = 45
-            Width = 116
+            Width = 101
             BorderSpacing.Left = 30
             BorderSpacing.Top = 45
             Caption = '超时时间（毫秒）：'
@@ -1404,7 +1404,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = LabelLinkTimeout
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
-            Left = 299
+            Left = 281
             Height = 22
             Top = 42
             Width = 80
@@ -1420,7 +1420,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 16
             Top = 45
-            Width = 63
+            Width = 60
             BorderSpacing.Left = 15
             BorderSpacing.Top = 45
             Caption = '重试次数：'
@@ -1430,10 +1430,10 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
             Cursor = crHandPoint
-            Left = 409
+            Left = 391
             Height = 18
             Top = 43
-            Width = 72
+            Width = 76
             BorderSpacing.Left = 30
             BorderSpacing.Top = 43
             Caption = '域名限制'
@@ -1447,7 +1447,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 16
             Top = 15
-            Width = 63
+            Width = 60
             BorderSpacing.Left = 15
             BorderSpacing.Top = 15
             Caption = '请求地址：'
@@ -1457,17 +1457,17 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
             AnchorSideRight.Control = BtnLinkRequest
-            Left = 93
+            Left = 90
             Height = 22
             Top = 12
-            Width = 465
+            Width = 468
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
             BorderSpacing.Right = 15
             OnKeyDown = EditLinkUrlKeyDown
             TabOrder = 2
-            Text = 'https://news.163.com'
+            Text = 'http://news.163.com'
           end
           object BtnLinkRequest: TButton
             AnchorSideTop.Control = PanelLinkRequest
@@ -1506,7 +1506,7 @@ object FormMain: TFormMain
             AnchorSideLeft.Control = LabelLinkRetry
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelLinkRequest
-            Left = 93
+            Left = 90
             Height = 21
             Top = 42
             Width = 50
@@ -1631,7 +1631,7 @@ object FormMain: TFormMain
             Left = 395
             Height = 22
             Top = 12
-            Width = 194
+            Width = 190
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 12
@@ -1643,10 +1643,10 @@ object FormMain: TFormMain
             AnchorSideRight.Control = PanelLinkRule
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 604
+            Left = 600
             Height = 18
             Top = 15
-            Width = 47
+            Width = 51
             Anchors = [akTop, akRight]
             BorderSpacing.Top = 15
             BorderSpacing.Right = 15
@@ -1682,7 +1682,7 @@ object FormMain: TFormMain
             Left = 395
             Height = 22
             Top = 40
-            Width = 194
+            Width = 190
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 15
             BorderSpacing.Top = 6
@@ -1694,10 +1694,10 @@ object FormMain: TFormMain
             AnchorSideRight.Control = PanelLinkRule
             AnchorSideRight.Side = asrBottom
             Cursor = crHandPoint
-            Left = 604
+            Left = 600
             Height = 18
             Top = 45
-            Width = 47
+            Width = 51
             Anchors = [akTop, akRight]
             BorderSpacing.Top = 30
             BorderSpacing.Right = 15
@@ -1922,7 +1922,7 @@ object FormMain: TFormMain
             ChildSizing.ShrinkVertical = crsScaleChilds
             ChildSizing.Layout = cclTopToBottomThenLeftToRight
             ChildSizing.ControlsPerLine = 1
-            ClientHeight = 25
+            ClientHeight = 17
             ClientWidth = 310
             ColumnLayout = clVerticalThenHorizontal
             Columns = 3
@@ -2156,7 +2156,7 @@ object FormMain: TFormMain
             Left = 15
             Height = 16
             Top = 15
-            Width = 76
+            Width = 73
             BorderSpacing.Left = 15
             BorderSpacing.Top = 15
             Caption = '域名或网址：'
@@ -2166,10 +2166,10 @@ object FormMain: TFormMain
             AnchorSideLeft.Side = asrBottom
             AnchorSideTop.Control = PanelToolDomain
             AnchorSideRight.Control = EditToolDomainResult
-            Left = 101
+            Left = 98
             Height = 22
             Top = 12
-            Width = 287
+            Width = 290
             Anchors = [akTop, akLeft, akRight]
             BorderSpacing.Left = 10
             BorderSpacing.Top = 12
